@@ -49,7 +49,24 @@ const unique = [
 const research = [
   {
     title: "Brain-Body Networks for Precision Therapy",
-    figure: "Brain, heart, gut",
+    figure: `
+      <div class="lab-trio" role="img" aria-label="Brain, heart, and gut images connected by arrows">
+        <div class="lab-trio-item lab-trio-brain">
+          <img src="Lab/2.png" alt="Brain illustration" />
+          <span>Brain</span>
+        </div>
+        <div class="lab-arrow" aria-hidden="true"></div>
+        <div class="lab-trio-item lab-trio-heart">
+          <img src="Lab/3.png" alt="Heart illustration" />
+          <span>Heart</span>
+        </div>
+        <div class="lab-arrow" aria-hidden="true"></div>
+        <div class="lab-trio-item lab-trio-gut">
+          <img src="Lab/4.png" alt="Gut illustration" />
+          <span>Gut</span>
+        </div>
+      </div>
+    `,
     text: "Neurological and psychiatric disorders arise from dysfunction in distributed brain-body networks. Our research focuses on identifying which brain-body interactions have broken down. We do this by integrating multimodal neurophysiological and cardiovascular data with behavioral and clinical measures.",
     tags: ["EEG/MEG", "MRI", "ECG", "HRV", "Autonomic markers"],
     publications: [
@@ -188,6 +205,41 @@ const publicationThemes = research.map((item) => ({
   items: item.publications,
 }));
 
+const personLinks = [
+  ["Dr. Sagarika Bhattacharjee", "#biopic"],
+  ["Bhattacharjee, S.", "#biopic"],
+  ["Bhattacharjee S.", "#biopic"],
+  ["Kashyap, R.", "https://ai-lab4bnt.github.io/LabWeb/index.html"],
+  ["Kashyap R.", "https://ai-lab4bnt.github.io/LabWeb/index.html"],
+  ["S. H. Annabel Chen", "https://www.ntu.edu.sg/medicine/about-us/faculty/annabel-chen"],
+  ["Annabel Chen, S. H.", "https://www.ntu.edu.sg/medicine/about-us/faculty/annabel-chen"],
+  ["Chen, S. A.", "https://www.ntu.edu.sg/medicine/about-us/faculty/annabel-chen"],
+  ["John E. Desmond", "https://pure.johnshopkins.edu/en/persons/john-desmond"],
+  ["Desmond, J. E.", "https://pure.johnshopkins.edu/en/persons/john-desmond"],
+  ["Brenda Rapp", "https://cogsci.jhu.edu/directory/brenda-rapp/"],
+  ["Rapp, B.", "https://cogsci.jhu.edu/directory/brenda-rapp/"],
+  ["Kenichi Oishi", "https://www.hopkinsmedicine.org/profiles/details/kenichi-oishi"],
+  ["Oishi, K.", "https://www.hopkinsmedicine.org/profiles/details/kenichi-oishi"],
+  ["Shahid Bashir", "https://www.psu.edu.sa/en/staff/shbashir"],
+  ["Bashir, S.", "https://www.psu.edu.sa/en/staff/shbashir"],
+  ["Palanimuthu T. Sivakumar", "https://nimhans.ac.in/doctor/dr-p-sivakumar/"],
+  ["Sivakumar, P. T.", "https://nimhans.ac.in/doctor/dr-p-sivakumar/"],
+  ["Ganesan Venkatasubramanian", "https://nimhans.ac.in/doctor/dr-ganesan-venkatasubramanian/"],
+  ["Venkatasubramanian, G.", "https://nimhans.ac.in/doctor/dr-ganesan-venkatasubramanian/"],
+  ["Kaviraja Udupa", "https://nimhans.ac.in/doctor/dr-p-sivakumar/"],
+  ["Udupa, K.", "https://nimhans.ac.in/doctor/dr-p-sivakumar/"],
+];
+
+function linkNames(text, replacements) {
+  return replacements
+    .slice()
+    .sort((left, right) => right[0].length - left[0].length)
+    .reduce((output, [needle, url]) => {
+      const linkAttributes = url.startsWith("http") ? ' target="_blank" rel="noreferrer"' : "";
+      return output.replaceAll(needle, `<a href="${url}"${linkAttributes}>${needle}</a>`);
+    }, text);
+}
+
 const career = [
   ["Research Fellow - Neurophysiology", "Open", "Work on EEG, ECG, and autonomic data pipelines supporting precision neuromodulation studies."],
   ["Research Intern - Visualization", "Open", "Support the lab's research communication and interface design efforts."],
@@ -238,16 +290,12 @@ function card(title, text, extras = "", icon = "") {
 function researchCard(item) {
   return `
     <article class="research-panel reveal">
-      <div class="research-head">
-        <div>
-          <h3>${item.title}</h3>
-          <p>${item.text}</p>
-        </div>
-        <div class="research-figure">${item.figure}</div>
-      </div>
+      <h3>${item.title}</h3>
+      <p>${item.text}</p>
+      <div class="research-figure research-figure-network">${item.figure}</div>
       <div class="research-meta">${item.tags.map((tag) => `<span class="pill">${tag}</span>`).join("")}</div>
       <div class="publication-list">
-        ${item.publications.map((pub) => `<p>${pub}</p>`).join("")}
+        ${item.publications.map((pub) => `<p>${linkNames(pub, personLinks)}</p>`).join("")}
       </div>
     </article>
   `;
@@ -256,16 +304,10 @@ function researchCard(item) {
 function publicationThemeCard(theme) {
   return `
     <article class="research-panel reveal publication-theme-card">
-      <div class="research-head">
-        <div>
-          <h3>${theme.title}</h3>
-          <p class="publication-theme-copy">${theme.figure}</p>
-        </div>
-        <div class="research-figure">${theme.figure}</div>
-      </div>
+      <h3>${theme.title}</h3>
       <div class="research-meta">${theme.tags.map((tag) => `<span class="pill">${tag}</span>`).join("")}</div>
       <div class="publication-list">
-        ${theme.items.map((item) => `<p>${item}</p>`).join("")}
+        ${theme.items.map((item) => `<p>${linkNames(item, personLinks)}</p>`).join("")}
       </div>
     </article>
   `;
@@ -298,7 +340,7 @@ document.getElementById("bioGrid").innerHTML = `
   <article class="research-panel reveal">
     <h3>Physician-scientist profile</h3>
     <div class="publication-list">
-      ${bioParagraphs.map((paragraph) => `<p>${paragraph}</p>`).join("")}
+      ${bioParagraphs.map((paragraph) => `<p>${linkNames(paragraph, personLinks)}</p>`).join("")}
     </div>
     <div class="research-meta">
       ${bioLinks.map(([label, url]) => `<a class="pill link-pill" href="${url}" target="_blank" rel="noreferrer">${label}</a>`).join("")}
@@ -316,7 +358,7 @@ document.getElementById("fellowGrid").innerHTML = fellows
   .map(
     (person) => `
       <article class="research-panel reveal">
-        <h3>${person.name}</h3>
+        <h3>${linkNames(person.name, personLinks)}</h3>
         <p>${person.text}</p>
       </article>
     `
@@ -327,7 +369,7 @@ document.getElementById("internGrid").innerHTML = interns
   .map(
     (person) => `
       <article class="research-panel reveal">
-        <h3>${person.name}</h3>
+        <h3>${linkNames(person.name, personLinks)}</h3>
         <p>${person.text}</p>
       </article>
     `
@@ -338,13 +380,13 @@ document.getElementById("collaboratorGrid").innerHTML = `
   <article class="research-panel reveal">
     <h3>Core collaborators</h3>
     <div class="publication-list">
-      ${coreCollaborators.map(([name, focus, url]) => `<p><strong>${name}</strong><br />${focus}<br /><a href="${url}" target="_blank" rel="noreferrer">${url}</a></p>`).join("")}
+      ${coreCollaborators.map(([name]) => `<p><strong>${linkNames(name, personLinks)}</strong></p>`).join("")}
     </div>
   </article>
   <article class="research-panel reveal">
     <h3>Clinical & translational collaborators</h3>
     <div class="publication-list">
-      ${translationalCollaborators.map(([name, focus, url]) => `<p><strong>${name}</strong><br />${focus}<br /><a href="${url}" target="_blank" rel="noreferrer">${url}</a></p>`).join("")}
+      ${translationalCollaborators.map(([name]) => `<p><strong>${linkNames(name, personLinks)}</strong></p>`).join("")}
     </div>
   </article>
 `;
@@ -354,7 +396,7 @@ document.getElementById("recognitionGrid").innerHTML = recognitions
     ([title, items]) => `
       <article class="research-panel reveal">
         <h3>${title}</h3>
-        <div class="publication-list">
+        <div class="publication-list ${title === "Conference presentations" ? "compact-list" : ""}">
           ${items.map((item) => `<p>${item}</p>`).join("")}
         </div>
       </article>
