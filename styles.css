@@ -572,7 +572,7 @@ h3 {
   border: 1px solid rgba(18, 47, 72, 0.08);
   border-radius: var(--radius-xl);
   overflow: hidden;
-  background: var(--surface-strong);
+  background: transparent;
   box-shadow: var(--shadow);
   cursor: pointer;
   text-align: left;
@@ -594,10 +594,12 @@ h3 {
 }
 
 .video-card-media {
+  display: block;
   width: 100%;
+  height: 100%;
   aspect-ratio: 16 / 10;
   object-fit: cover;
-  background: linear-gradient(135deg, rgba(20, 58, 87, 0.08), rgba(110, 155, 135, 0.14));
+  background: transparent;
 }
 
 .video-card-overlay {

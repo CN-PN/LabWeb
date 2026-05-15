@@ -138,6 +138,22 @@ const fellows = [
   {
     name: "Tanushree L",
     text: "Former Research Fellow in the lab contributing to precision neuromodulation research and clinical translational work.",
+    isExpanded: true,
+    expandedBio: "Tanushree is a dynamic researcher focused on developing AI-driven solutions from large-scale data. She has developed models to estimate brain age using MRI data. Her work combines hands-on expertise in building AI models with experimental validation using MRI, FMRI, DTI, and tDCS, bridging computational approaches with real-world neuroimaging and neuromodulation applications.",
+    expandedBio2: "Tanushree was selected as the <strong>FOSSEE Summer Fellow 2023 at IIT Bombay</strong>, where she published <strong>15 projects in mathematical modeling</strong> using GeoGebra on the FOSSEE open-source platform. Her expertise lies in the application of <strong>Mathematics and Science</strong>, bridging interactive visualization such as 3D Augmented Reality (AR) with computational modeling.",
+    expandedBio3: "Her passion for AI in healthcare was sparked during her MSc thesis, where she developed an <strong>\"FFT Based Algorithm in Smart Watches for Disabled Persons.\"</strong> This work, which focused on signal processing for assistive technology, was presented at an <strong>International Conference</strong> and laid the foundation for her transition into computational neuroscience.",
+    expandedBio4: "<strong>Moving forward</strong>, she aims to develop AI models, non-invasive treatment strategies for neuropsychiatric disorders and build personalized neuromodulation softwares to improve patient outcomes.",
+    links: [
+      ["LinkedIn", "https://www.linkedin.com/in/tanushree-logukavi/"],
+      ["Github", "https://github.com/TanushreeLogukavi"],
+      ["Website", "https://tanushreelogukavi.github.io"]
+    ],
+    images: ["Lab/31.jpg", "Lab/32.jpg", "Lab/33.jpg", "Lab/34.jpg"],
+    interests: [
+      ["Outdoor Enthusiast 🌄", "Loves travelling, volunteering, trekking, and cycling (with a personal record of 55km, currently working toward 100km)."],
+      ["Sports 🏸", "An active sportsperson enjoying Badminton and Cricket (as a spinner)."],
+      ["Creative 🎨", "A creative at heart (Created this website 😂), she enjoys reading, writing poems, and unique experiences like bathing elephants. She has published four anthology poems and is the author of the anthology book \"Spellbound,\" available on Amazon."]
+    ]
   },
   {
     name: "Irtisha Chakraborty",
@@ -284,6 +300,7 @@ const recognitions = {
   plenaryLectures: [
     { year: "2025", title: "Plenary Speaker", event: "Indian Geriatric Mental Health Association National CME, Srinagar", month: "May", topic: "Dementia & its Variants: Recent Advances and Innovation." },
     { year: "2024", title: "Plenary Speaker", event: "International Conference on Neuroscience and Cognitive Rehabilitation, Bishop Heber College", month: "April", topic: "Emerging Paradigms in Personalized Neuromodulation." },
+    { year: "2024", title: "Plenary Speaker", event: "Tanushree L - Emerging Research in AI-Driven Neuroscience", month: "November", topic: "AI Models for Brain Age Estimation and Personalized Neuromodulation." },
   ],
   invitedTalks: [
     { year: "2025", event: "APTCON Conference, All India Institute of Medical Sciences Madurai", title: "Resource Person" },
@@ -766,14 +783,57 @@ if (aboutGrid) {
 
   const fellowCards = fellows
     .map(
-      (person) => `
+      (person) => {
+        if (person.isExpanded) {
+          const linksHtml = person.links?.map(([label, url]) => `<a href="${url}" target="_blank" style="color: #7c3aed; text-decoration: none; border-bottom: 2px solid #7c3aed; padding-bottom: 2px;">${label}</a>`).join('<span style="color: rgba(0,0,0,0.5);"> | </span>') || '';
+          
+          const sliderImages = person.images?.map((src, idx) => `<img src="${src}" alt="Tanushree image ${idx + 1}" class="tanushree-slider-image" style="width: 100%; height: 100%; display: ${idx === 0 ? 'block' : 'none'}; object-fit: contain; position: ${idx === 0 ? 'relative' : 'absolute'}; top: 0; left: 0;">`).join('') || '';
+          
+          const sliderHtml = person.images ? `
+            <div class="tanushree-slider" style="position: relative; width: 100%; aspect-ratio: 4/3; overflow: hidden; border-radius: 8px; background: #f5f5f5;">
+              ${sliderImages}
+            </div>
+          ` : '';
+          
+          const interestsHtml = person.interests ? `
+            <div class="tanushree-interests">
+              <p style="font-weight: bold; margin-bottom: 0.8rem; color: var(--primary-color);">Interests</p>
+              <div style="text-align: justify; font-size: 0.9rem; color: var(--text-light);">
+                ${person.interests.map(([label, value]) => `<p style="margin-bottom: 0.8rem;"><strong>${label}</strong> - ${value}</p>`).join('')}
+              </div>
+            </div>
+          ` : '';
+          
+          return `
+        <article class="research-panel reveal" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start;">
+          <div>
+            <h3>👩‍🔬 ${linkNames(person.name, personLinks)}</h3>
+            <div class="publication-list">
+              <p>${person.expandedBio}</p>
+              <p>${person.expandedBio2}</p>
+              <p>${person.expandedBio3}</p>
+              <p>${person.expandedBio4}</p>
+              <div style="display: flex; gap: 1rem; justify-content: flex-start; flex-wrap: wrap; margin-top: 1rem;">
+                ${linksHtml}
+              </div>
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+            ${sliderHtml}
+            ${interestsHtml}
+          </div>
+        </article>
+      `;
+        }
+        return `
         <article class="research-panel reveal">
           <h3>👩‍🔬 ${linkNames(person.name, personLinks)}</h3>
           <div class="publication-list">
             <p>${person.text}</p>
           </div>
         </article>
-      `
+      `;
+      }
     )
     .join("");
 
@@ -790,18 +850,40 @@ if (aboutGrid) {
     )
     .join("");
 
-  aboutGrid.innerHTML = `
-    <article class="research-panel reveal">
-      <h3>${aboutSections[0].title}</h3>
-      <p class="principal-investigator-name">👩‍⚕️ Dr. Sagarika Bhattacherjee</p>
-      <div class="publication-list">${aboutSections[0].body}</div>
-      <div class="publication-list interest-list">
-        <p><strong>Interests</strong></p>
-        ${bioInterests
-          .map(([label, value]) => `<p>${interestIcons[label] ?? "•"} <strong>${label}:</strong> ${value}</p>`)
-          .join("")}
+  const piSliderHtml = `
+    <div class="pi-slider-wrapper" aria-label="PI image slider" style="display: flex; flex-direction: column; gap: 1rem;">
+      <div class="pi-slider" style="position: relative; width: 100%; aspect-ratio: 4/3; overflow: hidden; border-radius: 8px; background: #f5f5f5;">
+        <img src="Lab/56.jpeg" alt="PI image 56" class="pi-slider-image active" style="width: 100%; height: 100%; display: block; object-fit: contain; transition: opacity 0.5s ease;">
+        <img src="Lab/51.jpeg" alt="PI image 51" class="pi-slider-image" style="width: 100%; height: 100%; display: none; object-fit: contain; transition: opacity 0.5s ease; position: absolute; top: 0; left: 0;">
+        <img src="Lab/52.jpeg" alt="PI image 52" class="pi-slider-image" style="width: 100%; height: 100%; display: none; object-fit: contain; transition: opacity 0.5s ease; position: absolute; top: 0; left: 0;">
+        <img src="Lab/53.jpeg" alt="PI image 53" class="pi-slider-image" style="width: 100%; height: 100%; display: none; object-fit: contain; transition: opacity 0.5s ease; position: absolute; top: 0; left: 0;">
+        <img src="Lab/54.jpeg" alt="PI image 54" class="pi-slider-image" style="width: 100%; height: 100%; display: none; object-fit: contain; transition: opacity 0.5s ease; position: absolute; top: 0; left: 0;">
+        <img src="Lab/55.jpeg" alt="PI image 55" class="pi-slider-image" style="width: 100%; height: 100%; display: none; object-fit: contain; transition: opacity 0.5s ease; position: absolute; top: 0; left: 0;">
       </div>
-      <div class="research-meta">${aboutSections[0].extras}</div>
+    </div>
+  `;
+
+  const piInterestsHtml = `
+    <div class="pi-interests">
+      <p style="font-weight: bold; margin-bottom: 0.8rem; color: var(--primary-color);">Interests</p>
+      <div style="text-align: justify; font-size: 0.9rem; color: var(--text-light);">
+        ${bioInterests.map(([label, value]) => `<p style="margin-bottom: 0.8rem;"><strong>${label} ${interestIcons[label] ?? "•"}</strong> - ${value}</p>`).join("")}
+      </div>
+    </div>
+  `;
+
+  aboutGrid.innerHTML = `
+    <article class="research-panel reveal" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start;">
+      <div>
+        <h3>${aboutSections[0].title}</h3>
+        <p class="principal-investigator-name">👩‍⚕️ Dr. Sagarika Bhattacherjee</p>
+        <div class="publication-list">${aboutSections[0].body}</div>
+        <div class="research-meta" style="margin-top: 1rem;">${aboutSections[0].extras}</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+        ${piSliderHtml}
+        ${piInterestsHtml}
+      </div>
     </article>
     <article class="research-panel reveal">
       <h3>🎓 Research Fellows</h3>
@@ -814,6 +896,75 @@ if (aboutGrid) {
     </article>
     ${otherMemberCards}
   `;
+
+  // Initialize PI slider - auto-rotate
+  const piSlider = aboutGrid.querySelector(".pi-slider");
+  if (piSlider) {
+    const images = piSlider.querySelectorAll(".pi-slider-image");
+    let currentIndex = 0;
+    let autoRotateInterval;
+
+    function showImage(index) {
+      images.forEach((img, idx) => {
+        if (idx === 0) {
+          img.style.display = index === 0 ? "block" : "none";
+          img.style.position = index === 0 ? "relative" : "absolute";
+        } else {
+          img.style.display = (idx === index) ? "block" : "none";
+          img.style.position = (idx === index) ? "relative" : "absolute";
+        }
+      });
+      currentIndex = (index + images.length) % images.length;
+    }
+
+    function startAutoRotate() {
+      autoRotateInterval = setInterval(() => {
+        showImage(currentIndex + 1);
+      }, 4000); // Change image every 4 seconds
+    }
+
+    piSlider.addEventListener("mouseenter", () => clearInterval(autoRotateInterval));
+    piSlider.addEventListener("mouseleave", startAutoRotate);
+
+    // Show first image and start auto-rotation
+    showImage(0);
+    startAutoRotate();
+  }
+
+  // Initialize Tanushree image slider - auto-rotate
+  const tanushreeSliders = aboutGrid.querySelectorAll(".tanushree-slider");
+  tanushreeSliders.forEach((slider) => {
+    const images = slider.querySelectorAll(".tanushree-slider-image");
+    if (images.length > 0) {
+      let currentIndex = 0;
+      let autoRotateInterval;
+
+      function showImage(index) {
+        images.forEach((img, idx) => {
+          if (idx === 0) {
+            img.style.display = index === 0 ? "block" : "none";
+            img.style.position = index === 0 ? "relative" : "absolute";
+          } else {
+            img.style.display = (idx === index) ? "block" : "none";
+            img.style.position = (idx === index) ? "relative" : "absolute";
+          }
+        });
+        currentIndex = (index + images.length) % images.length;
+      }
+
+      function startAutoRotate() {
+        autoRotateInterval = setInterval(() => {
+          showImage(currentIndex + 1);
+        }, 4000);
+      }
+
+      slider.addEventListener("mouseenter", () => clearInterval(autoRotateInterval));
+      slider.addEventListener("mouseleave", startAutoRotate);
+
+      showImage(0);
+      startAutoRotate();
+    }
+  });
 }
 
 const treatmentVideoGrid = document.getElementById("treatmentVideoGrid");
