@@ -192,15 +192,6 @@ const translationalCollaborators = [
   ["Dr. Kaviraja Udupa", "Department of Neurophysiology | NIMHANS", "https://nimhans.ac.in/doctor/dr-p-sivakumar/"],
 ];
 
-const labGallery = [
-  ["Physiology and monitoring", "Lab/10.png"],
-  ["AI-assisted closed-loop neuromodulation", "Lab/21.png"],
-  ["EEG cap preparation", "Lab/22.png"],
-  ["Patient setup and connection", "Lab/23.png"],
-  ["tDCS parameter control", "Lab/24.png"],
-  ["Clinical treatment room", "Lab/37.png"],
-];
-
 const personLinks = [
   ["Dr. Sagarika Bhattacharjee", "#biopic"],
   ["Bhattacharjee, S.", "#biopic"],
@@ -275,12 +266,6 @@ const career = [
       "Opportunity to develop personalized neuromodulation protocols and contribute to scalable clinical technologies.",
     ],
   },
-];
-
-const testimonials = [
-  "Clear communication",
-  "Careful follow-up",
-  "Personalized treatment",
 ];
 
 const testimonialSlides = [
