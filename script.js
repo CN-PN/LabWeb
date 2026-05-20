@@ -284,42 +284,60 @@ const testimonials = [
 ];
 
 const testimonialSlides = [
+  "Lab/9.jpeg",
   "Lab/1.jpg",
   "Lab/2.jpg",
   "Lab/3.jpg",
   "Lab/4.jpg",
   "Lab/5.jpg",
-  "Lab/1.jpg",
-  "Lab/2.jpg",
-  "Lab/3.jpg",
-  "Lab/4.jpg",
-  "Lab/5.jpg",
+  "Lab/6.jpeg",
+  "Lab/7.jpeg",
+  "Lab/8.jpeg",
+  "Lab/10.jpeg",
+].map((src) => ({ src }));
+
+const testimonialLeftSlides = [
+  "Lab/22.jpg",
+  "Lab/21.jpg",
+  "Lab/23.jpg",
+  "Lab/24.jpg",
+  "Lab/25.jpg",
+].map((src) => ({ src }));
+
+const startLabSlides = [
+  "Lab/41.jpeg",
+  "Lab/48.jpeg",
+  "Lab/49.jpeg",
+  "Lab/45.jpeg",
+  "Lab/46.jpeg"
+  
+  
 ].map((src) => ({ src }));
 
 const recognitions = {
   plenaryLectures: [
-    { year: "2025", title: "Plenary Speaker", event: "Indian Geriatric Mental Health Association National CME, Srinagar", month: "May", topic: "Dementia & its Variants: Recent Advances and Innovation." },
-    { year: "2024", title: "Plenary Speaker", event: "International Conference on Neuroscience and Cognitive Rehabilitation, Bishop Heber College", month: "April", topic: "Emerging Paradigms in Personalized Neuromodulation." },
-    { year: "2024", title: "Plenary Speaker", event: "Tanushree L - Emerging Research in AI-Driven Neuroscience", month: "November", topic: "AI Models for Brain Age Estimation and Personalized Neuromodulation." },
+    { year: "2025", title: "Plenary Speaker", event: "Indian Geriatric Mental Health Association National CME, Srinagar", month: "May", topic: "Dementia & its Variants: Recent Advances and Innovation.", icon: "🧠" },
+    { year: "2024", title: "Plenary Speaker", event: "International Conference on Neuroscience and Cognitive Rehabilitation, Bishop Heber College", month: "April", topic: "Emerging Paradigms in Personalized Neuromodulation.", icon: "✨" },
+    { year: "2024", title: "Plenary Speaker", event: "Tanushree L - Emerging Research in AI-Driven Neuroscience", month: "November", topic: "AI Models for Brain Age Estimation and Personalized Neuromodulation.", icon: "🤖" },
   ],
   invitedTalks: [
-    { year: "2025", event: "APTCON Conference, All India Institute of Medical Sciences Madurai", title: "Resource Person" },
-    { year: "2025", event: "Srinagar, Jammu & Kashmir", title: "Invited Speaker" },
-    { year: "2025", event: "AICID Conference, Bishop Heber College", title: "Resource Person", topic: "Emerging Trends in AI-Driven Approaches for Chronic and Infectious Diseases." },
-    { year: "2020", month: "November 14", event: "Department of Neuroscience, King Saud University", title: "Invited Talk", topic: "Towards Personalization of Brain Stimulation: Advances and Approaches." },
-    { year: "2018", month: "August", event: "Department of Neurology, Johns Hopkins University", title: "Invited Lecture", topic: "Effect of tDCS on Bilingual Reading." },
-    { year: "2018", month: "July", event: "Cleveland Clinic", title: "Invited Lecture", topic: "Computational Approach to tDCS." },
+    { year: "2025", event: "APTCON Conference, All India Institute of Medical Sciences Madurai", title: "Resource Person", icon: "🎤" },
+    { year: "2025", event: "Srinagar, Jammu & Kashmir", title: "Invited Speaker", icon: "📍" },
+    { year: "2025", event: "AICID Conference, Bishop Heber College", title: "Resource Person", topic: "Emerging Trends in AI-Driven Approaches for Chronic and Infectious Diseases.", icon: "🧬" },
+    { year: "2020", month: "November 14", event: "Department of Neuroscience, King Saud University", title: "Invited Talk", topic: "Towards Personalization of Brain Stimulation: Advances and Approaches.", icon: "🧩" },
+    { year: "2018", month: "August", event: "Department of Neurology, Johns Hopkins University", title: "Invited Lecture", topic: "Effect of tDCS on Bilingual Reading.", icon: "📘" },
+    { year: "2018", month: "July", event: "Cleveland Clinic", title: "Invited Lecture", topic: "Computational Approach to tDCS.", icon: "💻" },
   ],
   conferencePresentations: [
-    { year: "2024", event: "Organization for Human Brain Mapping Annual Meeting, Seoul", title: "Oral Presentation", topic: "HD-tDCS applications", award: "ICMR Travel Fellowship" },
-    { year: "2019", month: "February", event: "Brain Stimulation Conference, Lee Kong Chian School of Medicine", title: "Speaker", topic: "Could tDCS Modulate Bilingual Reading?" },
-    { year: "2018", month: "June", event: "Brain Stimulation Satellite Conference, Organization for Human Brain Mapping", title: "Speaker", topic: "Effect of tDCS on Change in Blood Pressure." },
+    { year: "2024", event: "Organization for Human Brain Mapping Annual Meeting, Seoul", title: "Oral Presentation", topic: "HD-tDCS applications", award: "ICMR Travel Fellowship", icon: "📊" },
+    { year: "2019", month: "February", event: "Brain Stimulation Conference, Lee Kong Chian School of Medicine", title: "Speaker", topic: "Could tDCS Modulate Bilingual Reading?", icon: "🧪" },
+    { year: "2018", month: "June", event: "Brain Stimulation Satellite Conference, Organization for Human Brain Mapping", title: "Speaker", topic: "Effect of tDCS on Change in Blood Pressure.", icon: "📈" },
   ],
   mediaRecognition: [
-    { year: "2024", title: "Deccan Herald", description: "Research covered on AI-assisted treatment for psychiatric disorders", url: "https://www.deccanherald.com/india/karnataka/bengaluru/boost-for-treating-psychiatric-disorders-as-ai-meets-medicine-3230847" },
-    { year: "2024", title: "PsyPost", description: "International media coverage of work on childhood adversity impact on brain development", url: "https://www.psypost.org/new-study-reveals-lasting-impact-of-childhood-adversity-on-brain-development/" },
-    { year: "2021", title: "Faculty Opinions", description: "Study on OCD compensation mechanisms nominated as Exceptional research", url: "https://facultyopinions.com/article/739373355" },
-    { year: "2020", title: "Human Brain Mapping Journal", description: "Study on aberrant fMRI brain signatures selected as Cover-page Editor's choice", url: "https://onlinelibrary.wiley.com/doi/abs/10.1002/hbm.24649" },
+    { year: "2024", title: "Deccan Herald", description: "Research covered on AI-assisted treatment for psychiatric disorders", url: "https://www.deccanherald.com/india/karnataka/bengaluru/boost-for-treating-psychiatric-disorders-as-ai-meets-medicine-3230847", icon: "📰" },
+    { year: "2024", title: "PsyPost", description: "International media coverage of work on childhood adversity impact on brain development", url: "https://www.psypost.org/new-study-reveals-lasting-impact-of-childhood-adversity-on-brain-development/", icon: "🌍" },
+    { year: "2021", title: "Faculty Opinions", description: "Study on OCD compensation mechanisms nominated as Exceptional research", url: "https://facultyopinions.com/article/739373355", icon: "⭐" },
+    { year: "2020", title: "Human Brain Mapping Journal", description: "Study on aberrant fMRI brain signatures selected as Cover-page Editor's choice", url: "https://onlinelibrary.wiley.com/doi/abs/10.1002/hbm.24649", icon: "📚" },
   ],
 };
 
@@ -473,14 +491,13 @@ function publicationListItem(text) {
   const segments = text.split(". ");
 
   if (!link || segments.length < 2) {
-    return `<div class="publication-entry">${linkifyExternalReferences(text)}</div>`;
+    return `<li class="publication-entry">${linkifyExternalReferences(text)}</li>`;
   }
 
   const authors = segments[0];
   const title = segments[1].replace(/\.$/, "");
   const rest = segments.slice(2).join(". ");
-
-  return `<div class="publication-entry">${authors}. <a class="paper-title-link" href="${link}" target="_blank" rel="noreferrer">${title}</a>${rest ? `. ${linkifyExternalReferences(rest)}` : ""}</div>`;
+  return `<li class="publication-entry">${authors}. <a class="paper-title-link" href="${link}" target="_blank" rel="noreferrer">${title}</a>${rest ? `. ${linkifyExternalReferences(rest)}` : ""}</li>`;
 }
 
 if (heroVideo && hero && heroEnd && heroRestart) {
@@ -576,7 +593,6 @@ function initializeResearchCarousel(container) {
   }
 
   let index = 0;
-  let intervalId = null;
 
   function show(i) {
     index = (i + slides.length) % slides.length;
@@ -584,31 +600,12 @@ function initializeResearchCarousel(container) {
     dots.forEach((d) => d.classList.toggle("active", Number(d.dataset.index) === index));
   }
 
-  function stopAuto() {
-    if (intervalId) {
-      clearInterval(intervalId);
-      intervalId = null;
-    }
-  }
-
-  function startAuto() {
-    stopAuto();
-    intervalId = setInterval(() => show(index + 1), 3500);
-  }
-
-  prev.addEventListener("click", () => { show(index - 1); startAuto(); });
-  next.addEventListener("click", () => { show(index + 1); startAuto(); });
-  dots.forEach((d) => d.addEventListener("click", (ev) => { show(Number(d.dataset.index)); startAuto(); }));
-
-  // pause on hover
-  container.addEventListener("mouseenter", stopAuto);
-  container.addEventListener("mouseleave", startAuto);
+  prev.addEventListener("click", () => { show(index - 1); });
+  next.addEventListener("click", () => { show(index + 1); });
+  dots.forEach((d) => d.addEventListener("click", () => { show(Number(d.dataset.index)); }));
 
   // initial state
   show(0);
-  startAuto();
-  // store interval on element so it can be cleared if needed
-  container._carouselInterval = intervalId;
 }
 
 function publicationCard(item) {
@@ -681,36 +678,83 @@ if (researchTabButtons.length) {
 
 renderResearchTheme(0);
 
+const startLabCarousel = document.getElementById("startLabCarousel");
+if (startLabCarousel) {
+  startLabCarousel.innerHTML = researchCarousel(startLabSlides, "Lab highlights");
+  const startCarousel = startLabCarousel.querySelector(".research-carousel");
+  if (startCarousel) {
+    initializeTestimonialCarousel(startCarousel);
+  }
+}
+
 const uniqueGrid = document.getElementById("uniqueGrid");
 if (uniqueGrid) {
   uniqueGrid.innerHTML = unique
-    .map((item) => card(item.title, item.text, "", item.icon))
+    .map((item, idx) => `
+      <article class="accordion-item reveal">
+        <button class="accordion-header" data-index="${idx}" aria-expanded="false">
+          <div class="accordion-header-content">
+            ${item.icon ? `<span class="accordion-icon">${item.icon}</span>` : ""}
+            <h3>${item.title}</h3>
+          </div>
+          <span class="accordion-toggle">+</span>
+        </button>
+        <div class="accordion-content" style="display: none;">
+          <p>${item.text}</p>
+        </div>
+      </article>
+    `)
     .join("");
+
+  // Add click handlers for accordion items
+  const accordionHeaders = uniqueGrid.querySelectorAll(".accordion-header");
+  accordionHeaders.forEach((header) => {
+    header.addEventListener("click", () => {
+      const content = header.nextElementSibling;
+      const toggle = header.querySelector(".accordion-toggle");
+      const isOpen = content.style.display !== "none";
+      
+      // Close all other items
+      uniqueGrid.querySelectorAll(".accordion-content").forEach((c) => c.style.display = "none");
+      uniqueGrid.querySelectorAll(".accordion-toggle").forEach((t) => t.textContent = "+");
+      uniqueGrid.querySelectorAll(".accordion-header").forEach((h) => h.setAttribute("aria-expanded", "false"));
+      
+      // Toggle current item
+      if (!isOpen) {
+        content.style.display = "block";
+        toggle.textContent = "−";
+        header.setAttribute("aria-expanded", "true");
+      }
+    });
+  });
 }
 
 const testimonialGrid = document.getElementById("testimonialGrid");
 if (testimonialGrid) {
-  testimonialGrid.classList.remove("three-up");
-  testimonialGrid.classList.add("testimonial-stack");
-  testimonialGrid.innerHTML = testimonials
-    .map(
-      (title) => `
-        <article class="research-panel reveal testimonial-card">
-          <h3>${title}</h3>
-        </article>
-      `
-    )
-    .join("");
+  // Render a left-side image slider instead of text points
+  testimonialGrid.innerHTML = `
+    <div class="testimonial-slider" id="testimonialLeftCarouselContainer">
+      ${researchCarousel(testimonialLeftSlides, "Patient highlights")}
+    </div>
+  `;
 
-  if (!document.getElementById("testimonialCarouselContainer")) {
+  // Ensure carousel images remain in place (right column)
+  if (!document.getElementById("testimonialContentContainer")) {
     testimonialGrid.insertAdjacentHTML(
       "afterend",
       `
-        <div class="testimonial-slider reveal" id="testimonialCarouselContainer">
-          ${researchCarousel(testimonialSlides, "Patient testimonial")}
+        <div id="testimonialContentContainer" class="reveal">
+          <div class="testimonial-slider" id="testimonialCarouselContainer">
+            ${researchCarousel(testimonialSlides, "Patient testimonial")}
+          </div>
         </div>
       `
     );
+  }
+
+  const testimonialLeftCarousel = document.getElementById("testimonialLeftCarouselContainer")?.querySelector(".research-carousel");
+  if (testimonialLeftCarousel) {
+    initializeTestimonialCarousel(testimonialLeftCarousel);
   }
 
   const testimonialCarousel = document.getElementById("testimonialCarouselContainer")?.querySelector(".research-carousel");
@@ -739,36 +783,17 @@ function initializeTestimonialCarousel(container) {
   }
 
   let index = 0;
-  let intervalId = null;
-
   function show(i) {
     index = (i + slides.length) % slides.length;
     img.src = slides[index];
     dots.forEach((d) => d.classList.toggle("active", Number(d.dataset.index) === index));
   }
 
-  function stopAuto() {
-    if (intervalId) {
-      clearInterval(intervalId);
-      intervalId = null;
-    }
-  }
-
-  function startAuto() {
-    stopAuto();
-    intervalId = setInterval(() => show(index + 1), 3000);
-  }
-
-  prev?.addEventListener("click", () => { show(index - 1); startAuto(); });
-  next?.addEventListener("click", () => { show(index + 1); startAuto(); });
-  dots.forEach((d) => d.addEventListener("click", () => { show(Number(d.dataset.index)); startAuto(); }));
-
-  container.addEventListener("mouseenter", stopAuto);
-  container.addEventListener("mouseleave", startAuto);
+  prev?.addEventListener("click", () => { show(index - 1); });
+  next?.addEventListener("click", () => { show(index + 1); });
+  dots.forEach((d) => d.addEventListener("click", () => { show(Number(d.dataset.index)); }));
 
   show(0);
-  startAuto();
-  container._carouselInterval = intervalId;
 }
 
 const aboutGrid = document.getElementById("aboutGrid");
@@ -859,6 +884,8 @@ if (aboutGrid) {
         <img src="Lab/53.jpeg" alt="PI image 53" class="pi-slider-image" style="width: 100%; height: 100%; display: none; object-fit: contain; transition: opacity 0.5s ease; position: absolute; top: 0; left: 0;">
         <img src="Lab/54.jpeg" alt="PI image 54" class="pi-slider-image" style="width: 100%; height: 100%; display: none; object-fit: contain; transition: opacity 0.5s ease; position: absolute; top: 0; left: 0;">
         <img src="Lab/55.jpeg" alt="PI image 55" class="pi-slider-image" style="width: 100%; height: 100%; display: none; object-fit: contain; transition: opacity 0.5s ease; position: absolute; top: 0; left: 0;">
+        <button type="button" class="pi-slider-prev" aria-label="Previous PI image" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); z-index: 2; border: 0; border-radius: 999px; width: 36px; height: 36px; background: rgba(0, 0, 0, 0.45); color: #fff; cursor: pointer;">‹</button>
+        <button type="button" class="pi-slider-next" aria-label="Next PI image" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); z-index: 2; border: 0; border-radius: 999px; width: 36px; height: 36px; background: rgba(0, 0, 0, 0.45); color: #fff; cursor: pointer;">›</button>
       </div>
     </div>
   `;
@@ -901,8 +928,9 @@ if (aboutGrid) {
   const piSlider = aboutGrid.querySelector(".pi-slider");
   if (piSlider) {
     const images = piSlider.querySelectorAll(".pi-slider-image");
+    const prevButton = piSlider.querySelector(".pi-slider-prev");
+    const nextButton = piSlider.querySelector(".pi-slider-next");
     let currentIndex = 0;
-    let autoRotateInterval;
 
     function showImage(index) {
       images.forEach((img, idx) => {
@@ -917,27 +945,19 @@ if (aboutGrid) {
       currentIndex = (index + images.length) % images.length;
     }
 
-    function startAutoRotate() {
-      autoRotateInterval = setInterval(() => {
-        showImage(currentIndex + 1);
-      }, 4000); // Change image every 4 seconds
-    }
+    prevButton?.addEventListener("click", () => showImage(currentIndex - 1));
+    nextButton?.addEventListener("click", () => showImage(currentIndex + 1));
 
-    piSlider.addEventListener("mouseenter", () => clearInterval(autoRotateInterval));
-    piSlider.addEventListener("mouseleave", startAutoRotate);
-
-    // Show first image and start auto-rotation
+    // Show first image only; user moves it manually
     showImage(0);
-    startAutoRotate();
   }
 
-  // Initialize Tanushree image slider - auto-rotate
+  // Initialize Tanushree image slider - manual arrows only
   const tanushreeSliders = aboutGrid.querySelectorAll(".tanushree-slider");
   tanushreeSliders.forEach((slider) => {
     const images = slider.querySelectorAll(".tanushree-slider-image");
     if (images.length > 0) {
       let currentIndex = 0;
-      let autoRotateInterval;
 
       function showImage(index) {
         images.forEach((img, idx) => {
@@ -952,17 +972,7 @@ if (aboutGrid) {
         currentIndex = (index + images.length) % images.length;
       }
 
-      function startAutoRotate() {
-        autoRotateInterval = setInterval(() => {
-          showImage(currentIndex + 1);
-        }, 4000);
-      }
-
-      slider.addEventListener("mouseenter", () => clearInterval(autoRotateInterval));
-      slider.addEventListener("mouseleave", startAutoRotate);
-
       showImage(0);
-      startAutoRotate();
     }
   });
 }
@@ -1098,84 +1108,129 @@ if (treatmentVideoGrid) {
 
 const careerGrid = document.getElementById("careerGrid");
 if (careerGrid) {
-  careerGrid.innerHTML = career
-    .map(
-      (item) => `
-        <article class="research-panel reveal">
-          <div class="career-meta"><span class="pill">${item.status}</span></div>
-          <h3 class="career-role-title">${item.title}</h3>
-          <p>${item.summary}</p>
-          <div class="publication-list compact-list">
-            ${item.items.map((line) => `<p>${line}</p>`).join("")}
+  const icons = ["🔬", "🎓", "📊"];
+  careerGrid.innerHTML = `
+    ${career.map((item, idx) => `
+      <article class="research-panel reveal career-card">
+        <div class="career-card-head">
+          <div class="career-card-title-row">
+            <div class="career-card-icon">${icons[idx]}</div>
+            <h3>${item.title}</h3>
           </div>
-        </article>
-      `
-    )
-    .join("");
+          <span class="pill" style="background: var(--cta); color: white;">${item.status}</span>
+        </div>
+        <p class="career-card-summary">${item.summary}</p>
+        <ul class="career-card-list">
+          ${item.items.map((line) => `<li style="margin: 0.3rem 0;">${line}</li>`).join("")}
+        </ul>
+      </article>
+    `).join("")}
+  `;
 }
 
 const recognitionsContainer = document.getElementById("recognitionsContainer");
 if (recognitionsContainer) {
-  const html = `
-    <div class="recognitions-section">
-      <h3>🎤 Plenary & Keynote Lectures</h3>
-      ${recognitions.plenaryLectures.map(lec => `
-        <div class="recognition-item">
-          <strong>${lec.year}</strong> · ${lec.title}<br/>
-          ${lec.event}, ${lec.month}<br/>
-          <em>"${lec.topic}"</em>
+  recognitionsContainer.innerHTML = `
+    <div class="recognitions-layout">
+      <article class="research-panel reveal recognition-card">
+        <div class="recognition-card-head">
+          <span class="recognition-card-icon">🎓</span>
+          <h3>Plenary & Keynote</h3>
         </div>
-      `).join("")}
-    </div>
+        <div class="recognition-list">
+          ${recognitions.plenaryLectures.map(lec => `
+            <div class="recognition-item-box">
+              <div class="recognition-item-top">
+                <strong>${lec.title}</strong>
+                <span style="background: var(--primary); color: white; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; white-space: nowrap;">${lec.year}</span>
+              </div>
+              <div class="recognition-item-meta">${lec.event} · ${lec.month}</div>
+              <div class="recognition-item-topic"><span class="recognition-topic-icon">${lec.icon || "•"}</span><span>${lec.topic}</span></div>
+            </div>
+          `).join("")}
+        </div>
+      </article>
 
-    <div class="recognitions-section">
-      <h3>🎙️ Invited Talks & Academic Lectures</h3>
-      ${recognitions.invitedTalks.map(talk => `
-        <div class="recognition-item">
-          <strong>${talk.year}</strong> · ${talk.title}<br/>
-          ${talk.event}
-          ${talk.topic ? `<br/><em>"${talk.topic}"</em>` : ""}
+      <article class="research-panel reveal recognition-card">
+        <div class="recognition-card-head">
+          <span class="recognition-card-icon">🎙️</span>
+          <h3>Invited Talks</h3>
         </div>
-      `).join("")}
-    </div>
+        <div class="recognition-item-grid">
+          ${recognitions.invitedTalks.map(talk => `
+            <div class="recognition-item-box">
+              <div class="recognition-item-top">
+                <strong>${talk.title}</strong>
+                <span style="background: var(--primary); color: white; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; white-space: nowrap;">${talk.year}</span>
+              </div>
+              <div class="recognition-item-meta">${talk.event}</div>
+              ${talk.topic ? `<div class="recognition-item-topic"><span class="recognition-topic-icon">${talk.icon || "•"}</span><span>${talk.topic}</span></div>` : ""}
+            </div>
+          `).join("")}
+        </div>
+      </article>
 
-    <div class="recognitions-section">
-      <h3>📊 Conference Presentations</h3>
-      ${recognitions.conferencePresentations.map(conf => `
-        <div class="recognition-item">
-          <strong>${conf.year}</strong> · ${conf.title}<br/>
-          ${conf.event}<br/>
-          <em>"${conf.topic}"</em>
-          ${conf.award ? `<br/>🏆 ${conf.award}` : ""}
+      <article class="research-panel reveal recognition-card">
+        <div class="recognition-card-head">
+          <span class="recognition-card-icon">🏛️</span>
+          <h3>Conferences</h3>
         </div>
-      `).join("")}
-    </div>
+        <div class="recognition-list">
+          ${recognitions.conferencePresentations.map(conf => `
+            <div class="recognition-item-box">
+              <div class="recognition-item-top">
+                <strong>${conf.title}</strong>
+                <span style="background: var(--primary); color: white; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; white-space: nowrap;">${conf.year}</span>
+              </div>
+              <div class="recognition-item-meta">${conf.event}</div>
+              <div class="recognition-item-topic"><span class="recognition-topic-icon">${conf.icon || "•"}</span><span>${conf.topic}</span></div>
+              ${conf.award ? `<div class="recognition-item-award">🏆 ${conf.award}</div>` : ""}
+            </div>
+          `).join("")}
+        </div>
+      </article>
 
-    <div class="recognitions-section">
-      <h3>📰 Research Recognition & Media Coverage</h3>
-      ${recognitions.mediaRecognition.map(media => `
-        <div class="recognition-item">
-          <strong>${media.year}</strong> · <a href="${media.url}" target="_blank" rel="noreferrer">${media.title}</a><br/>
-          ${media.description}
+      <article class="research-panel reveal recognition-card">
+        <div class="recognition-card-head">
+          <span class="recognition-card-icon">📰</span>
+          <h3>Media Coverage</h3>
         </div>
-      `).join("")}
+        <div class="recognition-list">
+          ${recognitions.mediaRecognition.map(media => `
+            <div class="recognition-item-box">
+              <div class="recognition-item-top">
+                <a href="${media.url}" target="_blank" rel="noreferrer" style="color: var(--cta); text-decoration: none; font-weight: 500; flex: 1;">${media.title}</a>
+                <span style="background: var(--primary); color: white; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; white-space: nowrap;">${media.year}</span>
+              </div>
+              <div class="recognition-item-meta"><span class="recognition-topic-icon">${media.icon || "🗞️"}</span><span>${media.description}</span></div>
+            </div>
+          `).join("")}
+        </div>
+      </article>
     </div>
   `;
-  recognitionsContainer.innerHTML = html;
 }
 
 const publicationsArchive = document.getElementById("publicationsArchive");
 if (publicationsArchive) {
-  publicationsArchive.innerHTML = publications.map((yearBlock) => `
-    <div class="publications-year-row">
-      <div class="pub-year" style="min-width:120px; font-weight:700; color:var(--primary);">${yearBlock.year}</div>
-      <div class="pub-items">
-        <div class="publication-year-list">
-          ${yearBlock.items.map((pub) => publicationListItem(pub)).join("")}
-        </div>
-      </div>
+  publicationsArchive.innerHTML = `
+    <div style="display: flex; flex-direction: column; gap: 2rem;">
+      ${publications.map((yearBlock) => `
+        <article class="research-panel reveal">
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+            <h3 style="margin: 0; padding: 0.5rem 1rem; background: linear-gradient(135deg, var(--primary), #1f5978); color: white; border-radius: 8px; font-size: 1rem;">${yearBlock.year}</h3>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 0.8rem;">
+            ${yearBlock.items.map((pub) => `
+              <div style="padding: 0.8rem; background: rgba(20, 58, 87, 0.04); border-left: 3px solid var(--primary); border-radius: 4px; font-size: 0.9rem; line-height: 1.5;">
+                ${publicationListItem(pub)}
+              </div>
+            `).join("")}
+          </div>
+        </article>
+      `).join("")}
     </div>
-  `).join("");
+  `;
 }
 
 // Populate Collaboration section
@@ -1195,13 +1250,36 @@ if (collaborationContainer) {
   const dedupedTranslational = dedupe(translationalCollaborators);
 
   collaborationContainer.innerHTML = `
-    <div class="publication-list">
-      <h3>Core Collaborators</h3>
-      ${dedupedCore.map(([name, description, url]) => `<p><strong><a href="${url}" target="_blank" rel="noreferrer">${name}</a></strong><br/>${description}</p>`).join("")}
-    </div>
-    <div class="publication-list" style="margin-top:16px">
-      <h3>Clinical & Translational Collaborators</h3>
-      ${dedupedTranslational.map(([name, description, url]) => `<p><strong><a href="${url}" target="_blank" rel="noreferrer">${name}</a></strong><br/>${description}</p>`).join("")}
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; align-items: start;">
+      <article class="research-panel reveal" style="align-self: start; justify-content: flex-start;">
+        <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.5rem; justify-content: flex-start;">
+          <span style="font-size: 2rem;">🌐</span>
+          <h3 style="margin: 0; font-size: 1.1rem;">Core Collaborators</h3>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+          ${dedupedCore.map(([name, description, url]) => `
+            <div style="padding: 0.8rem; background: rgba(110, 155, 135, 0.08); border-radius: 6px;">
+              <a href="${url}" target="_blank" rel="noreferrer" style="color: var(--primary); text-decoration: none; font-weight: 500; display: block; margin-bottom: 0.3rem;">${name}</a>
+              <p style="margin: 0; font-size: 0.85rem; color: var(--muted);">${description}</p>
+            </div>
+          `).join("")}
+        </div>
+      </article>
+      
+      <article class="research-panel reveal" style="align-self: start; justify-content: flex-start;">
+        <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.5rem; justify-content: flex-start;">
+          <span style="font-size: 2rem;">🏥</span>
+          <h3 style="margin: 0; font-size: 1.1rem;">Clinical & Translational</h3>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+          ${dedupedTranslational.map(([name, description, url]) => `
+            <div style="padding: 0.8rem; background: rgba(31, 89, 120, 0.08); border-radius: 6px;">
+              <a href="${url}" target="_blank" rel="noreferrer" style="color: var(--primary); text-decoration: none; font-weight: 500; display: block; margin-bottom: 0.3rem;">${name}</a>
+              <p style="margin: 0; font-size: 0.85rem; color: var(--muted);">${description}</p>
+            </div>
+          `).join("")}
+        </div>
+      </article>
     </div>
   `;
 }
@@ -1241,4 +1319,45 @@ contactForm?.addEventListener("submit", (event) => {
   formNote.textContent = `Thanks, ${name}. Your message is ready to be sent.`;
   formNote.style.color = "#1f6b3a";
   contactForm.reset();
+});
+
+// Deferred section behavior: show only home, vision and unique on initial load
+document.addEventListener("DOMContentLoaded", () => {
+  const visibleOnStart = new Set(["home", "vision", "unique"]);
+  const sections = Array.from(document.querySelectorAll(".section"));
+
+  // Mark sections that should be hidden until clicked
+  sections.forEach((sec) => {
+    const id = sec.id || "";
+    if (!visibleOnStart.has(id)) sec.classList.add("deferred");
+  });
+
+  // Handle nav clicks to reveal sections on demand
+  document.querySelectorAll('.site-nav a[href^="#"]').forEach((link) => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const href = link.getAttribute('href');
+      if (!href || !href.startsWith('#')) return;
+      const targetId = href.slice(1);
+      const target = document.getElementById(targetId);
+      if (!target) return;
+
+      // Defer all sections except the ones we want visible
+      sections.forEach((sec) => sec.classList.add('deferred'));
+
+      // If user clicks Home, show home + vision + unique
+      if (targetId === 'home') {
+        ['home', 'vision', 'unique'].forEach((id) => {
+          const el = document.getElementById(id);
+          if (el) el.classList.remove('deferred');
+        });
+        document.getElementById('home').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        return;
+      }
+
+      // Reveal the chosen section and scroll to it
+      target.classList.remove('deferred');
+      setTimeout(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+    });
+  });
 });
