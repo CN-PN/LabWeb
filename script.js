@@ -1306,6 +1306,27 @@ contactForm?.addEventListener("submit", (event) => {
   contactForm.reset();
 });
 
+// Mobile nav toggle (append at end)
+(() => {
+  const navToggle = document.querySelector('.nav-toggle');
+  const siteNav = document.querySelector('.site-nav');
+  if (!navToggle || !siteNav) return;
+
+  navToggle.addEventListener('click', () => {
+    const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+    navToggle.setAttribute('aria-expanded', String(!expanded));
+    siteNav.style.display = expanded ? 'none' : 'flex';
+  });
+
+  // Close on nav link click (mobile)
+  siteNav.addEventListener('click', (e) => {
+    if (e.target.tagName === 'A' && window.innerWidth < 900) {
+      siteNav.style.display = 'none';
+      navToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+})();
+
 // Deferred section behavior: show only home, vision and unique on initial load
 document.addEventListener("DOMContentLoaded", () => {
   const visibleOnStart = new Set(["home", "vision", "unique"]);

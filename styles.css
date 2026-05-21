@@ -219,6 +219,35 @@ h3 { font-size: clamp(1.1rem, 2vw, 1.25rem); }
   align-items: center;
 }
 
+/* Mobile nav toggle */
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: 0;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+}
+.nav-toggle .hamburger {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--primary);
+  position: relative;
+}
+.nav-toggle .hamburger::before,
+.nav-toggle .hamburger::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 22px;
+  height: 2px;
+  background: var(--primary);
+}
+.nav-toggle .hamburger::before { top: -7px; }
+.nav-toggle .hamburger::after { top: 7px; }
+
 .site-nav a {
   color: rgba(8, 54, 56, 0.9);
   font-weight: 600;
@@ -388,6 +417,27 @@ h3 { font-size: clamp(1.1rem, 2vw, 1.25rem); }
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.25rem;
   width: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .site-header-inner { padding: 0 12px; }
+  .site-nav { display: none; }
+  .nav-toggle { display: inline-flex; }
+  .start-showcase-layout { grid-template-columns: 1fr; gap: 1rem; }
+  .start-branding { min-height: 180px; align-items: flex-start; }
+  .start-branding-logo { width: clamp(100px, 24vw, 220px); }
+  .start-showcase-copy h1 { font-size: clamp(1.4rem, 6vw, 2.2rem); max-width: 100%; }
+  #startLabCarousel .carousel-frame { height: clamp(220px, 42vw, 420px); }
+}
+
+@media (max-width: 480px) {
+  .brand-text { display: none; }
+  .brand-logo { height: 40px; }
+  .site-header { padding: 10px 12px; }
+  .hero-end { padding: 28px 12px; }
+  .start-branding-logo { width: clamp(80px, 30vw, 160px); }
+  .start-showcase-copy h1 { font-size: clamp(1.1rem, 7vw, 1.6rem); }
 }
 
 .recognition-feature-media {
