@@ -244,9 +244,9 @@ function getCollaboratorLogoUrl(url, name) {
   try {
     const parsedUrl = new URL(sourceUrl);
     const host = parsedUrl.hostname.replace(/^www\./, "");
-    if (host.includes("nimhans")) return "Lab/NIMHANS.jpeg"; // Updated for clarity
-    if (host.includes("johns") || host.includes("hopkins") || host.includes("johnshopkins")) return "Lab/jhu-logo.png"; // Updated for clarity
-    if (host.includes("psu") || host.includes("saudi") || host.endsWith(".sa")) return "Lab/SA.jpeg"; // Added new condition
+    if (host.includes("nimhans")) return "Lab/NIMHANS.jpeg";
+    if (host.includes("johns") || host.includes("hopkins") || host.includes("johnshopkins")) return "Lab/jhu-logo.png";
+    if (host.includes("psu") || host.includes("saudi") || host.endsWith(".sa")) return "Lab/SA.jpeg";
   } catch (error) {
     // ignore parsing errors and fall through to fallback
   }
@@ -908,8 +908,8 @@ if (aboutGrid) {
           ` : '';
           
           return `
-        <article class="research-panel reveal" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start;">
-          <div>
+        <article class="research-panel reveal about-fellow-card">
+          <div class="about-fellow-copy">
             <h3>👩‍🔬 ${linkNames(person.name, personLinks)}</h3>
             <div class="publication-list">
               <p>${person.expandedBio}</p>
@@ -921,7 +921,7 @@ if (aboutGrid) {
               </div>
             </div>
           </div>
-          <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+          <div class="about-fellow-side">
             ${sliderHtml}
             ${interestsHtml}
           </div>
@@ -929,7 +929,7 @@ if (aboutGrid) {
       `;
         }
         return `
-        <article class="research-panel reveal">
+        <article class="research-panel reveal about-member-card">
           <h3>👩‍🔬 ${linkNames(person.name, personLinks)}</h3>
           <div class="publication-list">
             <p>${person.text}</p>
@@ -991,14 +991,14 @@ if (aboutGrid) {
   `;
 
   aboutGrid.innerHTML = `
-    <article class="research-panel reveal" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start;">
-      <div>
+    <article class="research-panel reveal about-pi-card">
+      <div class="about-pi-copy">
         <h3>${aboutSections[0].title}</h3>
         <p class="principal-investigator-name">👩‍⚕️ Dr. Sagarika Bhattacherjee</p>
         <div class="publication-list">${aboutSections[0].body}</div>
         <div class="research-meta" style="margin-top: 1rem;">${aboutSections[0].extras}</div>
       </div>
-      <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+      <div class="about-pi-side">
         ${piSliderHtml}
         ${piInterestsHtml}
       </div>
@@ -1039,39 +1039,8 @@ if (aboutGrid) {
     prevButton?.addEventListener("click", () => showImage(currentIndex - 1));
     nextButton?.addEventListener("click", () => showImage(currentIndex + 1));
 
-    // Show first image only; user moves it manually
     showImage(0);
   }
-
-  const syncAboutMobileLayout = () => {
-    const isMobile = window.matchMedia("(max-width: 900px)").matches;
-    const aboutCards = Array.from(aboutGrid.querySelectorAll("article.research-panel"));
-
-    aboutCards.forEach((card) => {
-      const childBlocks = Array.from(card.children);
-      if (isMobile) {
-        card.style.display = "flex";
-        card.style.flexDirection = "column";
-        card.style.gap = "1rem";
-        childBlocks.forEach((block) => {
-          block.style.width = "100%";
-          block.style.order = "0";
-        });
-        if (childBlocks[0]) childBlocks[0].style.order = "1";
-      } else {
-        card.style.display = "";
-        card.style.flexDirection = "";
-        card.style.gap = "";
-        childBlocks.forEach((block) => {
-          block.style.width = "";
-          block.style.order = "";
-        });
-      }
-    });
-  };
-
-  syncAboutMobileLayout();
-  window.addEventListener("resize", syncAboutMobileLayout);
 
   // Initialize Tanushree image slider - manual arrows only
   const tanushreeSliders = aboutGrid.querySelectorAll(".tanushree-slider");
