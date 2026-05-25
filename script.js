@@ -59,6 +59,7 @@ const research = [
   {
     title: "Adaptive & Personalised Neuromodulation Strategies",
     slides: [
+      { src: "Lab/58.jpeg", alt: "Slide 58", caption: "Slide 58" },
       { src: "Lab/21.png", alt: "Slide 21", caption: "Slide 21" },
       { src: "Lab/22.png", alt: "Slide 22", caption: "Slide 22" },
       { src: "Lab/23.png", alt: "Slide 23", caption: "Slide 23" },
@@ -85,6 +86,7 @@ const research = [
   {
     title: "Clinical Trials and Technology Innovation",
     slides: [
+      { src: "Lab/57.jpeg", alt: "Slide 57", caption: "Slide 57" },
       { src: "Lab/32.png", alt: "Slide 32", caption: "Slide 32" },
       { src: "Lab/33.png", alt: "Slide 33", caption: "Slide 33" },
       { src: "Lab/34.png", alt: "Slide 34", caption: "Slide 34" },
@@ -124,6 +126,20 @@ const bioLinks = [
   ["ResearchGate", "https://www.researchgate.net/profile/Sagarika-Bhattacharjee"],
   ["ORCID", "https://orcid.org/0000-0002-7216-9900"],
   ["LinkedIn", "https://www.linkedin.com/in/sagarika-bhattacharya/"],
+];
+
+const bioInstitutionLinks = [
+  ["Silchar Medical College", "https://silchar-mch.assam.gov.in/"],
+  ["Guwahati Medical College", "https://gmchassam.gov.in"],
+  ["Apollo Hospitals Guwahati", "https://www.apollohospitals.com/locations/guwahati/"],
+  ["North Eastern Indira Gandhi Regional Institute of Health and Medical Sciences", "https://neigrihms.gov.in"],
+  ["Rose Centre for Stroke Recovery and Research", "https://www.canterbury.ac.nz/research/about-uc-research/research-groups-and-centres/rose-centre-for-stroke-recovery-and-research"],
+  ["St George's Hospital", "https://www.stgeorges.org.nz/"],
+  ["University of Canterbury", "https://www.ucic.ac.nz/"],
+  ["Nanyang Technological University", "https://www.ntu.edu.sg"],
+  ["Clinical Brain Lab", "https://www.clinicalbrain.org/author/sagarika-bhattacharjee/"],
+  ["National Institute of Mental Health and Neurosciences", "https://nimhans.ac.in"],
+  ["All India Institute of Medical Sciences Madurai", "https://www.aiimsmadurai.edu.in/dr.sagarika.php"],
 ];
 
 const bioInterests = [
@@ -170,6 +186,7 @@ const interns = [
   {
     name: "Varsha Shree",
     text: "Varsha Shree Gandhimathinathan is a neuroscience researcher whose interest in psychological disorders and behaviour led her to pursue a bachelor's degree in Psychology at PSG College of Arts and Science. She completed an MSc in Cognitive Science at Indian Institute of Technology Gandhinagar to better understand brain and cognitive processes. During this time, she interned in the lab in the Department of Neurophysiology, where she learnt about neuromodulation and worked on a pilot study examining personalised tDCS dosage and its effects on reading performance alongside TMS measures. Her master's thesis with Prof. Leslee Lazar explored how short-term tool use influences body representations. She is currently working as a Project Associate in the Department of Psychiatry at NIMHANS.",
+    images: ["Lab/Photo.JPG"],
   },
   {
     name: "Anoushka",
@@ -191,6 +208,74 @@ const translationalCollaborators = [
   ["Dr. Ganesan Venkatasubramanian", "Translational psychiatry and brain stimulation research | NIMHANS", "https://nimhans.ac.in/doctor/dr-ganesan-venkatasubramanian/"],
   ["Dr. Kaviraja Udupa", "Department of Neurophysiology | NIMHANS", "https://nimhans.ac.in/doctor/dr-p-sivakumar/"],
 ];
+
+function getCollaboratorLogoUrl(url, name) {
+  const sourceUrl = String(url || "");
+  const collaboratorName = String(name || "");
+
+  // Explicit local mappings for known collaborators
+  if (collaboratorName === "Dr. Rajan Kashyap") return "Lab/AI4BNT.png";
+
+  if (
+    collaboratorName === "Dr. John E. Desmond" ||
+    collaboratorName === "Dr. Brenda Rapp" ||
+    collaboratorName === "Dr. Kenichi Oishi"
+  )
+    return "Lab/jhu-logo.png";
+
+  // Prefer the local NIMHANS jpeg provided by the user
+  if (
+    collaboratorName === "Dr. Palanimuthu T. Sivakumar" ||
+    collaboratorName === "Dr. Ganesan Venkatasubramanian" ||
+    collaboratorName === "Dr. Kaviraja Udupa"
+  )
+    return "Lab/NIMHANS.jpeg";
+
+  // Map NTU-affiliated collaborator(s) to the provided NTU image
+  if (
+    collaboratorName === "Dr. S H Annabel Chen" ||
+    collaboratorName === "Annabel Chen, S. H." ||
+    collaboratorName === "Chen SHA" ||
+    collaboratorName === "Chen, S. A."
+  )
+    return "Lab/NTU.png";
+
+  // Also check hostname hints and prefer local assets when possible
+  try {
+    const parsedUrl = new URL(sourceUrl);
+    const host = parsedUrl.hostname.replace(/^www\./, "");
+    if (host.includes("nimhans")) return "Lab/NIMHANS.jpeg"; // Updated for clarity
+    if (host.includes("johns") || host.includes("hopkins") || host.includes("johnshopkins")) return "Lab/jhu-logo.png"; // Updated for clarity
+    if (host.includes("psu") || host.includes("saudi") || host.endsWith(".sa")) return "Lab/SA.jpeg"; // Added new condition
+  } catch (error) {
+    // ignore parsing errors and fall through to fallback
+  }
+
+  // Final fallback: use the project's generic logo
+  return "Lab/logo.png";
+}
+
+function getCollaboratorInitials(name) {
+  return String(name)
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 3)
+    .map((part) => part[0])
+    .join("")
+    .toUpperCase();
+}
+
+function collaboratorLogoMarkup(name, url) {
+  const logoUrl = getCollaboratorLogoUrl(url, name);
+  const initials = getCollaboratorInitials(name);
+
+  return `
+    <div class="collaboration-logo" aria-hidden="true">
+      <img src="${logoUrl}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.hidden=true; this.nextElementSibling.hidden=false;" />
+      <span class="collaboration-logo-fallback" hidden>${initials}</span>
+    </div>
+  `;
+}
 
 const personLinks = [
   ["Dr. Sagarika Bhattacharjee", "#biopic"],
@@ -402,24 +487,24 @@ const treatmentVideos = [
   {
     label: "Before",
     title: "Baseline assessment",
-    src: "n6p59ljg0g4",
+    src: "yoURnFfaBUg",
   },
   {
     label: "During",
     title: "In-session treatment",
-    src: "XzzPwUekAnA",
+    src: "-8KcbzVSEZA",
   },
   {
     label: "After",
     title: "Follow-up review",
-    src: "4cUYYhgmSHA",
+    src: "8nr8Pefgyjc",
   },
 ];
 
 const aboutSections = [
   {
     title: "Principal Investigator",
-    body: bioParagraphs.map((paragraph) => `<p>${linkNames(paragraph, personLinks)}</p>`).join(""),
+    body: bioParagraphs.map((paragraph) => `<p>${linkNames(paragraph, bioInstitutionLinks)}</p>`).join(""),
     extras: bioLinks.map(([label, url]) => `<a class="pill link-pill" href="${url}" target="_blank" rel="noreferrer">${label}</a>`).join(""),
   },
   {
@@ -523,11 +608,17 @@ function card(title, text, extras = "", icon = "") {
 
 function researchCard(item) {
   return `
-    <article class="research-panel reveal">
-      <h3>${item.title}</h3>
-      ${researchCarousel(item.slides, item.title)}
-      <p>${item.text}</p>
-      <div class="research-meta">${item.tags.map((tag) => `<span class="pill">${tag}</span>`).join("")}</div>
+    <article class="research-panel research-theme-card reveal">
+      <div class="research-theme-grid">
+        <div class="research-theme-media">
+          ${researchCarousel(item.slides, item.title)}
+        </div>
+        <div class="research-theme-copy">
+          <h3>${item.title}</h3>
+          <p>${item.text}</p>
+          <div class="research-meta">${item.tags.map((tag) => `<span class="pill">${tag}</span>`).join("")}</div>
+        </div>
+      </div>
     </article>
   `;
 }
@@ -797,11 +888,13 @@ if (aboutGrid) {
         if (person.isExpanded) {
           const linksHtml = person.links?.map(([label, url]) => `<a href="${url}" target="_blank" style="color: #7c3aed; text-decoration: none; border-bottom: 2px solid #7c3aed; padding-bottom: 2px;">${label}</a>`).join('<span style="color: rgba(0,0,0,0.5);"> | </span>') || '';
           
-          const sliderImages = person.images?.map((src, idx) => `<img src="${src}" alt="Tanushree image ${idx + 1}" class="tanushree-slider-image" style="width: 100%; height: 100%; display: ${idx === 0 ? 'block' : 'none'}; object-fit: contain; position: ${idx === 0 ? 'relative' : 'absolute'}; top: 0; left: 0;">`).join('') || '';
+          const sliderImages = person.images?.map((src, idx) => `<img src="${src}" alt="${person.name} image ${idx + 1}" class="tanushree-slider-image" style="width: 100%; height: 100%; display: ${idx === 0 ? 'block' : 'none'}; object-fit: contain; position: ${idx === 0 ? 'relative' : 'absolute'}; top: 0; left: 0;">`).join('') || '';
           
           const sliderHtml = person.images ? `
             <div class="tanushree-slider" style="position: relative; width: 100%; aspect-ratio: 4/3; overflow: hidden; border-radius: 8px; background: #f5f5f5;">
               ${sliderImages}
+              <button type="button" class="tanushree-slider-prev" aria-label="Previous image" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); z-index: 2; border: 0; border-radius: 999px; width: 34px; height: 34px; background: rgba(0, 0, 0, 0.42); color: #fff; cursor: pointer;">‹</button>
+              <button type="button" class="tanushree-slider-next" aria-label="Next image" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); z-index: 2; border: 0; border-radius: 999px; width: 34px; height: 34px; background: rgba(0, 0, 0, 0.42); color: #fff; cursor: pointer;">›</button>
             </div>
           ` : '';
           
@@ -849,14 +942,27 @@ if (aboutGrid) {
 
   const otherMemberCards = interns
     .map(
-      (person) => `
-        <article class="research-panel reveal">
-          <h3>🧠 ${linkNames(person.name, personLinks)}</h3>
-          <div class="publication-list">
-            <p>${person.text}</p>
+      (person) => {
+        const sliderImages = person.images?.map((src, idx) => `<img src="${src}" alt="${person.name} image ${idx + 1}" class="tanushree-slider-image" style="width: 100%; height: 100%; display: ${idx === 0 ? 'block' : 'none'}; object-fit: contain; position: ${idx === 0 ? 'relative' : 'absolute'}; top: 0; left: 0;">`).join('') || '';
+
+        const sliderHtml = person.images ? `
+          <div class="tanushree-slider intern-member-media" style="position: relative; width: 100%; aspect-ratio: 4/3; overflow: hidden; border-radius: 8px; background: #f5f5f5;">
+            ${sliderImages}
           </div>
+        ` : '';
+
+        return `
+        <article class="research-panel reveal intern-member-card">
+          <div class="intern-member-copy">
+            <h3>🧠 ${linkNames(person.name, personLinks)}</h3>
+            <div class="publication-list">
+              <p>${person.text}</p>
+            </div>
+          </div>
+          ${sliderHtml ? `<div class="intern-member-image">${sliderHtml}</div>` : ''}
         </article>
-      `
+      `;
+      }
     )
     .join("");
 
@@ -937,27 +1043,59 @@ if (aboutGrid) {
     showImage(0);
   }
 
+  const syncAboutMobileLayout = () => {
+    const isMobile = window.matchMedia("(max-width: 900px)").matches;
+    const aboutCards = Array.from(aboutGrid.querySelectorAll("article.research-panel"));
+
+    aboutCards.forEach((card) => {
+      const childBlocks = Array.from(card.children);
+      if (isMobile) {
+        card.style.display = "flex";
+        card.style.flexDirection = "column";
+        card.style.gap = "1rem";
+        childBlocks.forEach((block) => {
+          block.style.width = "100%";
+          block.style.order = "0";
+        });
+        if (childBlocks[0]) childBlocks[0].style.order = "1";
+      } else {
+        card.style.display = "";
+        card.style.flexDirection = "";
+        card.style.gap = "";
+        childBlocks.forEach((block) => {
+          block.style.width = "";
+          block.style.order = "";
+        });
+      }
+    });
+  };
+
+  syncAboutMobileLayout();
+  window.addEventListener("resize", syncAboutMobileLayout);
+
   // Initialize Tanushree image slider - manual arrows only
   const tanushreeSliders = aboutGrid.querySelectorAll(".tanushree-slider");
   tanushreeSliders.forEach((slider) => {
     const images = slider.querySelectorAll(".tanushree-slider-image");
+    const prevButton = slider.querySelector(".tanushree-slider-prev");
+    const nextButton = slider.querySelector(".tanushree-slider-next");
+
     if (images.length > 0) {
-      let currentIndex = 0;
+      let currentIndex = Math.min(1, images.length - 1);
 
       function showImage(index) {
+        const nextIndex = (index + images.length) % images.length;
         images.forEach((img, idx) => {
-          if (idx === 0) {
-            img.style.display = index === 0 ? "block" : "none";
-            img.style.position = index === 0 ? "relative" : "absolute";
-          } else {
-            img.style.display = (idx === index) ? "block" : "none";
-            img.style.position = (idx === index) ? "relative" : "absolute";
-          }
+          img.style.display = idx === nextIndex ? "block" : "none";
+          img.style.position = idx === nextIndex ? "relative" : "absolute";
         });
-        currentIndex = (index + images.length) % images.length;
+        currentIndex = nextIndex;
       }
 
-      showImage(0);
+      prevButton?.addEventListener("click", () => showImage(currentIndex - 1));
+      nextButton?.addEventListener("click", () => showImage(currentIndex + 1));
+
+      showImage(currentIndex);
     }
   });
 }
@@ -1243,9 +1381,12 @@ if (collaborationContainer) {
         </div>
         <div style="display: flex; flex-direction: column; gap: 1rem;">
           ${dedupedCore.map(([name, description, url]) => `
-            <div style="padding: 0.8rem; background: rgba(110, 155, 135, 0.08); border-radius: 6px;">
-              <a href="${url}" target="_blank" rel="noreferrer" style="color: var(--primary); text-decoration: none; font-weight: 500; display: block; margin-bottom: 0.3rem;">${name}</a>
-              <p style="margin: 0; font-size: 0.85rem; color: var(--muted);">${description}</p>
+            <div class="collaboration-item collaboration-item-core">
+              ${collaboratorLogoMarkup(name, url)}
+              <div class="collaboration-item-copy">
+                <a href="${url}" target="_blank" rel="noreferrer" style="color: var(--primary); text-decoration: none; font-weight: 500; display: block; margin-bottom: 0.3rem;">${name}</a>
+                <p style="margin: 0; font-size: 0.85rem; color: var(--muted);">${description}</p>
+              </div>
             </div>
           `).join("")}
         </div>
@@ -1258,9 +1399,12 @@ if (collaborationContainer) {
         </div>
         <div style="display: flex; flex-direction: column; gap: 1rem;">
           ${dedupedTranslational.map(([name, description, url]) => `
-            <div style="padding: 0.8rem; background: rgba(31, 89, 120, 0.08); border-radius: 6px;">
-              <a href="${url}" target="_blank" rel="noreferrer" style="color: var(--primary); text-decoration: none; font-weight: 500; display: block; margin-bottom: 0.3rem;">${name}</a>
-              <p style="margin: 0; font-size: 0.85rem; color: var(--muted);">${description}</p>
+            <div class="collaboration-item collaboration-item-translational">
+              ${collaboratorLogoMarkup(name, url)}
+              <div class="collaboration-item-copy">
+                <a href="${url}" target="_blank" rel="noreferrer" style="color: var(--primary); text-decoration: none; font-weight: 500; display: block; margin-bottom: 0.3rem;">${name}</a>
+                <p style="margin: 0; font-size: 0.85rem; color: var(--muted);">${description}</p>
+              </div>
             </div>
           `).join("")}
         </div>
@@ -1301,27 +1445,58 @@ contactForm?.addEventListener("submit", (event) => {
     return;
   }
 
-  formNote.textContent = `Thanks, ${name}. Your message is ready to be sent.`;
-  formNote.style.color = "#1f6b3a";
-  contactForm.reset();
+  // Send to Formspree endpoint
+  formNote.textContent = `Sending message...`;
+  formNote.style.color = "var(--muted)";
+
+  fetch("https://formspree.io/f/xvzybyrv", {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+    },
+    body: formData,
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      if (data.ok || data.success || resOk(data)) {
+        formNote.textContent = `Thanks, ${name}. Your message has been sent.`;
+        formNote.style.color = "#1f6b3a";
+        contactForm.reset();
+      } else {
+        throw new Error("send-failed");
+      }
+    })
+    .catch(() => {
+      formNote.textContent = `Sorry, ${name}. We couldn't send your message right now.`;
+      formNote.style.color = "#a44f27";
+    });
+
+  // Helper to handle some Formspree response shapes
+  function resOk(d) {
+    try {
+      if (typeof d === "object") return d.ok === true || d.success === true;
+    } catch (e) {}
+    return false;
+  }
 });
 
 // Mobile nav toggle (append at end)
 (() => {
+  const siteHeader = document.querySelector('.site-header');
   const navToggle = document.querySelector('.nav-toggle');
   const siteNav = document.querySelector('.site-nav');
-  if (!navToggle || !siteNav) return;
+  if (!siteHeader || !navToggle || !siteNav) return;
 
   navToggle.addEventListener('click', () => {
     const expanded = navToggle.getAttribute('aria-expanded') === 'true';
     navToggle.setAttribute('aria-expanded', String(!expanded));
-    siteNav.style.display = expanded ? 'none' : 'flex';
+    siteHeader.classList.toggle('nav-open', !expanded);
   });
 
   // Close on nav link click (mobile)
   siteNav.addEventListener('click', (e) => {
     if (e.target.tagName === 'A' && window.innerWidth < 900) {
-      siteNav.style.display = 'none';
+      siteHeader.classList.remove('nav-open');
       navToggle.setAttribute('aria-expanded', 'false');
     }
   });
