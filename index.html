@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
@@ -20,7 +20,7 @@
     <header class="site-header">
       <div class="site-header-inner">
         <a class="brand" href="#home" aria-label="CNPN Lab home">
-          <img src="Lab/logo.png" alt="CNPN Lab Logo" class="brand-logo" />
+          <img src="Lab/logo_transparent.png" alt="CNPN Lab Logo" class="brand-logo" />
           <span class="brand-text">CNPN Lab</span>
         </a>
 
@@ -46,7 +46,6 @@
         <div class="start-showcase-layout">
           <div class="start-showcase-copy">
             <div class="start-branding">
-              <img src="Lab/logo.png" alt="CNPN Lab Logo" class="start-branding-logo" />
               <div class="start-branding-copy">
                 <p class="eyebrow">CNPN Lab</p>
                 <h1>Clinical Neurophysiology &amp; Precision Neuromodulation Lab</h1>
@@ -60,67 +59,71 @@
       <section class="section alt" id="vision">
         <div class="vision-frame">
           <div class="section-head center vision-frame-head">
-            <h2 class="vision-heading">Our Vision &amp; Mission</h2>
-            <p class="vision-subtext">We integrate brain, cardiac, and autonomic physiology to decode, design, and deliver precision neuromodulation therapies, restoring dysfunctional brain-body networks in neurological, psychiatric, neuromuscular and neurocardiac disorders.</p>
+            <h2 class="vision-heading">
+              <span class="vision-heading-line">Transforming Brain–Body Health Through</span>
+              <span class="vision-heading-line">Precision Neuromodulation</span>
+            </h2>
+            <p class="vision-subtext">We integrate neuroscience, cardiac physiology, and advanced neuromodulation to restore brain–body network function and improve clinical outcomes.</p>
+            <p class="vision-tagline">DECODE &middot; DESIGN &middot; DELIVER</p>
           </div>
 
           <div class="vision-frame-main">
             <article class="vision-panel vision-panel-left">
-              <h3>What We Do</h3>
+              <h3>Our Three Core Pillars</h3>
               <div class="vision-card-grid">
                 <div class="vision-mini-card">
                   <span class="vision-mini-icon">🧠</span>
                   <h4>Neurological Care</h4>
-                  <p>We target dysfunctional brain networks to improve neurological and psychiatric outcomes.</p>
+                  <p>Targeting dysfunctional brain networks to improve neurological and psychiatric outcomes.</p>
                 </div>
                 <div class="vision-mini-card">
                   <span class="vision-mini-icon">❤</span>
                   <h4>Neurocardiac Integration</h4>
-                  <p>We integrate cardiac and autonomic physiology to restore whole-body balance.</p>
+                  <p>Bridging cardiac and autonomic physiology to restore whole‑body balance.</p>
                 </div>
                 <div class="vision-mini-card">
                   <span class="vision-mini-icon">◎</span>
                   <h4>Precision Neuromodulation</h4>
-                  <p>We use advanced, data-guided techniques to deliver personalized therapies.</p>
+                  <p>Data‑guided, personalized interventions delivered with precision.</p>
                 </div>
               </div>
 
+              <h3 style="margin-top:0.9rem;">Why Choose CNPN</h3>
               <div class="vision-strip vision-strip-inline">
                 <div class="vision-strip-item">
                   <span class="vision-strip-icon">👩‍⚕️</span>
                   <div>
-                    <h4>Clinician-Led Care</h4>
-                    <p>Experienced specialists dedicated to your recovery.</p>
+                    <h4>Clinician‑Led</h4>
+                    <p>Specialists driving patient‑centered clinical care.</p>
                   </div>
                 </div>
                 <div class="vision-strip-item">
                   <span class="vision-strip-icon">📋</span>
                   <div>
-                    <h4>Evidence-Based Protocols</h4>
-                    <p>Science-driven methods for safe and effective outcomes.</p>
+                    <h4>Evidence‑Based</h4>
+                    <p>Protocols grounded in rigorous science.</p>
                   </div>
                 </div>
                 <div class="vision-strip-item">
                   <span class="vision-strip-icon">📈</span>
                   <div>
                     <h4>Advanced Technology</h4>
-                    <p>State-of-the-art neuromodulation and neurophysiology tools.</p>
+                    <p>State‑of‑the‑art neuromodulation and monitoring tools.</p>
                   </div>
                 </div>
                 <div class="vision-strip-item">
                   <span class="vision-strip-icon">🤝</span>
                   <div>
-                    <h4>Integrated &amp; Collaborative</h4>
-                    <p>Multidisciplinary approach for comprehensive care.</p>
+                    <h4>Collaborative Care</h4>
+                    <p>Multidisciplinary teams delivering integrated solutions.</p>
                   </div>
                 </div>
               </div>
             </article>
 
             <article class="vision-panel vision-panel-right">
-              <div class="vision-badge"><span class="vision-badge-icon" aria-hidden="true">⚡</span><span>Meet Your Neurostimulation Specialist</span></div>
-              <img src="Lab/logo.png" alt="Laboratory brain logo" class="vision-figure-image" />
-              <p class="neuro-note">We combine neuroscience, cardiac physiology, and advanced neuromodulation to decode, design, and deliver precision therapies for neurological, psychiatric, neuromuscular and neurocardiac disorders.</p>
+              <div class="vision-badge"><span class="vision-badge-icon" aria-hidden="true">⚡</span><span>Personalized, measurable neuromodulation</span></div>
+              <img src="Lab/logo_transparent.png" alt="Laboratory brain logo" class="vision-figure-image" />
             </article>
           </div>
 
@@ -139,6 +142,9 @@
         </div>
 
         <div id="testimonialGrid"></div>
+        <div id="testimonialContentContainer" class="reveal">
+          <div class="testimonial-slider" id="testimonialCarouselContainer"></div>
+        </div>
         <div class="video-intro">
           <p class="eyebrow">Clinical Video Summaries</p>
           <h3>Patient Journey: Baseline → In‑session → Follow‑up</h3>
@@ -276,10 +282,6 @@
         </div>
       </section>
     </main>
-
-    <footer class="site-footer">
-      <p>CNPN Lab. Clinical Neurophysiology & Precision Neuromodulation.</p>
-    </footer>
 
     <script src="script.js"></script>
   </body>

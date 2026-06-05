@@ -487,17 +487,17 @@ const treatmentVideos = [
   {
     label: "Before",
     title: "Baseline assessment",
-    src: "yoURnFfaBUg",
+    src: "OOLNjCOzbFs",
   },
   {
     label: "During",
     title: "In-session treatment",
-    src: "-8KcbzVSEZA",
+    src: "kSNh930AsBM",
   },
   {
     label: "After",
     title: "Follow-up review",
-    src: "8nr8Pefgyjc",
+    src: "9_crUh9vyQk",
   },
 ];
 
@@ -634,14 +634,10 @@ function researchCarousel(slides, title) {
     <div class="research-carousel" data-slides='${slidesJson}' aria-roledescription="carousel" aria-label="${title} slides">
       <div class="carousel-frame">
         <img class="carousel-image" src="${slideSrcs[0] || ''}" alt="${title} slide" />
-        <div class="carousel-caption">${title}</div>
       </div>
       <div class="carousel-controls">
-        <button class="carousel-prev" aria-label="Previous slide">‹</button>
-        <button class="carousel-next" aria-label="Next slide">›</button>
-      </div>
-      <div class="carousel-indicators">
-        ${slideSrcs.map((_, i) => `<button class="carousel-dot" data-index="${i}" aria-label="Go to slide ${i + 1}"></button>`).join("")}
+        <button class="carousel-prev" type="button" aria-label="Previous slide">‹</button>
+        <button class="carousel-next" type="button" aria-label="Next slide">›</button>
       </div>
     </div>
   `;
@@ -649,11 +645,9 @@ function researchCarousel(slides, title) {
 
 function initializeResearchCarousel(container) {
   if (!container) return;
-  const frame = container.querySelector(".carousel-frame");
   const img = container.querySelector(".carousel-image");
   const prev = container.querySelector(".carousel-prev");
   const next = container.querySelector(".carousel-next");
-  const dots = Array.from(container.querySelectorAll(".carousel-dot"));
 
   let slides = [];
   try {
@@ -673,12 +667,10 @@ function initializeResearchCarousel(container) {
   function show(i) {
     index = (i + slides.length) % slides.length;
     img.src = slides[index];
-    dots.forEach((d) => d.classList.toggle("active", Number(d.dataset.index) === index));
   }
 
-  prev.addEventListener("click", () => { show(index - 1); });
-  next.addEventListener("click", () => { show(index + 1); });
-  dots.forEach((d) => d.addEventListener("click", () => { show(Number(d.dataset.index)); }));
+  prev?.addEventListener("click", () => show(index - 1));
+  next?.addEventListener("click", () => show(index + 1));
 
   // initial state
   show(0);
@@ -720,6 +712,15 @@ function renderResearchTheme(index) {
   const currentTheme = research[safeIndex];
 
   if (researchContent) {
+    researchContent.querySelectorAll(".research-carousel").forEach((el) => {
+      if (el._carouselInterval) {
+        clearInterval(el._carouselInterval);
+        el._carouselInterval = null;
+      }
+    });
+  }
+
+  if (researchContent) {
     researchContent.innerHTML = researchCard(currentTheme);
   }
 
@@ -729,13 +730,6 @@ function renderResearchTheme(index) {
 
   // initialize carousel for this theme (if present)
   const carouselEl = researchContent ? researchContent.querySelector(".research-carousel") : null;
-  // clear any previous carousel interval stored on element list
-  document.querySelectorAll('.research-carousel').forEach((el) => {
-    if (el._carouselInterval) {
-      clearInterval(el._carouselInterval);
-      el._carouselInterval = null;
-    }
-  });
   if (carouselEl) initializeResearchCarousel(carouselEl);
 
   document.querySelectorAll("#researchContent .reveal, #researchPublications .reveal").forEach((el) => el.classList.add("is-visible"));
@@ -759,7 +753,7 @@ if (startLabCarousel) {
   startLabCarousel.innerHTML = researchCarousel(startLabSlides, "Lab highlights");
   const startCarousel = startLabCarousel.querySelector(".research-carousel");
   if (startCarousel) {
-    initializeTestimonialCarousel(startCarousel);
+    initializeResearchCarousel(startCarousel);
   }
 }
 
@@ -814,8 +808,16 @@ if (testimonialGrid) {
     </div>
   `;
 
+
   // Ensure carousel images remain in place (right column)
-  if (!document.getElementById("testimonialContentContainer")) {
+  const contentContainer = document.getElementById("testimonialContentContainer");
+  if (contentContainer) {
+    contentContainer.innerHTML = `
+      <div class="testimonial-slider" id="testimonialCarouselContainer">
+        ${researchCarousel(testimonialSlides, "Patient testimonial")}
+      </div>
+    `;
+  } else {
     testimonialGrid.insertAdjacentHTML(
       "afterend",
       `
@@ -828,6 +830,7 @@ if (testimonialGrid) {
     );
   }
 
+
   const testimonialLeftCarousel = document.getElementById("testimonialLeftCarouselContainer")?.querySelector(".research-carousel");
   if (testimonialLeftCarousel) {
     initializeTestimonialCarousel(testimonialLeftCarousel);
@@ -837,39 +840,11 @@ if (testimonialGrid) {
   if (testimonialCarousel) {
     initializeTestimonialCarousel(testimonialCarousel);
   }
+
 }
 
 function initializeTestimonialCarousel(container) {
-  if (!container) return;
-  const img = container.querySelector(".carousel-image");
-  const prev = container.querySelector(".carousel-prev");
-  const next = container.querySelector(".carousel-next");
-  const dots = Array.from(container.querySelectorAll(".carousel-dot"));
-
-  let slides = [];
-  try {
-    slides = JSON.parse(container.dataset.slides || "[]");
-  } catch (e) {
-    slides = [];
-  }
-
-  if (!slides.length) {
-    container.classList.add("no-slides");
-    return;
-  }
-
-  let index = 0;
-  function show(i) {
-    index = (i + slides.length) % slides.length;
-    img.src = slides[index];
-    dots.forEach((d) => d.classList.toggle("active", Number(d.dataset.index) === index));
-  }
-
-  prev?.addEventListener("click", () => { show(index - 1); });
-  next?.addEventListener("click", () => { show(index + 1); });
-  dots.forEach((d) => d.addEventListener("click", () => { show(Number(d.dataset.index)); }));
-
-  show(0);
+  initializeResearchCarousel(container);
 }
 
 const aboutGrid = document.getElementById("aboutGrid");
@@ -948,6 +923,8 @@ if (aboutGrid) {
         const sliderHtml = person.images ? `
           <div class="tanushree-slider intern-member-media" style="position: relative; width: 100%; aspect-ratio: 4/3; overflow: hidden; border-radius: 8px; background: #f5f5f5;">
             ${sliderImages}
+            <button type="button" class="tanushree-slider-prev" aria-label="Previous image" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); z-index: 2; border: 0; border-radius: 999px; width: 34px; height: 34px; background: rgba(0, 0, 0, 0.42); color: #fff; cursor: pointer;">‹</button>
+            <button type="button" class="tanushree-slider-next" aria-label="Next image" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); z-index: 2; border: 0; border-radius: 999px; width: 34px; height: 34px; background: rgba(0, 0, 0, 0.42); color: #fff; cursor: pointer;">›</button>
           </div>
         ` : '';
 
@@ -1015,7 +992,7 @@ if (aboutGrid) {
     ${otherMemberCards}
   `;
 
-  // Initialize PI slider - auto-rotate
+  // Initialize PI slider - manual arrows only
   const piSlider = aboutGrid.querySelector(".pi-slider");
   if (piSlider) {
     const images = piSlider.querySelectorAll(".pi-slider-image");
@@ -1036,10 +1013,10 @@ if (aboutGrid) {
       currentIndex = (index + images.length) % images.length;
     }
 
+    showImage(0);
+
     prevButton?.addEventListener("click", () => showImage(currentIndex - 1));
     nextButton?.addEventListener("click", () => showImage(currentIndex + 1));
-
-    showImage(0);
   }
 
   // Initialize Tanushree image slider - manual arrows only
@@ -1061,10 +1038,10 @@ if (aboutGrid) {
         currentIndex = nextIndex;
       }
 
+      showImage(currentIndex);
+
       prevButton?.addEventListener("click", () => showImage(currentIndex - 1));
       nextButton?.addEventListener("click", () => showImage(currentIndex + 1));
-
-      showImage(currentIndex);
     }
   });
 }
@@ -1313,11 +1290,9 @@ if (publicationsArchive) {
             <h3 style="margin: 0; padding: 0.5rem 1rem; background: linear-gradient(135deg, var(--primary), #1f5978); color: white; border-radius: 8px; font-size: 1rem;">${yearBlock.year}</h3>
           </div>
           <div style="display: flex; flex-direction: column; gap: 0.8rem;">
-            ${yearBlock.items.map((pub) => `
-              <div style="padding: 0.8rem; background: rgba(20, 58, 87, 0.04); border-left: 3px solid var(--primary); border-radius: 4px; font-size: 0.9rem; line-height: 1.5;">
-                ${publicationListItem(pub)}
-              </div>
-            `).join("")}
+            <ul class="publication-year-list" style="padding: 0; margin: 0;">
+              ${yearBlock.items.map((pub) => publicationListItem(pub)).join("")}
+            </ul>
           </div>
         </article>
       `).join("")}
@@ -1473,41 +1448,74 @@ contactForm?.addEventListener("submit", (event) => {
 
 // Deferred section behavior: show only home, vision and unique on initial load
 document.addEventListener("DOMContentLoaded", () => {
-  const visibleOnStart = new Set(["home", "vision", "unique"]);
-  const sections = Array.from(document.querySelectorAll(".section"));
+  const siteHeader = document.querySelector('.site-header');
+  const allSections = document.querySelectorAll('main > .section');
+  const navLinks = document.querySelectorAll('.site-nav a[href^="#"], .brand');
 
-  // Mark sections that should be hidden until clicked
-  sections.forEach((sec) => {
-    const id = sec.id || "";
-    if (!visibleOnStart.has(id)) sec.classList.add("deferred");
-  });
+  const updateHeaderOffset = () => {
+    const headerHeight = siteHeader ? Math.ceil(siteHeader.getBoundingClientRect().height) : 0;
+    document.documentElement.style.setProperty('--header-offset', `${headerHeight + 16}px`);
+  };
 
-  // Handle nav clicks to reveal sections on demand
-  document.querySelectorAll('.site-nav a[href^="#"]').forEach((link) => {
+  updateHeaderOffset();
+  window.addEventListener('resize', updateHeaderOffset);
+
+  const showSection = (targetId) => {
+    let targetFound = false;
+
+    allSections.forEach(section => {
+      // When home is selected, show both #home and #vision sections
+      if (targetId === 'home' && (section.id === 'home' || section.id === 'vision')) {
+        section.classList.add('is-active');
+        section.style.display = 'block';
+        section.style.paddingTop = ''; // use original layout padding
+        targetFound = true;
+      } else if (section.id === targetId) {
+        section.classList.add('is-active');
+        section.style.display = 'block';
+        section.style.paddingTop = 'calc(var(--header-offset, 112px) + 40px)';
+        targetFound = true;
+      } else {
+        section.classList.remove('is-active');
+        section.style.display = 'none';
+      }
+    });
+
+    if (!targetFound && targetId !== 'home') {
+      showSection('home');
+      return;
+    }
+
+    // Update active nav link
+    document.querySelectorAll('.site-nav a:not(.button)').forEach(link => {
+      if (link.getAttribute('href') === `#${targetId}`) {
+        link.style.color = 'var(--primary)';
+      } else {
+        link.style.color = '';
+      }
+    });
+
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  };
+
+  navLinks.forEach((link) => {
     link.addEventListener('click', (e) => {
-      e.preventDefault();
       const href = link.getAttribute('href');
       if (!href || !href.startsWith('#')) return;
-      const targetId = href.slice(1);
-      const target = document.getElementById(targetId);
-      if (!target) return;
 
-      // Defer all sections except the ones we want visible
-      sections.forEach((sec) => sec.classList.add('deferred'));
-
-      // If user clicks Home, show home + vision + unique
-      if (targetId === 'home') {
-        ['home', 'vision', 'unique'].forEach((id) => {
-          const el = document.getElementById(id);
-          if (el) el.classList.remove('deferred');
-        });
-        document.getElementById('home').scrollIntoView({ behavior: 'smooth', block: 'start' });
-        return;
-      }
-
-      // Reveal the chosen section and scroll to it
-      target.classList.remove('deferred');
-      setTimeout(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+      e.preventDefault();
+      const targetId = href.slice(1) || 'home';
+      showSection(targetId);
+      history.pushState(null, null, href);
     });
   });
+
+  window.addEventListener('popstate', () => {
+    const targetId = location.hash ? location.hash.slice(1) : 'home';
+    showSection(targetId);
+  });
+
+  // Initial load
+  const initialTarget = location.hash ? location.hash.slice(1) : 'home';
+  showSection(initialTarget);
 });
