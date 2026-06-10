@@ -1232,6 +1232,10 @@ h3 {
   font-size: clamp(2rem, 4.2vw, 3.4rem);
 }
 
+#about-us p {
+  text-align: justify;
+}
+
 .publications-heading {
   font-size: clamp(1.9rem, 3.8vw, 3rem);
 }
