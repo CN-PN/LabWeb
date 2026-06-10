@@ -801,33 +801,20 @@ if (uniqueGrid) {
 
 const testimonialGrid = document.getElementById("testimonialGrid");
 if (testimonialGrid) {
-  // Render a left-side image slider instead of text points
+  // Render a left-side and right-side image slider
   testimonialGrid.innerHTML = `
     <div class="testimonial-slider" id="testimonialLeftCarouselContainer">
       ${researchCarousel(testimonialLeftSlides, "Patient highlights")}
     </div>
+    <div class="testimonial-slider" id="testimonialCarouselContainer">
+      ${researchCarousel(testimonialSlides, "Patient testimonial")}
+    </div>
   `;
 
-
-  // Ensure carousel images remain in place (right column)
+  // Hide the existing content container if it exists
   const contentContainer = document.getElementById("testimonialContentContainer");
   if (contentContainer) {
-    contentContainer.innerHTML = `
-      <div class="testimonial-slider" id="testimonialCarouselContainer">
-        ${researchCarousel(testimonialSlides, "Patient testimonial")}
-      </div>
-    `;
-  } else {
-    testimonialGrid.insertAdjacentHTML(
-      "afterend",
-      `
-        <div id="testimonialContentContainer" class="reveal">
-          <div class="testimonial-slider" id="testimonialCarouselContainer">
-            ${researchCarousel(testimonialSlides, "Patient testimonial")}
-          </div>
-        </div>
-      `
-    );
+    contentContainer.style.display = "none";
   }
 
 
@@ -928,17 +915,28 @@ if (aboutGrid) {
           </div>
         ` : '';
 
+        if (!sliderHtml) {
+          return `
+            <article class="research-panel reveal about-member-card">
+              <h3>🧠 ${linkNames(person.name, personLinks)}</h3>
+              <div class="publication-list">
+                <p>${person.text}</p>
+              </div>
+            </article>
+          `;
+        }
+
         return `
-        <article class="research-panel reveal intern-member-card">
-          <div class="intern-member-copy">
-            <h3>🧠 ${linkNames(person.name, personLinks)}</h3>
-            <div class="publication-list">
-              <p>${person.text}</p>
+          <article class="research-panel reveal intern-member-card has-image">
+            <div class="intern-member-copy">
+              <h3>🧠 ${linkNames(person.name, personLinks)}</h3>
+              <div class="publication-list">
+                <p>${person.text}</p>
+              </div>
             </div>
-          </div>
-          ${sliderHtml ? `<div class="intern-member-image">${sliderHtml}</div>` : ''}
-        </article>
-      `;
+            <div class="intern-member-image">${sliderHtml}</div>
+          </article>
+        `;
       }
     )
     .join("");
@@ -1455,6 +1453,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const updateHeaderOffset = () => {
     const headerHeight = siteHeader ? Math.ceil(siteHeader.getBoundingClientRect().height) : 0;
     document.documentElement.style.setProperty('--header-offset', `${headerHeight + 16}px`);
+    document.documentElement.style.setProperty('--header-offset', `${headerHeight}px`);
   };
 
   updateHeaderOffset();
