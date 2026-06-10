@@ -1452,7 +1452,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const updateHeaderOffset = () => {
     const headerHeight = siteHeader ? Math.ceil(siteHeader.getBoundingClientRect().height) : 0;
-    document.documentElement.style.setProperty('--header-offset', `${headerHeight + 16}px`);
     document.documentElement.style.setProperty('--header-offset', `${headerHeight}px`);
   };
 
@@ -1472,7 +1471,7 @@ document.addEventListener("DOMContentLoaded", () => {
       } else if (section.id === targetId) {
         section.classList.add('is-active');
         section.style.display = 'block';
-        section.style.paddingTop = 'calc(var(--header-offset, 112px) + 40px)';
+        section.style.paddingTop = 'var(--header-offset, 112px)';
         targetFound = true;
       } else {
         section.classList.remove('is-active');
