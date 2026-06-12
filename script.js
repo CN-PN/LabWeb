@@ -674,6 +674,30 @@ function initializeResearchCarousel(container) {
 
   // initial state
   show(0);
+
+  // Auto-slide functionality on visibility
+  const startAutoSlide = () => {
+    if (!container._carouselInterval) {
+      container._carouselInterval = setInterval(() => {
+        show(index + 1);
+      }, 3500);
+    }
+  };
+  const stopAutoSlide = () => {
+    if (container._carouselInterval) {
+      clearInterval(container._carouselInterval);
+      container._carouselInterval = null;
+    }
+  };
+
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => entry.isIntersecting ? startAutoSlide() : stopAutoSlide());
+    }, { threshold: 0.1 });
+    observer.observe(container);
+  } else {
+    startAutoSlide();
+  }
 }
 
 function publicationCard(item) {
@@ -1015,6 +1039,23 @@ if (aboutGrid) {
 
     prevButton?.addEventListener("click", () => showImage(currentIndex - 1));
     nextButton?.addEventListener("click", () => showImage(currentIndex + 1));
+
+    // Auto-slide
+    let piInterval = null;
+    const startPiSlide = () => {
+      if (!piInterval) piInterval = setInterval(() => showImage(currentIndex + 1), 3500);
+    };
+    const stopPiSlide = () => {
+      if (piInterval) { clearInterval(piInterval); piInterval = null; }
+    };
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => entry.isIntersecting ? startPiSlide() : stopPiSlide());
+      }, { threshold: 0.1 });
+      observer.observe(piSlider);
+    } else {
+      startPiSlide();
+    }
   }
 
   // Initialize Tanushree image slider - manual arrows only
@@ -1040,6 +1081,23 @@ if (aboutGrid) {
 
       prevButton?.addEventListener("click", () => showImage(currentIndex - 1));
       nextButton?.addEventListener("click", () => showImage(currentIndex + 1));
+
+      // Auto-slide
+      let tInterval = null;
+      const startTSlide = () => {
+        if (!tInterval) tInterval = setInterval(() => showImage(currentIndex + 1), 3500);
+      };
+      const stopTSlide = () => {
+        if (tInterval) { clearInterval(tInterval); tInterval = null; }
+      };
+      if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => entry.isIntersecting ? startTSlide() : stopTSlide());
+        }, { threshold: 0.1 });
+        observer.observe(slider);
+      } else {
+        startTSlide();
+      }
     }
   });
 }
@@ -1315,7 +1373,7 @@ if (collaborationContainer) {
   const dedupedTranslational = dedupe(translationalCollaborators);
 
   collaborationContainer.innerHTML = `
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; align-items: start;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 2rem; align-items: start;">
       <article class="research-panel reveal" style="align-self: start; justify-content: flex-start;">
         <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.5rem; justify-content: flex-start;">
           <span style="font-size: 2rem;">🌐</span>
@@ -1444,7 +1502,7 @@ contactForm?.addEventListener("submit", (event) => {
   });
 })();
 
-// Deferred section behavior: show only home, vision and unique on initial load
+// Dynamic Header Offset and SPA section toggling
 document.addEventListener("DOMContentLoaded", () => {
   const siteHeader = document.querySelector('.site-header');
   const allSections = document.querySelectorAll('main > .section');
@@ -1471,7 +1529,7 @@ document.addEventListener("DOMContentLoaded", () => {
       } else if (section.id === targetId) {
         section.classList.add('is-active');
         section.style.display = 'block';
-        section.style.paddingTop = 'var(--header-offset, 112px)';
+        section.style.paddingTop = 'calc(var(--header-offset, 74px) + 20px)';
         targetFound = true;
       } else {
         section.classList.remove('is-active');
