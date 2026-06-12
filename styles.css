@@ -143,27 +143,6 @@ h1, h2, h3, h4 {
   margin: 0 0 12px 0;
 }
 h2 { font-size: clamp(1.6rem, 3.6vw, 2.6rem); }
-
-/* Reduce size specifically for the vision section heading to improve layout */
-.vision-heading {
-  font-size: clamp(1.9rem, 4vw, 3.2rem);
-  line-height: 0.98;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  padding: 10px clamp(12px, 2vw, 22px);
-  max-width: 22ch;
-  width: min(100%, 22ch);
-  margin: 0 auto;
-  text-align: center;
-}
-
-.vision-heading-line {
-  display: block;
-  gap: 8px;
-  white-space: normal;
-}
 h3 { font-size: clamp(1.1rem, 2vw, 1.25rem); }
 
 /* Card polishing */
@@ -322,9 +301,6 @@ h3 { font-size: clamp(1.1rem, 2vw, 1.25rem); }
   transform: scaleX(0);
 }
 
-
-
-
 .site-nav a:hover {
   color: var(--primary);
 }
@@ -370,9 +346,6 @@ h3 { font-size: clamp(1.1rem, 2vw, 1.25rem); }
   align-items: center;
   gap: 1rem;
   min-height: clamp(280px, 34vw, 420px);
-}
-
-.start-branding {
   position: relative;
   justify-content: center;
   text-align: left;
@@ -1143,31 +1116,6 @@ h3 {
     radial-gradient(circle at 80% 10%, rgba(var(--cta-rgb), 0.08), transparent 24%);
 }
 
-#testimonialLeftCarouselContainer,
-#testimonialCarouselContainer {
-  align-self: stretch;
-}
-
-#testimonialLeftCarouselContainer .research-carousel,
-#testimonialCarouselContainer .research-carousel {
-  height: 100%;
-}
-
-#testimonialLeftCarouselContainer .carousel-frame,
-#testimonialCarouselContainer .carousel-frame {
-  height: min(420px, 52vw);
-  max-height: 520px;
-}
-
-#testimonialLeftCarouselContainer .carousel-image,
-#testimonialCarouselContainer .carousel-image {
-  width: 100%;
-  height: 100%;
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-}
-
 .section.alt::after {
   content: "";
   position: absolute;
@@ -1226,14 +1174,6 @@ h3 {
   width: 100%;
   margin: 0;
   letter-spacing: -0.03em;
-}
-
-.vision-heading-line {
-  display: block;
-  line-height: 0.9;
-  white-space: nowrap;
-  line-height: 1.1;
-  white-space: normal;
 }
 
 .vision-compact-list {
@@ -1340,7 +1280,7 @@ h3 {
   margin: 1.5rem auto 0 auto;
   line-height: 1.6;
   color: var(--text);
-  text-align: left;
+  text-align: justify;
 }
 
 .about-heading {
@@ -2461,17 +2401,6 @@ ul.publication-theme-bullets {
   margin-right: auto;
   padding: 1.5rem clamp(12px, 2vw, 24px) 0;
 }
-.video-grid {
-  display: grid;
-  /* Match the centered content width used by the sliders/header */
-  width: min(var(--max), calc(100% - 32px));
-  margin: 0 auto;
-  box-sizing: border-box;
-  padding: 0 clamp(12px, 3vw, 32px);
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px;
-}
-/* end video-grid */
 
 .vision-frame-head .vision-heading {
   margin-bottom: 0;
@@ -2812,11 +2741,6 @@ ul.publication-theme-bullets {
     line-height: 1.2;
     white-space: normal;
     text-align: center;
-  }
-
-  .vision-heading-line {
-    display: inline;
-    white-space: normal;
   }
 
   .vision-subtext {
