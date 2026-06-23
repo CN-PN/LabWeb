@@ -59,7 +59,7 @@ to add new items. Ensure all commas, braces, and double-quotes are kept.
 }
 
 6. PUBLICATION TEMPLATE:
-"Authors. Title. Journal. Year. DOI Link"
+"Number. Authors. Title. Journal. Year. DOI Link"
 =============================================================================
 */
 
@@ -348,7 +348,7 @@ function getCollaboratorLogoUrl(url, name) {
   )
     return "Lab/brand/NIMHANS.jpeg";
 
-  // Map NTU-affiliated collaborator to the provided NTU image
+  // Map NTU-affiliated collaborator(s) to the provided NTU image
   if (collaboratorName === "Dr. S H Annabel Chen") {
     return "Lab/brand/NTU.png";
   }
@@ -574,42 +574,7 @@ const publications = [
   },
 ];
 
-const conferenceAbstracts = [
-  {
-    year: "2024", items: [
-      { authors: "1. Chakraborty I, Kashyap R, Sreeraj VS, Arshad F, Yamini BK, Bharath RD, Sivakumar PT, Venkatasubramanian G, Alladi S, Oishi K, Desmond JE, Chen SHA, Sathyaprabha TN, Udupa K, Bhattacharjee S", title: "Comparison of conventional and HD-tDCS for neuropsychiatric disorders", conference: "Organization for Human Brain Mapping (OHBM) Annual Meeting", location: "Seoul, South Korea", type: "Oral Presentation", award: "ICMR Travel Fellowship" },
-    ]
-  },
-  {
-    year: "2021", items: [
-      { authors: "2. Bhattacharjee S, Kashyap R, O'Brien BA, Rapp B, Oishi K, Desmond JE, Chen SA", title: "Sex differences in simulated tDCS current across age groups mediated by cortical anatomy", conference: "Organization for Human Brain Mapping (OHBM) Annual Meeting", year_details: "2021", award: "Exceptional Abstract Award" },
-    ]
-  },
-  {
-    year: "2019", items: [
-      { authors: "3. Bhattacharjee S, Kashyap R, Chew A, Desmond JE, Chen SA", title: "Gender differences in the effect of transcranial direct current stimulation on reading", conference: "25th Annual Meeting of the Organization for Human Brain Mapping (OHBM)", location: "Rome, Italy" },
-      { authors: "4. Bhattacharjee S, Chew A, Kashyap R, Wu CY, Yeo M, O'Brien BA, Rapp B, McCloskey M, Oishi K, Desmond JE, Chen SA", title: "Could transcranial direct current stimulation modulate bilingual reading?", conference: "Brain Stimulation", pages: "12(2):569" },
-    ]
-  },
-  {
-    year: "2018", items: [
-      { authors: "5. Bhattacharjee S, Kashyap R, Desmond JE, Rapp B, Oishi K, Chen SA", title: "Systematic analysis of simulations for tDCS montages applied in reading", conference: "Organization for Human Brain Mapping (OHBM) Annual Meeting", location: "Singapore" },
-    ]
-  },
-  {
-    year: "2014", items: [
-      { authors: "6. Bhattacharjee IR, Shaptadvipa B, Bhattacharjee S, Kashyap R", title: "Understanding space life through principles of self-gravitation", conference: "65th International Astronautical Congress" },
-      { authors: "7. Bhattacharjee IR, Shaptadvipa B, Bhattacharjee S, Kashyap R", title: "Self-gravitation bio: Evidence supporting astrophysical principles in biological systems", conference: "18th International Biophysics Congress (IUPAB)", location: "Brisbane, Australia" },
-    ]
-  },
-  {
-    year: "2011", items: [
-      { authors: "8. Kashyap R, Bhattacharjee S, Bhattacharjee IR", title: "Finite element approach to self-gravitational bio in embryological systems", conference: "8th European Biophysics Congress", location: "Budapest, Hungary" },
-      { authors: "9. Bhattacharjee IR, Kashyap R, Bhattacharjee S", title: "Finite element modeling of self-gravitation bio and macromolecular crowding", conference: "17th International Biophysics Congress (IUPAB)" },
-      { authors: "10. Kashyap R, Bhattacharjee S, Bhattacharjee IR", title: "Mathematical modeling of embryogenesis based on self-gravitation bio", conference: "17th International Biophysics Congress (IUPAB)", location: "Beijing, China" },
-    ]
-  },
-];
+
 
 const treatmentVideos = [
   {
@@ -723,16 +688,7 @@ if (heroVideo && hero && heroEnd && heroRestart) {
   });
 }
 
-function card(title, text, extras = "", icon = "") {
-  return `
-    <article class="card reveal">
-      ${icon ? `<div class="icon">${icon}</div>` : ""}
-      <h3>${title}</h3>
-      <p>${text}</p>
-      ${extras}
-    </article>
-  `;
-}
+
 
 function researchCard(item) {
   return `
