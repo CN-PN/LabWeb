@@ -32,12 +32,12 @@ const research = [
   {
     title: "Brain-Body Networks for Precision Therapy",
     slides: [
-      { src: "Lab/5.png", alt: "Slide 5", caption: "Slide 5" },
-      { src: "Lab/6.png", alt: "Slide 6", caption: "Slide 6" },
-      { src: "Lab/7.png", alt: "Slide 7", caption: "Slide 7" },
-      { src: "Lab/8.png", alt: "Slide 8", caption: "Slide 8" },
-      { src: "Lab/9.png", alt: "Slide 9", caption: "Slide 9" },
-      { src: "Lab/10.png", alt: "Slide 10", caption: "Slide 10" },
+      { src: "Lab/research_themes/theme1_slide1.png", alt: "Slide 5", caption: "Slide 5" },
+      { src: "Lab/research_themes/theme1_slide2.png", alt: "Slide 6", caption: "Slide 6" },
+      { src: "Lab/research_themes/theme1_slide3.png", alt: "Slide 7", caption: "Slide 7" },
+      { src: "Lab/research_themes/theme1_slide4.png", alt: "Slide 8", caption: "Slide 8" },
+      { src: "Lab/research_themes/theme1_slide5.png", alt: "Slide 9", caption: "Slide 9" },
+      { src: "Lab/research_themes/theme1_slide6.png", alt: "Slide 10", caption: "Slide 10" },
     ],
     text: "Neurological and psychiatric disorders arise from dysfunction in distributed brain–body networks. Our research focuses on identifying which brain–body interactions have broken down. We do this by integrating multimodal neurophysiological and cardiovascular data- (EEG/MEG, MRI, ECG, EGG, heart rate variability, autonomic markers) with behavioral and clinical measures. The disrupted network demand precision targeting and personalized neuromodulation strategies for reverting to normal working state. We have seen this in several brain disorders and some of our works are highlighted below.",
     tags: ["EEG/MEG", "MRI", "ECG", "HRV", "Autonomic markers"],
@@ -59,18 +59,18 @@ const research = [
   {
     title: "Adaptive & Personalised Neuromodulation Strategies",
     slides: [
-      { src: "Lab/58.jpeg", alt: "Slide 58", caption: "Slide 58" },
-      { src: "Lab/21.png", alt: "Slide 21", caption: "Slide 21" },
-      { src: "Lab/22.png", alt: "Slide 22", caption: "Slide 22" },
-      { src: "Lab/23.png", alt: "Slide 23", caption: "Slide 23" },
-      { src: "Lab/24.png", alt: "Slide 24", caption: "Slide 24" },
-      { src: "Lab/25.png", alt: "Slide 25", caption: "Slide 25" },
-      { src: "Lab/26.png", alt: "Slide 26", caption: "Slide 26" },
-      { src: "Lab/27.png", alt: "Slide 27", caption: "Slide 27" },
-      { src: "Lab/28.png", alt: "Slide 28", caption: "Slide 28" },
-      { src: "Lab/29.png", alt: "Slide 29", caption: "Slide 29" },
-      { src: "Lab/30.png", alt: "Slide 30", caption: "Slide 30" },
-      { src: "Lab/31.png", alt: "Slide 31", caption: "Slide 31" },
+      { src: "Lab/research_themes/theme2_slide1.jpeg", alt: "Slide 58", caption: "Slide 58" },
+      { src: "Lab/research_themes/theme2_slide2.png", alt: "Slide 21", caption: "Slide 21" },
+      { src: "Lab/research_themes/theme2_slide3.png", alt: "Slide 22", caption: "Slide 22" },
+      { src: "Lab/research_themes/theme2_slide4.png", alt: "Slide 23", caption: "Slide 23" },
+      { src: "Lab/research_themes/theme2_slide5.png", alt: "Slide 24", caption: "Slide 24" },
+      { src: "Lab/research_themes/theme2_slide6.png", alt: "Slide 25", caption: "Slide 25" },
+      { src: "Lab/research_themes/theme2_slide7.png", alt: "Slide 26", caption: "Slide 26" },
+      { src: "Lab/research_themes/theme2_slide8.png", alt: "Slide 27", caption: "Slide 27" },
+      { src: "Lab/research_themes/theme2_slide9.png", alt: "Slide 28", caption: "Slide 28" },
+      { src: "Lab/research_themes/theme2_slide10.png", alt: "Slide 29", caption: "Slide 29" },
+      { src: "Lab/research_themes/theme2_slide11.png", alt: "Slide 30", caption: "Slide 30" },
+      { src: "Lab/research_themes/theme2_slide12.png", alt: "Slide 31", caption: "Slide 31" },
     ],
     text: "We are working towards designing personalized, physiology-guided neuromodulation interventions that dynamically adapt to an individual's brain–body state. By integrating real-time physiological signals—including EEG, ECG, and behavioral data—with AI-driven algorithms, we develop closed-loop systems that optimize stimulation targets, duration, intensity and kind of stimulation (either TMS, or tDCS or taVNS) to be delivered to a patient. Our goal is to deliver state-dependent, patient-specific therapies that enhance efficacy, reduce variability in response, and minimize side effects, enabling precision in neuromodulation required in clinical practice.",
     tags: ["TMS", "tDCS", "tACS", "taVNS"],
@@ -86,13 +86,13 @@ const research = [
   {
     title: "Clinical Trials and Technology Innovation",
     slides: [
-      { src: "Lab/57.jpeg", alt: "Slide 57", caption: "Slide 57" },
-      { src: "Lab/32.png", alt: "Slide 32", caption: "Slide 32" },
-      { src: "Lab/33.png", alt: "Slide 33", caption: "Slide 33" },
-      { src: "Lab/34.png", alt: "Slide 34", caption: "Slide 34" },
-      { src: "Lab/35.png", alt: "Slide 35", caption: "Slide 35" },
-      { src: "Lab/36.png", alt: "Slide 36", caption: "Slide 36" },
-      { src: "Lab/37.png", alt: "Slide 37", caption: "Slide 37" },
+      { src: "Lab/research_themes/theme3_slide1.jpeg", alt: "Slide 57", caption: "Slide 57" },
+      { src: "Lab/research_themes/theme3_slide2.png", alt: "Slide 32", caption: "Slide 32" },
+      { src: "Lab/research_themes/theme3_slide3.png", alt: "Slide 33", caption: "Slide 33" },
+      { src: "Lab/research_themes/theme3_slide4.png", alt: "Slide 34", caption: "Slide 34" },
+      { src: "Lab/research_themes/theme3_slide5.png", alt: "Slide 35", caption: "Slide 35" },
+      { src: "Lab/research_themes/theme3_slide6.png", alt: "Slide 36", caption: "Slide 36" },
+      { src: "Lab/research_themes/theme3_slide7.png", alt: "Slide 37", caption: "Slide 37" },
     ],
     text: "We work in close collaboration with engineers, scientists, clinical psychologists, speech language therapists, neurologists, and psychiatrists to focus on translating advances in neuromodulation into clinically effective, scalable, and precision-guided therapies through rigorous clinical trials and development of advanced neuromodulation technologies. We conduct early-phase and controlled clinical trials to evaluate safety, efficacy, and optimization of interventions across neurological, psychiatric, and neurocardiac disorders. We collaborate closely with experts from AI Lab for Brain Network Therapeutics to develop toolboxes for transcranial electric stimulation (TES) that can personalise the neuromodulation based on the anatomy of an individuals brain. These Systematic approach for TES analysis (SATA) toolboxes are widely downloaded (> 2000 times) and used by the community.",
     toolboxes: [
@@ -147,7 +147,7 @@ const bioInterests = [
   ["Dance", "A celebration of rhythm and movement, bringing both energy and stillness into balance."],
   ["Cooking", "A creative and nurturing process blending flavors, memories, and cultures into meaningful experiences."],
   ["Reading & Inner Exploration", "A natural inclination toward reflection and inquiry draws her inward—to explore consciousness, self, and meaning. Inspired by her father and grandfather, she engages with decoding ancient Sanskrit scriptures and contemporary thought. This inward journey is deepened by her father-in-law's perspective of viewing gravitational force as an analogy for the unseen forces shaping human experience—bridging science with inner awareness."],
-  ["Traveling", "Mirroring this inward quest, travel unfolds as an outward journey into the world. Through places, people, food and cultures, it expands understanding, offering lived experiences that complement inner reflection."],
+  ["Traveling", "Mirroring this inward quest, travelling as inspired by her spouse, unfolds as an outward journey into the world. Through places, people, food and cultures, it expands understanding, offering lived experiences that complement inner reflection."],
 ];
 
 const fellows = [
@@ -164,7 +164,7 @@ const fellows = [
       ["Github", "https://github.com/TanushreeLogukavi"],
       ["Website", "https://tanushreelogukavi.github.io"]
     ],
-    images: ["Lab/31.jpg", "Lab/32.jpg", "Lab/33.jpg", "Lab/34.jpg"],
+    images: ["Lab/rf_tanushree/tanushree1.jpg", "Lab/rf_tanushree/tanushree2.jpg", "Lab/rf_tanushree/tanushree3.jpg", "Lab/rf_tanushree/tanushree4.jpg"],
     interests: [
       ["Outdoor Enthusiast 🌄", "Loves travelling, volunteering, trekking, and cycling (with a personal record of 55km, currently working toward 100km)."],
       ["Sports 🏸", "An active sportsperson enjoying Badminton and Cricket (as a spinner)."],
@@ -186,7 +186,7 @@ const interns = [
   {
     name: "Varsha Shree",
     text: "Varsha Shree Gandhimathinathan is a neuroscience researcher whose interest in psychological disorders and behaviour led her to pursue a bachelor's degree in Psychology at PSG College of Arts and Science. She completed an MSc in Cognitive Science at Indian Institute of Technology Gandhinagar to better understand brain and cognitive processes. During this time, she interned in the lab in the Department of Neurophysiology, where she learnt about neuromodulation and worked on a pilot study examining personalised tDCS dosage and its effects on reading performance alongside TMS measures. Her master's thesis with Prof. Leslee Lazar explored how short-term tool use influences body representations. She is currently working as a Project Associate in the Department of Psychiatry at NIMHANS.",
-    images: ["Lab/Photo.JPG"],
+    images: ["Lab/intern_members/varsha.jpg"],
   },
   {
     name: "Anoushka",
@@ -196,17 +196,17 @@ const interns = [
 
 const coreCollaborators = [
   ["Dr. Rajan Kashyap", "Computational neuroscience and AI-driven brain modelling", "https://ai-lab4bnt.github.io/LabWeb/index.html"],
-  ["Dr. S H Annabel Chen", "Cognitive and clinical neuroscience, brain-behavior relationships | Nanyang Technological University", "https://www.ntu.edu.sg/medicine/about-us/faculty/annabel-chen"],
-  ["Dr. John E. Desmond", "Neuroimaging and cerebellar neuroscience | Johns Hopkins University", "https://pure.johnshopkins.edu/en/persons/john-desmond"],
+  ["Dr. S H Annabel Chen", "Cognitive and clinical neuroscience, brain-behavior relationships | Nanyang Technological University", "https://www.clinicalbrain.org/author/annabel-chen/"],
+  ["Dr. John E. Desmond", "Neuroimaging and cerebellar neuroscience | Johns Hopkins University", "https://nimlab.johnshopkins.edu/Members/JohnDesmond.html"],
   ["Dr. Brenda Rapp", "Cognitive neuroscience and language processing | Johns Hopkins University", "https://cogsci.jhu.edu/directory/brenda-rapp/"],
-  ["Dr. Kenichi Oishi", "Advanced neuroimaging and brain connectivity analysis | Johns Hopkins University", "https://www.hopkinsmedicine.org/profiles/details/kenichi-oishi"],
-  ["Dr. Shahid Bashir", "Brain stimulation, neuroplasticity, and clinical neuromodulation | Saudi Arabia", "https://www.psu.edu.sa/en/staff/shbashir"],
+  ["Dr. Kenichi Oishi", "Advanced neuroimaging and brain connectivity analysis | Johns Hopkins University", "https://ventures.jhu.edu/wp-content/uploads/2025/05/BIO-2025-Kenichi-Oishi.pdf"],
+  ["Dr. Shahid Bashir", "Brain stimulation, neuroplasticity, and clinical neuromodulation | Saudi Arabia", "https://bio.site/shahidbashir"],
 ];
 
 const translationalCollaborators = [
-  ["Dr. Palanimuthu T. Sivakumar", "Clinical psychiatry and neuromodulation trials | NIMHANS", "https://nimhans.ac.in/doctor/dr-p-sivakumar/"],
-  ["Dr. Ganesan Venkatasubramanian", "Translational psychiatry and brain stimulation research | NIMHANS", "https://nimhans.ac.in/doctor/dr-ganesan-venkatasubramanian/"],
-  ["Dr. Kaviraja Udupa", "Department of Neurophysiology | NIMHANS", "https://nimhans.ac.in/doctor/dr-p-sivakumar/"],
+  ["Dr. Palanimuthu T. Sivakumar", "Clinical psychiatry and neuromodulation trials | NIMHANS", "https://www.ipa-online.org/about/board-of-directors/sivakumar-palanimuthu-thangaraju"],
+  ["Dr. Ganesan Venkatasubramanian", "Translational psychiatry and brain stimulation research | NIMHANS", "https://www.transpsychlab.org/venkatasubramanian"],
+  ["Dr. Kaviraja Udupa", "Department of Neurophysiology | NIMHANS", "https://sites.google.com/view/drkavirajaudupasresearchsite/home?authuser=0"],
 ];
 
 function getCollaboratorLogoUrl(url, name) {
@@ -214,14 +214,15 @@ function getCollaboratorLogoUrl(url, name) {
   const collaboratorName = String(name || "");
 
   // Explicit local mappings for known collaborators
-  if (collaboratorName === "Dr. Rajan Kashyap") return "Lab/AI4BNT.png";
+  if (collaboratorName === "Dr. Rajan Kashyap") return "Lab/brand/AI4BNT.png";
+  if (collaboratorName === "Dr. Shahid Bashir") return "Lab/brand/SA.jpeg";
 
   if (
     collaboratorName === "Dr. John E. Desmond" ||
     collaboratorName === "Dr. Brenda Rapp" ||
     collaboratorName === "Dr. Kenichi Oishi"
   )
-    return "Lab/jhu-logo.png";
+    return "Lab/brand/jhu-logo.png";
 
   // Prefer the local NIMHANS jpeg provided by the user
   if (
@@ -229,7 +230,7 @@ function getCollaboratorLogoUrl(url, name) {
     collaboratorName === "Dr. Ganesan Venkatasubramanian" ||
     collaboratorName === "Dr. Kaviraja Udupa"
   )
-    return "Lab/NIMHANS.jpeg";
+    return "Lab/brand/NIMHANS.jpeg";
 
   // Map NTU-affiliated collaborator(s) to the provided NTU image
   if (
@@ -238,21 +239,21 @@ function getCollaboratorLogoUrl(url, name) {
     collaboratorName === "Chen SHA" ||
     collaboratorName === "Chen, S. A."
   )
-    return "Lab/NTU.png";
+    return "Lab/brand/NTU.png";
 
   // Also check hostname hints and prefer local assets when possible
   try {
     const parsedUrl = new URL(sourceUrl);
     const host = parsedUrl.hostname.replace(/^www\./, "");
-    if (host.includes("nimhans")) return "Lab/NIMHANS.jpeg";
-    if (host.includes("johns") || host.includes("hopkins") || host.includes("johnshopkins")) return "Lab/jhu-logo.png";
-    if (host.includes("psu") || host.includes("saudi") || host.endsWith(".sa")) return "Lab/SA.jpeg";
+    if (host.includes("nimhans")) return "Lab/brand/NIMHANS.jpeg";
+    if (host.includes("johns") || host.includes("hopkins") || host.includes("johnshopkins")) return "Lab/brand/jhu-logo.png";
+    if (host.includes("psu") || host.includes("saudi") || host.endsWith(".sa")) return "Lab/brand/SA.jpeg";
   } catch (error) {
     // ignore parsing errors and fall through to fallback
   }
 
   // Final fallback: use the project's generic logo
-  return "Lab/logo.png";
+  return "Lab/brand/logo.png";
 }
 
 function getCollaboratorInitials(name) {
@@ -283,31 +284,31 @@ const personLinks = [
   ["Bhattacharjee S.", "#biopic"],
   ["Kashyap, R.", "https://ai-lab4bnt.github.io/LabWeb/index.html"],
   ["Kashyap R.", "https://ai-lab4bnt.github.io/LabWeb/index.html"],
-  ["S. H. Annabel Chen", "https://www.ntu.edu.sg/medicine/about-us/faculty/annabel-chen"],
-  ["Annabel Chen, S. H.", "https://www.ntu.edu.sg/medicine/about-us/faculty/annabel-chen"],
-  ["Chen SHA", "https://www.ntu.edu.sg/medicine/about-us/faculty/annabel-chen"],
-  ["Chen, S. A.", "https://www.ntu.edu.sg/medicine/about-us/faculty/annabel-chen"],
-  ["John E. Desmond", "https://pure.johnshopkins.edu/en/persons/john-desmond"],
-  ["Desmond, J. E.", "https://pure.johnshopkins.edu/en/persons/john-desmond"],
-  ["Desmond JE", "https://pure.johnshopkins.edu/en/persons/john-desmond"],
+  ["S. H. Annabel Chen", "https://www.clinicalbrain.org/author/annabel-chen/"],
+  ["Annabel Chen, S. H.", "https://www.clinicalbrain.org/author/annabel-chen/"],
+  ["Chen SHA", "https://www.clinicalbrain.org/author/annabel-chen/"],
+  ["Chen, S. A.", "https://www.clinicalbrain.org/author/annabel-chen/"],
+  ["John E. Desmond", "https://nimlab.johnshopkins.edu/Members/JohnDesmond.html"],
+  ["Desmond, J. E.", "https://nimlab.johnshopkins.edu/Members/JohnDesmond.html"],
+  ["Desmond JE", "https://nimlab.johnshopkins.edu/Members/JohnDesmond.html"],
   ["Brenda Rapp", "https://cogsci.jhu.edu/directory/brenda-rapp/"],
   ["Rapp, B.", "https://cogsci.jhu.edu/directory/brenda-rapp/"],
   ["Rapp B", "https://cogsci.jhu.edu/directory/brenda-rapp/"],
-  ["Kenichi Oishi", "https://www.hopkinsmedicine.org/profiles/details/kenichi-oishi"],
-  ["Oishi, K.", "https://www.hopkinsmedicine.org/profiles/details/kenichi-oishi"],
-  ["Oishi K", "https://www.hopkinsmedicine.org/profiles/details/kenichi-oishi"],
-  ["Shahid Bashir", "https://www.psu.edu.sa/en/staff/shbashir"],
-  ["Bashir, S.", "https://www.psu.edu.sa/en/staff/shbashir"],
-  ["Bashir S", "https://www.psu.edu.sa/en/staff/shbashir"],
-  ["Palanimuthu T. Sivakumar", "https://nimhans.ac.in/doctor/dr-p-sivakumar/"],
-  ["Sivakumar, P. T.", "https://nimhans.ac.in/doctor/dr-p-sivakumar/"],
-  ["Sivakumar PT", "https://nimhans.ac.in/doctor/dr-p-sivakumar/"],
-  ["Ganesan Venkatasubramanian", "https://nimhans.ac.in/doctor/dr-ganesan-venkatasubramanian/"],
-  ["Venkatasubramanian, G.", "https://nimhans.ac.in/doctor/dr-ganesan-venkatasubramanian/"],
-  ["Venkatasubramanian G", "https://nimhans.ac.in/doctor/dr-ganesan-venkatasubramanian/"],
-  ["Kaviraja Udupa", "https://nimhans.ac.in/doctor/dr-p-sivakumar/"],
-  ["Udupa, K.", "https://nimhans.ac.in/doctor/dr-p-sivakumar/"],
-  ["Udupa K", "https://nimhans.ac.in/doctor/dr-p-sivakumar/"],
+  ["Kenichi Oishi", "https://ventures.jhu.edu/wp-content/uploads/2025/05/BIO-2025-Kenichi-Oishi.pdf"],
+  ["Oishi, K.", "https://ventures.jhu.edu/wp-content/uploads/2025/05/BIO-2025-Kenichi-Oishi.pdf"],
+  ["Oishi K", "https://ventures.jhu.edu/wp-content/uploads/2025/05/BIO-2025-Kenichi-Oishi.pdf"],
+  ["Shahid Bashir", "https://bio.site/shahidbashir"],
+  ["Bashir, S.", "https://bio.site/shahidbashir"],
+  ["Bashir S", "https://bio.site/shahidbashir"],
+  ["Palanimuthu T. Sivakumar", "https://www.ipa-online.org/about/board-of-directors/sivakumar-palanimuthu-thangaraju"],
+  ["Sivakumar, P. T.", "https://www.ipa-online.org/about/board-of-directors/sivakumar-palanimuthu-thangaraju"],
+  ["Sivakumar PT", "https://www.ipa-online.org/about/board-of-directors/sivakumar-palanimuthu-thangaraju"],
+  ["Ganesan Venkatasubramanian", "https://www.transpsychlab.org/venkatasubramanian"],
+  ["Venkatasubramanian, G.", "https://www.transpsychlab.org/venkatasubramanian"],
+  ["Venkatasubramanian G", "https://www.transpsychlab.org/venkatasubramanian"],
+  ["Kaviraja Udupa", "https://sites.google.com/view/drkavirajaudupasresearchsite/home?authuser=0"],
+  ["Udupa, K.", "https://sites.google.com/view/drkavirajaudupasresearchsite/home?authuser=0"],
+  ["Udupa K", "https://sites.google.com/view/drkavirajaudupasresearchsite/home?authuser=0"],
 ];
 
 function linkNames(text, replacements) {
@@ -354,32 +355,32 @@ const career = [
 ];
 
 const testimonialSlides = [
-  "Lab/9.jpeg",
-  "Lab/1.jpg",
-  "Lab/2.jpg",
-  "Lab/3.jpg",
-  "Lab/4.jpg",
-  "Lab/5.jpg",
-  "Lab/6.jpeg",
-  "Lab/7.jpeg",
-  "Lab/8.jpeg",
-  "Lab/10.jpeg",
+  "Lab/testimonials/testimonial_slide1.jpeg",
+  "Lab/testimonials/testimonial_slide2.jpg",
+  "Lab/testimonials/testimonial_slide3.jpg",
+  "Lab/testimonials/testimonial_slide4.jpg",
+  "Lab/testimonials/testimonial_slide5.jpg",
+  "Lab/testimonials/testimonial_slide6.jpg",
+  "Lab/testimonials/testimonial_slide7.jpeg",
+  "Lab/testimonials/testimonial_slide8.jpeg",
+  "Lab/testimonials/testimonial_slide9.jpeg",
+  "Lab/testimonials/testimonial_slide10.jpeg",
 ].map((src) => ({ src }));
 
 const testimonialLeftSlides = [
-  "Lab/22.jpg",
-  "Lab/21.jpg",
-  "Lab/23.jpg",
-  "Lab/24.jpg",
-  "Lab/25.jpg",
+  "Lab/testimonials/highlight_slide1.jpg",
+  "Lab/testimonials/highlight_slide2.jpg",
+  "Lab/testimonials/highlight_slide3.jpg",
+  "Lab/testimonials/highlight_slide4.jpg",
+  "Lab/testimonials/highlight_slide5.jpg",
 ].map((src) => ({ src }));
 
 const startLabSlides = [
-  "Lab/41.jpeg",
-  "Lab/48.jpeg",
-  "Lab/49.jpeg",
-  "Lab/45.jpeg",
-  "Lab/46.jpeg"
+  "Lab/showcase/showcase_slide1.jpeg",
+  "Lab/showcase/showcase_slide2.jpeg",
+  "Lab/showcase/showcase_slide3.jpeg",
+  "Lab/showcase/showcase_slide4.jpeg",
+  "Lab/showcase/showcase_slide5.jpeg"
   
   
 ].map((src) => ({ src }));
@@ -865,7 +866,7 @@ if (aboutGrid) {
     Dance: "💃",
     Cooking: "🍳",
     "Reading & Inner Exploration": "📚",
-    Traveling: "✈",
+    Traveling: "✈️",
   };
 
   const fellowCards = fellows
@@ -968,12 +969,12 @@ if (aboutGrid) {
   const piSliderHtml = `
     <div class="pi-slider-wrapper" aria-label="PI image slider" style="display: flex; flex-direction: column; gap: 1rem;">
       <div class="pi-slider" style="position: relative; width: 100%; aspect-ratio: 4/3; overflow: hidden; border-radius: 8px; background: #f5f5f5;">
-        <img src="Lab/56.jpeg" alt="PI image 56" class="pi-slider-image active" style="width: 100%; height: 100%; display: block; object-fit: contain; transition: opacity 0.5s ease;">
-        <img src="Lab/51.jpeg" alt="PI image 51" class="pi-slider-image" style="width: 100%; height: 100%; display: none; object-fit: contain; transition: opacity 0.5s ease; position: absolute; top: 0; left: 0;">
-        <img src="Lab/52.jpeg" alt="PI image 52" class="pi-slider-image" style="width: 100%; height: 100%; display: none; object-fit: contain; transition: opacity 0.5s ease; position: absolute; top: 0; left: 0;">
-        <img src="Lab/53.jpeg" alt="PI image 53" class="pi-slider-image" style="width: 100%; height: 100%; display: none; object-fit: contain; transition: opacity 0.5s ease; position: absolute; top: 0; left: 0;">
-        <img src="Lab/54.jpeg" alt="PI image 54" class="pi-slider-image" style="width: 100%; height: 100%; display: none; object-fit: contain; transition: opacity 0.5s ease; position: absolute; top: 0; left: 0;">
-        <img src="Lab/55.jpeg" alt="PI image 55" class="pi-slider-image" style="width: 100%; height: 100%; display: none; object-fit: contain; transition: opacity 0.5s ease; position: absolute; top: 0; left: 0;">
+        <img src="Lab/pi_sagarika/sagarika1.jpeg" alt="PI image 56" class="pi-slider-image active" style="width: 100%; height: 100%; display: block; object-fit: contain; transition: opacity 0.5s ease;">
+        <img src="Lab/pi_sagarika/sagarika2.jpeg" alt="PI image 51" class="pi-slider-image" style="width: 100%; height: 100%; display: none; object-fit: contain; transition: opacity 0.5s ease; position: absolute; top: 0; left: 0;">
+        <img src="Lab/pi_sagarika/sagarika3.jpeg" alt="PI image 52" class="pi-slider-image" style="width: 100%; height: 100%; display: none; object-fit: contain; transition: opacity 0.5s ease; position: absolute; top: 0; left: 0;">
+        <img src="Lab/pi_sagarika/sagarika4.jpeg" alt="PI image 53" class="pi-slider-image" style="width: 100%; height: 100%; display: none; object-fit: contain; transition: opacity 0.5s ease; position: absolute; top: 0; left: 0;">
+        <img src="Lab/pi_sagarika/sagarika5.jpeg" alt="PI image 54" class="pi-slider-image" style="width: 100%; height: 100%; display: none; object-fit: contain; transition: opacity 0.5s ease; position: absolute; top: 0; left: 0;">
+        <img src="Lab/pi_sagarika/sagarika6.jpeg" alt="PI image 55" class="pi-slider-image" style="width: 100%; height: 100%; display: none; object-fit: contain; transition: opacity 0.5s ease; position: absolute; top: 0; left: 0;">
         <button type="button" class="pi-slider-prev" aria-label="Previous PI image" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); z-index: 2; border: 0; border-radius: 999px; width: 36px; height: 36px; background: rgba(0, 0, 0, 0.45); color: #fff; cursor: pointer;">‹</button>
         <button type="button" class="pi-slider-next" aria-label="Next PI image" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); z-index: 2; border: 0; border-radius: 999px; width: 36px; height: 36px; background: rgba(0, 0, 0, 0.45); color: #fff; cursor: pointer;">›</button>
       </div>

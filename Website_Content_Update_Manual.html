@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CNPN Lab Website Content Update Manual</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1f5978;
+      --primary-light: #eef7fc;
+      --text: #333333;
+      --text-muted: #666666;
+      --bg: #ffffff;
+      --bg-alt: #f8fafc;
+      --border: #e2e8f0;
+      --sidebar-width: 280px;
+      --code-bg: #1e1e1e;
+      --code-text: #d4d4d4;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: var(--text);
+      background-color: var(--bg);
+      line-height: 1.6;
+    }
+
+    .container {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* Sidebar Navigation */
+    .sidebar {
+      width: var(--sidebar-width);
+      background-color: var(--bg-alt);
+      border-right: 1px solid var(--border);
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      padding: 2rem 1.5rem;
+      overflow-y: auto;
+    }
+
+    .sidebar-brand {
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--primary);
+      margin-bottom: 2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .nav-list {
+      list-style: none;
+    }
+
+    .nav-item {
+      margin-bottom: 0.5rem;
+    }
+
+    .nav-link {
+      display: block;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      padding: 0.5rem 0.75rem;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--primary);
+      background-color: var(--primary-light);
+    }
+
+    .nav-sublist {
+      list-style: none;
+      margin-left: 1rem;
+      margin-top: 0.25rem;
+    }
+
+    .nav-sublink {
+      font-size: 0.85rem;
+      padding: 0.35rem 0.75rem;
+    }
+
+    /* Main Content Area */
+    .content-area {
+      margin-left: var(--sidebar-width);
+      flex: 1;
+      padding: 3rem 4rem;
+      max-width: 1000px;
+    }
+
+    header {
+      margin-bottom: 3rem;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 2rem;
+    }
+
+    h1 {
+      font-size: 2.25rem;
+      color: var(--primary);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+    }
+
+    h3 {
+      font-size: 1.2rem;
+      color: var(--primary);
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      text-align: justify;
+    }
+
+    ul, ol {
+      margin-bottom: 1.25rem;
+      padding-left: 1.5rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Code styling */
+    code {
+      font-family: 'JetBrains Mono', Consolas, monospace;
+      font-size: 0.9em;
+      background-color: var(--bg-alt);
+      color: #c7254e;
+      padding: 0.15rem 0.35rem;
+      border-radius: 4px;
+    }
+
+    pre {
+      font-family: 'JetBrains Mono', Consolas, monospace;
+      font-size: 0.9rem;
+      background-color: var(--code-bg);
+      color: var(--code-text);
+      padding: 1.25rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin-bottom: 1.5rem;
+      border: 1px solid #2d2d2d;
+    }
+
+    pre code {
+      background-color: transparent;
+      color: inherit;
+      padding: 0;
+      border-radius: 0;
+    }
+
+    /* Images */
+    .screenshot-container {
+      margin: 1.5rem 0;
+      text-align: center;
+      background-color: var(--bg-alt);
+      padding: 1rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    .screenshot {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .caption {
+      margin-top: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    /* Info Box */
+    .info-box {
+      background-color: var(--primary-light);
+      border-left: 4px solid var(--primary);
+      padding: 1rem 1.25rem;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 1.5rem;
+    }
+
+    .info-box p {
+      margin-bottom: 0;
+      color: var(--primary);
+      font-weight: 500;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .container {
+        flex-direction: column;
+      }
+      .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        padding: 1.5rem;
+      }
+      .content-area {
+        margin-left: 0;
+        padding: 2rem 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <div class="sidebar-brand">CNPN Lab Manual</div>
+      <nav>
+        <ul class="nav-list">
+          <li class="nav-item"><a href="#introduction" class="nav-link">1. Introduction</a></li>
+          <li class="nav-item"><a href="#rules" class="nav-link">2. General Rules</a></li>
+          <li class="nav-item">
+            <a href="#setup" class="nav-link">3. Tool Setup & Downloads</a>
+            <ul class="nav-sublist">
+              <li><a href="#setup-download" class="nav-link nav-sublink">3.1 Downloading Repo</a></li>
+              <li><a href="#setup-install" class="nav-link nav-sublink">3.2 Installing VS Code</a></li>
+              <li><a href="#setup-open" class="nav-link nav-sublink">3.3 Opening Project</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#editing" class="nav-link">4. Content Editing</a>
+            <ul class="nav-sublist">
+              <li><a href="#editing-collaborators" class="nav-link nav-sublink">4.1 Collaborators</a></li>
+              <li><a href="#editing-people" class="nav-link nav-sublink">4.2 People profiles</a></li>
+              <li><a href="#editing-themes" class="nav-link nav-sublink">4.3 Research Themes</a></li>
+              <li><a href="#editing-recognitions" class="nav-link nav-sublink">4.4 Recognitions</a></li>
+              <li><a href="#editing-publications" class="nav-link nav-sublink">4.5 Publications</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a href="#testing" class="nav-link">5. Local Testing</a></li>
+          <li class="nav-item">
+            <a href="#publishing" class="nav-link">6. Uploading to GitHub</a>
+            <ul class="nav-sublist">
+              <li><a href="#pub-web" class="nav-link nav-sublink">Method A: Web Drag & Drop</a></li>
+              <li><a href="#pub-cmd" class="nav-link nav-sublink">Method B: Command Terminal</a></li>
+              <li><a href="#pub-gui" class="nav-link nav-sublink">Method C: VS Code GUI</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#assets" class="nav-link">7. Managing Images & Sliders</a>
+            <ul class="nav-sublist">
+              <li><a href="#assets-dirs" class="nav-link nav-sublink">7.1 Reorganized Subfolders</a></li>
+              <li><a href="#assets-sliders" class="nav-link nav-sublink">7.2 Updating Image Sliders</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="content-area">
+      <header>
+        <h1>CNPN LAB WEBSITE CONTENT UPDATE MANUAL</h1>
+        <div class="subtitle">A Non-Coder's Guide to Editing and Maintaining the Lab Website</div>
+      </header>
+
+      <section id="introduction">
+        <h2>1. Introduction</h2>
+        <p>This user manual provides step-by-step instructions for non-programmers to update the content of the Clinical Neurophysiology & Precision Neuromodulation Lab (CNPN Lab) website. The site is designed so that all content (text, research themes, people profiles, recognition, and publications) is stored in a structured format at the top of a single JavaScript file named <code>script.js</code>. You do not need to edit any complex HTML or CSS layouts. By following this guide, you will be able to make changes and add new items easily.</p>
+      </section>
+
+      <section id="rules">
+        <h2>2. General Rules for Non-Coders</h2>
+        <p>When editing content, you are writing text inside JavaScript arrays or objects. JavaScript requires strict grammar rules. Breaking these rules will cause the website to display a blank page or stop functioning. Please follow these precautions:</p>
+        <ul>
+          <li><strong>Always Make a Backup:</strong> Before making any changes to <code>script.js</code>, copy it and save it as <code>script_backup.js</code> in a separate folder. If something goes wrong, copy-paste your backup file back to restore the site.</li>
+          <li><strong>Double Quotes:</strong> All text must be wrapped inside double quotation marks. E.g., <code>"My research text"</code>. If your text contains a quotation, use single quotes inside double quotes, e.g., <code>"The target is 'personalized' neuromodulation."</code></li>
+          <li><strong>Commas are Crucial:</strong> Every item in a list must be separated by a comma. Missing or extra commas are the most common source of page load issues. E.g., <code>[item1, item2, item3]</code>.</li>
+          <li><strong>Brackets and Braces must Match:</strong> Ensure that every opening bracket <code>[</code> or curly brace <code>{</code> has a corresponding closing bracket <code>]</code> or curly brace <code>}</code>.</li>
+          <li><strong>Use a Good Text Editor:</strong> Do NOT use Microsoft Word or basic Notepad to edit code. Use a free programmer's text editor like Visual Studio Code (VS Code). This will highlight code syntax and point out errors.</li>
+        </ul>
+      </section>
+
+      <section id="setup">
+        <h2>3. Tool Setup & Downloads</h2>
+        
+        <div id="setup-download">
+          <h3>3.1 Downloading the Repository from GitHub</h3>
+          <p>To get a copy of the lab website code on your computer:</p>
+          <ol>
+            <li>Open your browser and go to the repository: <a href="https://github.com/cn-pn/LabWeb" target="_blank">https://github.com/cn-pn/LabWeb</a></li>
+            <li>Click the green <strong>Code</strong> button on the right-hand side of the page.</li>
+            <li>Select <strong>Download ZIP</strong> from the dropdown options.</li>
+            <li>Locate the downloaded file on your computer and extract it. This will create a folder containing all the website files.</li>
+          </ol>
+          <div class="screenshot-container">
+            <img src="manual_images/github_repo_main.png" alt="GitHub Repo Homepage" class="screenshot">
+            <div class="caption">Figure 3.1: GitHub repository homepage, displaying the green 'Code' dropdown button and the 'Add file' option.</div>
+          </div>
+        </div>
+
+        <div id="setup-install">
+          <h3>3.2 Installing Visual Studio Code (VS Code)</h3>
+          <ol>
+            <li>Open your web browser and go to: <a href="https://code.visualstudio.com/Download" target="_blank">https://code.visualstudio.com/Download</a></li>
+            <li>Click the blue <strong>Windows</strong> button to download the installer.</li>
+            <div class="screenshot-container">
+              <img src="manual_images/vscode_download.png" alt="VS Code Download Page" class="screenshot">
+              <div class="caption">Figure 3.2: VS Code download page.</div>
+            </div>
+            <li>Locate the downloaded file (e.g., <code>VSCodeUserSetup-x64-xxxx.exe</code>) and double-click to run the setup.</li>
+            <li>Accept the agreement and click <strong>Next</strong>.</li>
+            <li><strong>Critical Settings:</strong> On the <em>Select Additional Tasks</em> screen, ensure you check the following options:
+              <ul>
+                <li>[x] Add "Open with Code" action to Windows Explorer file context menu</li>
+                <li>[x] Add "Open with Code" action to Windows Explorer directory context menu</li>
+                <li>[x] Register Code as an editor for supported file types</li>
+                <li>[x] Add to PATH (requires shell restart)</li>
+              </ul>
+            </li>
+            <li>Click <strong>Next</strong>, then <strong>Install</strong>. Click <strong>Finish</strong> once setup is complete.</li>
+          </ol>
+        </div>
+
+        <div id="setup-open">
+          <h3>3.3 Opening the Project in VS Code</h3>
+          <ol>
+            <li>Right-click the extracted folder (<code>LabWeb-main</code>) in your file explorer, and select <strong>"Open with Code"</strong>.</li>
+            <li>Alternatively, open VS Code, click <strong>File</strong> -> <strong>Open Folder...</strong> (or press <code>Ctrl+K Ctrl+O</code>), navigate to the extracted folder, and click <strong>Select Folder</strong>.</li>
+          </ol>
+          <div class="screenshot-container">
+            <img src="manual_images/vscode_editor.png" alt="VS Code Workspace" class="screenshot">
+            <div class="caption">Figure 3.3: VS Code Editor Interface, showing the [1] Explorer Sidebar with project files and the [2] Source Control sidebar.</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="editing">
+        <h2>4. Step-by-Step Website Content Editing</h2>
+        <p>All collaborator details, fellows, PhD members, publications, and recognitions are dynamically managed in <code>script.js</code>. Open <code>script.js</code> in VS Code to make changes.</p>
+        
+        <div id="editing-collaborators">
+          <h3>4.1 Updating Collaborators and Partners</h3>
+          <p>The Collaborators & Partners section displays clinical, translational, and technical partners. They are defined in lists starting around line 197.</p>
+          
+          <p><strong>A. Core Collaborators (Lines 197–204)</strong></p>
+          <p>Search for: <code>const coreCollaborators = [</code></p>
+          <pre><code>  ["Dr. Full Name", "Description | Institution Name", "https://profile-url.com"],</code></pre>
+
+          <p><strong>B. Clinical & Translational Collaborators (Lines 206–210)</strong></p>
+          <p>Search for: <code>const translationalCollaborators = [</code></p>
+          <pre><code>  ["Dr. Full Name", "Description | NIMHANS", "https://profile-url.com"],</code></pre>
+
+          <p><strong>C. Logo Mappings for New Collaborators (Lines 212–256)</strong></p>
+          <p>If you add a new collaborator, search for: <code>function getCollaboratorLogoUrl</code>. Under this function, map their name to a logo file in the <code>Lab/brand/</code> folder:</p>
+          <pre><code>  if (collaboratorName === "Dr. Full Name") return "Lab/brand/my-custom-logo.png";</code></pre>
+
+          <p><strong>D. Publication Clickable Link Mappings (Lines 280–311)</strong></p>
+          <p>To make the collaborator's name clickable in the publications archive list, search for: <code>const personLinks = [</code> and add:</p>
+          <pre><code>  ["Full Name", "https://profile-url.com"],</code></pre>
+        </div>
+
+        <div id="editing-people">
+          <h3>4.2 Updating the 'People' Section</h3>
+          <p>The <em>About Us</em> section shows profile cards for the lab members.</p>
+          
+          <p><strong>A. Adding a Research Fellow (Lines 153–179)</strong></p>
+          <p>Search for: <code>const fellows = [</code>. Copy and paste this template inside the array:</p>
+          <pre><code>{
+  name: "Dr. Full Name",
+  text: "Short summary paragraph of work in the lab.",
+  isExpanded: true,
+  expandedBio: "Biographical details paragraph 1.",
+  expandedBio2: "Biographical details paragraph 2.",
+  expandedBio3: "Biographical details paragraph 3.",
+  expandedBio4: "Biographical details paragraph 4.",
+  links: [
+    ["LinkedIn", "https://linkedin.com/in/..."],
+    ["Github", "https://github.com/..."]
+  ],
+  images: ["Lab/rf_tanushree/profile_slide1.jpg", "Lab/rf_tanushree/profile_slide2.jpg"],
+  interests: [
+    ["Painting 🎨", "A creative hobby description."]
+  ]
+},</code></pre>
+
+          <p><strong>B. Adding PhD & Other Members (Lines 181–195)</strong></p>
+          <p>Search for: <code>const interns = [</code>. Copy and paste this template inside the array:</p>
+          <pre><code>{
+  name: "Member Name",
+  text: "Description of their education, research focus and roles.",
+  images: ["Lab/intern_members/profile_photo.JPG"]
+},</code></pre>
+        </div>
+
+        <div id="editing-themes">
+          <h3>4.3 Updating Research Themes & Spotlight Publications</h3>
+          <ol>
+            <li>Search for: <code>const research = [</code> (Line 31).</li>
+            <li>Inside each theme, you can update <code>slides: [ ... ]</code> pointing to images inside the <code>Lab/research_themes/</code> folder, or edit the plain text <code>publications: [ ... ]</code> array list.</li>
+          </ol>
+        </div>
+
+        <div id="editing-recognitions">
+          <h3>4.4 Updating 'Recognition' Section</h3>
+          <p>The recognitions are stored in lists starting at line 388 (<code>const recognitions = { ... }</code>).</p>
+          <p>Templates inside <code>plenaryLectures</code>, <code>invitedTalks</code>, <code>conferencePresentations</code>, or <code>mediaRecognition</code>:</p>
+          <pre><code>{
+  year: "2026",
+  title: "Presentation title or award name",
+  event: "Name of the conference or media outlet",
+  topic: "Topic details (optional)",
+  icon: "🎙️"
+},</code></pre>
+        </div>
+
+        <div id="editing-publications">
+          <h3>4.5 Updating 'Publications' Section</h3>
+          <p>Publications are grouped by year in <code>const publications = [</code> (Line 415).</p>
+          <p>Add strings into the <code>items: [ ... ]</code> array under the appropriate year:</p>
+          <pre><code>"1. Authors. Paper title. Journal name. Year. DOI Link",</code></pre>
+        </div>
+      </section>
+
+      <section id="testing">
+        <h2>5. Previewing & Testing Changes Locally</h2>
+        <ol>
+          <li>Save changes in VS Code by pressing <code>Ctrl+S</code>.</li>
+          <li>Navigate to your local folder, and double-click <code>index.html</code> to open it in a web browser.</li>
+          <li>Always perform a <strong>Hard Refresh</strong> to override cached files and load your new <code>script.js</code> updates:
+            <ul>
+              <li><strong>Windows/Linux:</strong> Press <code>Ctrl + F5</code> or <code>Shift + F5</code></li>
+              <li><strong>macOS:</strong> Press <code>Cmd + Shift + R</code></li>
+            </ul>
+          </li>
+        </ol>
+      </section>
+
+      <section id="publishing">
+        <h2>6. Uploading and Publishing Changes to GitHub</h2>
+        <p>Once you have verified that your edits work locally, upload them to publish the site live.</p>
+
+        <div id="pub-web">
+          <h3>Method A: Manual Web Upload (Drag-and-Drop)</h3>
+          <p>This is the easiest method and requires no command-line tools:</p>
+          <ol>
+            <li>Open your browser and go to: <a href="https://github.com/cn-pn/LabWeb" target="_blank">https://github.com/cn-pn/LabWeb</a></li>
+            <li>Click on the gray <strong>"Add file"</strong> button near the top right and select <strong>"Upload files"</strong>.</li>
+            <li>Drag and drop your modified files (e.g. <code>script.js</code>) into the box.</li>
+            <li>Scroll down to the <strong>"Commit changes"</strong> section.</li>
+            <li>Enter a brief description (e.g. <em>"Updated collaborator links"</em>), select <strong>"Commit directly to the main branch"</strong>, and click the green <strong>"Commit changes"</strong> button.</li>
+          </ol>
+          <div class="screenshot-container">
+            <img src="manual_images/github_upload_page.png" alt="GitHub Upload Screen" class="screenshot">
+            <div class="caption">Figure 6.1: GitHub file upload page, displaying the file dropzone area [1] and the commit options form [2, 3].</div>
+          </div>
+        </div>
+
+        <div id="pub-cmd">
+          <h3>Method B: Command-Line Upload (VS Code Terminal)</h3>
+          <p>For faster and professional deployment, run these Git commands inside VS Code:</p>
+          <ol>
+            <li>Open the Terminal in VS Code: Click <strong>Terminal</strong> -> <strong>New Terminal</strong> in the top menu or press <code>Ctrl + `` `</code> (Control and Backtick).</li>
+            <li>Copy, paste, and run the following commands sequentially inside the terminal:</li>
+          </ol>
+          <pre><code># Change the remote to the cn-pn repository
+git remote set-url origin https://github.com/cn-pn/LabWeb.git
+
+# Stage your changes
+git add .
+
+# Commit your changes
+git commit -m "Uploading LabWeb project from VS Code"
+
+# Push to the main branch
+git push -u origin main</code></pre>
+          <ol start="3">
+            <li>If prompted, sign in via GitHub in the popup browser window to authenticate the upload.</li>
+          </ol>
+        </div>
+
+        <div id="pub-gui">
+          <h3>Method C: Source Control panel in VS Code (Git GUI)</h3>
+          <ol>
+            <li>Click the <strong>Source Control</strong> (git branch) icon in the left-hand sidebar or press <code>Ctrl+Shift+G</code>.</li>
+            <li>Hover over the modified files and click the <strong><code>+</code></strong> icon to stage them.</li>
+            <li>Type your commit message in the top textbox.</li>
+            <li>Click the checkmark (<strong>Commit</strong>) button at the top.</li>
+            <li>Click <strong>"Sync Changes"</strong> or <strong>"Push"</strong> to upload.</li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="assets">
+        <h2>7. Managing Images and Sliders</h2>
+        <p>All website assets are structured inside the <code>Lab/</code> folder into dedicated subfolders for clean organization and easy updates. Always name your files logically before placing them in the subfolders.</p>
+        
+        <div id="assets-dirs">
+          <h3>7.1 Reorganized Asset Directories</h3>
+          <p>The <code>Lab/</code> directory has the following subfolder structure:</p>
+          <ul>
+            <li><code>Lab/brand/</code> — Contains logos (<code>logo_transparent.png</code>, <code>logo.png</code>), partner institution logos (<code>NTU.png</code>, <code>jhu-logo.png</code>, <code>NIMHANS.jpeg</code>, <code>SA.jpeg</code>), and background illustrations (<code>logo_background.jpeg</code>, <code>AIIMS.jpg</code>).</li>
+            <li><code>Lab/pi_sagarika/</code> — Contains profile slideshow images of the Principal Investigator (Dr. Sagarika Bhattacharjee) named <code>sagarika1.jpeg</code> to <code>sagarika6.jpeg</code>.</li>
+            <li><code>Lab/rf_tanushree/</code> — Contains profile slideshow images of the Research Fellow (Tanushree L) named <code>tanushree1.jpg</code> to <code>tanushree4.jpg</code>.</li>
+            <li><code>Lab/intern_members/</code> — Contains photos of interns and trainee members (e.g., <code>varsha.jpg</code>).</li>
+            <li><code>Lab/research_themes/</code> — Contains slides and diagrams shown in research theme popups, structured by theme (e.g. <code>theme1_slide1.png</code>, <code>theme2_slide1.jpeg</code>).</li>
+            <li><code>Lab/testimonials/</code> — Contains patient slides (<code>testimonial_slide1.jpeg</code> to <code>testimonial_slide10.jpeg</code>) and showcase highlights (<code>highlight_slide1.jpg</code> to <code>highlight_slide5.jpg</code>).</li>
+            <li><code>Lab/showcase/</code> — Contains the main showcase slide images for the hero carousel (<code>showcase_slide1.jpeg</code> to <code>showcase_slide5.jpeg</code>).</li>
+          </ul>
+        </div>
+
+        <div id="assets-sliders">
+          <h3>7.2 Replacing and Adding Images in Sliders</h3>
+          <p>The website utilizes dynamic image sliders that read file pathways from <code>script.js</code> arrays. Below is a guide to updating each slider.</p>
+          
+          <p><strong>A. Home Showcase Slider (<code>startLabSlides</code>)</strong></p>
+          <p>Images are stored in <code>Lab/showcase/</code> and defined in <code>startLabSlides</code> around line 378 inside <code>script.js</code>:</p>
+          <ul>
+            <li><strong>To replace an image:</strong> Overwrite the target file (e.g. <code>showcase_slide3.jpeg</code>) in <code>Lab/showcase/</code> with a new photo using the same filename.</li>
+            <li><strong>To add a new image:</strong> Save your image in <code>Lab/showcase/</code> (e.g., <code>showcase_slide6.jpeg</code>) and add it to the array in <code>script.js</code>:
+              <pre><code>  "Lab/showcase/showcase_slide6.jpeg",</code></pre>
+            </li>
+          </ul>
+
+          <p><strong>B. Research Theme Sliders (<code>research[index].slides</code>)</strong></p>
+          <p>Images are stored in <code>Lab/research_themes/</code> and defined in the research themes array at line 31 in <code>script.js</code>:</p>
+          <ul>
+            <li><strong>To add a slide:</strong> Place the image inside <code>Lab/research_themes/</code> (e.g. <code>theme1_slide7.png</code>) and add a slide object to the theme's <code>slides</code> array:
+              <pre><code>      { src: "Lab/research_themes/theme1_slide7.png", alt: "Description", caption: "Caption" },</code></pre>
+            </li>
+          </ul>
+
+          <p><strong>C. Testimonial Sliders (<code>testimonialSlides</code> & <code>testimonialLeftSlides</code>)</strong></p>
+          <p>Images are stored in <code>Lab/testimonials/</code> and defined around line 357 in <code>script.js</code>:</p>
+          <ul>
+            <li><strong>To add or edit slides:</strong> Modify the <code>testimonialSlides</code> or <code>testimonialLeftSlides</code> arrays with their corresponding paths:
+              <pre><code>  "Lab/testimonials/testimonial_slide11.jpeg",</code></pre>
+            </li>
+          </ul>
+
+          <p><strong>D. PI Profile Slider (<code>piSliderHtml</code>)</strong></p>
+          <p>Dr. Sagarika's profile images are in <code>Lab/pi_sagarika/</code> and are mapped as HTML tags in <code>piSliderHtml</code> template around line 957 in <code>script.js</code>:</p>
+          <ul>
+            <li><strong>To add a picture to the slideshow:</strong> Place the new photo in <code>Lab/pi_sagarika/</code> (e.g. <code>sagarika7.jpeg</code>). Then, open <code>script.js</code>, search for <code>piSliderHtml</code>, and add a new image element inside the slider wrapper container:
+              <pre><code>        &lt;img src="Lab/pi_sagarika/sagarika7.jpeg" alt="PI image 7" class="pi-slider-image" style="width: 100%; height: 100%; display: none; object-fit: contain; transition: opacity 0.5s ease; position: absolute; top: 0; left: 0;"&gt;</code></pre>
+            </li>
+          </ul>
+
+          <p><strong>E. Research Fellow Profile Slider (<code>fellows[0].images</code>)</strong></p>
+          <p>Tanushree's profile images are in <code>Lab/rf_tanushree/</code> and mapped inside the fellows list around line 167 in <code>script.js</code>:</p>
+          <ul>
+            <li><strong>To update her slider:</strong> Save your new files in <code>Lab/rf_tanushree/</code> (e.g. <code>tanushree5.jpg</code>) and add the path to the images array:
+              <pre><code>    images: ["Lab/rf_tanushree/tanushree1.jpg", ..., "Lab/rf_tanushree/tanushree5.jpg"],</code></pre>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

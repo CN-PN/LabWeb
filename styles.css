@@ -349,7 +349,7 @@ h3 { font-size: clamp(1.1rem, 2vw, 1.25rem); }
   position: relative;
   justify-content: center;
   text-align: left;
-  background: transparent url("Lab/Logo pic.jpeg") left center / contain no-repeat;
+  background: transparent url("Lab/brand/logo_background.jpeg") left center / contain no-repeat;
   overflow: hidden;
   padding: clamp(1.4rem, 3vw, 2.4rem);
   border-radius: var(--radius-xl);
@@ -604,7 +604,7 @@ h3 { font-size: clamp(1.1rem, 2vw, 1.25rem); }
     justify-content: center;
     flex-direction: column;
     overflow: hidden;
-    background: transparent url("Lab/Logo pic.jpeg") center center / contain no-repeat;
+    background: transparent url("Lab/brand/logo_background.jpeg") center center / contain no-repeat;
   }
   .start-showcase-layout {
     padding: 0.45rem;
@@ -2406,6 +2406,8 @@ ul.publication-theme-bullets {
   margin-bottom: 0;
   width: min(100%, 42ch);
   max-width: 42ch;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .vision-frame-head .vision-subtext {
