@@ -277,7 +277,7 @@ const fellows = [
     name: "Irtisha Chakraborty",
     text: "Former Research Fellow in precision neurostimulation; now a PhD student at BCBL, Spain studying neural mechanisms of language and learning. Irtisha is a cognitive neuroscience researcher who worked on physiology-guided precision neurostimulation, integrating EEG and behavioural measures to design individualized stimulation strategies in clinical populations. She is currently a PhD student at the Basque Center on Cognition, Brain and Language (BCBL), Spain, focusing on the neural mechanisms of language and learning. Her work at the lab earned her an ICMR travel fellowship in 2023. She bridges neurophysiology and behaviour, with an emphasis on individualized, translational approaches.",
   },
-  
+
 ];
 
 // ============================================================================
@@ -348,14 +348,10 @@ function getCollaboratorLogoUrl(url, name) {
   )
     return "Lab/brand/NIMHANS.jpeg";
 
-  // Map NTU-affiliated collaborator(s) to the provided NTU image
-  if (
-    collaboratorName === "Dr. S H Annabel Chen" ||
-    collaboratorName === "Annabel Chen, S. H." ||
-    collaboratorName === "Chen SHA" ||
-    collaboratorName === "Chen, S. A."
-  )
+  // Map NTU-affiliated collaborator to the provided NTU image
+  if (collaboratorName === "Dr. S H Annabel Chen") {
     return "Lab/brand/NTU.png";
+  }
 
   // Also check hostname hints and prefer local assets when possible
   try {
@@ -466,8 +462,8 @@ const startLabSlides = [
   "Lab/showcase/showcase_slide3.jpeg",
   "Lab/showcase/showcase_slide4.jpeg",
   "Lab/showcase/showcase_slide5.jpeg"
-  
-  
+
+
 ].map((src) => ({ src }));
 
 // ============================================================================
@@ -514,75 +510,105 @@ const recognitions = {
 // FORMAT TEMPLATE to add a new publication to a year's list:
 // "Authors. Title. Journal. Year. DOI Link",
 const publications = [
-  { year: "2025", items: [
-    "Bhattacharjee S, Sivakumar PT, Venkatasubramanian G, Bharath RD, Oishi K, Rapp B, et al. Personalized transcranial direct current stimulation for behavioral and neurophysiologic outcomes. JAMA Netw Open. 2025;8(8):e2526148. DOI: 10.1001/jamanetworkopen.2025.26148",
-    "Bhattacharjee S, Sivakumar PT, Venkatasubramanian G, Oishi K, Tsapkini K, Chen SHA, et al. Structural and functional determinants for designing pathology-specific tDCS protocols in primary progressive aphasia. Alzheimers Res Ther. 2025;17(1):156. DOI: 10.1186/s13195-025-01737-3",
-    "Kashyap R, Zhou C, Tsapkini K, Desmond JE, Chen SHA, Bharath RD, et al.; Bhattacharjee S. Longitudinal evaluation of brain networks in primary progressive aphasia. Alzheimers Res Ther. 2025;17:192. DOI: 10.1186/s13195-025-01800-z",
-    "Bhattacharjee S, Chakraborty I, Kashyap R, Sreeraj VS, Arshad F, Yamini BK, et al. Identifying target regions for non-invasive brain stimulation in primary progressive aphasia: A narrative review. Brain Disord. 2025;100255. DOI: 10.1016/j.braindis.2025.100255",
-  ]},
-  { year: "2024", items: [
-    "Bhattacharjee S, Kashyap R, Sreeraj VS, Sivakumar PT, Venkatasubramanian G, Desmond JE, et al. Personalized dose selection for treatment of patients with neuropsychiatric disorders using tDCS. Brain Sci. 2024;14(12):1162. DOI: 10.3390/brainsci14121162",
-    "Bhattacharjee S, Kashyap R, Udupa K, Bashir S, Venkatasubramanian G, Oishi K, et al. Alignment of behaviour and tDCS stimulation site induces maximum response: evidence from online tDCS and ERP. Sci Rep. 2024;14:19715. DOI: 10.1038/s41598-024-68691-2",
-    "Kashyap R, Holla B, Bhattacharjee S, Sharma E, Mehta UM, Vaidya N, et al. Childhood adversities characterize heterogeneity in neurodevelopmental brain patterns. Psychol Med. 2024. DOI: 10.1017/S0033291724000710",
-    "Singh SR, Bhattacharjee S, Udupa K. Neuromodulation interventions in paediatric neurological disorders: A contemporary review. J Pediatr Neonatal Med. 2024;6(1).",
-  ]},
-  { year: "2023", items: [
-    "Kashyap R, Bhardwaj S, Bhattacharjee S, Sunny AS, Udupa K, Kumar M, et al. Perturbational map of low-frequency repetitive transcranial magnetic stimulation of primary motor cortex in movement disorders. Brain Disord. 2023;100071. DOI: 10.1016/j.braindis.2023.100071",
-  ]},
-  { year: "2022", items: [
-    "Bhattacharjee S, Kashyap R, Goodwill MA, O'Brien BA, Rapp B, Oishi K, Desmond JE, Chen SA. Sex difference in tDCS current mediated by cortical anatomy across the lifespan. Brain Stimul. 2022;15(1):125–140. DOI: 10.1016/j.brs.2021.11.012",
-    "Kashyap R, Bhattacharjee S, Bashir S, Oishi K, Desmond JE, Chen SA, Guan C. Variation in cerebrospinal fluid regulates focality in transcranial direct current stimulation. Front Hum Neurosci. 2022;16. DOI: https://doi.org/10.3389/fnhum.2022.952602",
-  ]},
-  { year: "2021", items: [
-    "Bhattacharjee S, Kashyap R, Abualait T, Chen SHA, Yoo WK, Bashir S. The role of primary motor cortex: more than movement execution. J Mot Behav. 2021;53(1):1–17. DOI: 10.1080/00222895.2020.1865082",
-    "Kashyap R, Bhattacharjee S, Arumugam R, Bharath RD, Udupa K, Oishi K, Desmond JE, Chen SA. Focality-oriented selection of current dose for transcranial direct current stimulation. J Pers Med. 2021;11(6): 11090940 DOI: 10.3390/jpm11060520",
-    "Kashyap R, Eng GK, Bhattacharjee S, Gupta B, Ho R, Ho C, Zhang MW, Mahendran R, Sim K, Chen SA. Individual-based approaches reveal fronto-striato-limbic dissociation in obsessive-compulsive disorder. Sci Rep. 2021;11:1354. DOI: 10.1038/s41598-021-81361-3",
-  ]},
-  { year: "2020", items: [
-    "Bhattacharjee S, Kashyap R, O'Brien BA, Rapp B, Oishi K, Desmond JE, Chen SA. Reading proficiency influences the effects of transcranial direct current stimulation in bilinguals. Brain Lang. 2020;210:104850. DOI: 10.1016/j.bandl.2020.104850",
-    "Kashyap R, Bhattacharjee S, Arumugam R, Oishi K, Desmond JE, Chen SA. i-SATA: A MATLAB-based toolbox to estimate current density generated by transcranial direct current stimulation in individual brains. J Neural Eng. 2020;17(1):016050. DOI: 10.1088/1741-2552/ab5c9c",
-    "Kashyap R, Bhattacharjee S, Yeo BTT, Chen SHA. Maximizing dissimilarity in resting state detects heterogeneous subtypes in healthy population associated with high substance use and problems in antisocial personality. Hum Brain Mapp. 2020;41:1261–1273. https://doi.org/10.1002/hbm.24873",
-  ]},
-  { year: "2019", items: [
-    "Bhattacharjee S, Kashyap R, Rapp B, Oishi K, Desmond JE, Chen SA. Simulation analyses of tDCS montages for investigating dorsal and ventral pathways. Sci Rep. 2019;9:12315. DOI: 10.1038/s41598-019-47654-y",
-    "Kashyap R, Bhattacharjee S, Sommer W, Zhou C. Repetition priming effects for famous faces through dynamic causal modelling of latency-corrected event-related brain potentials. Eur J Neurosci. 2019;49:1330–1347. DOI https://doi.org/10.1111/ejn.14303",
-    "Kashyap, R., Kong, R., Bhattacharjee, S., Li, J., Zhou, J., & Yeo, B. T. (2019). Individual-specific fMRI-Subspaces improve functional connectivity prediction of behavior. NeuroImage, 189, 804-812.",
-    "Bhattacharjee S, Chew A, Kashyap R, Wu C, Yeo M, O'Brien BA, et al. Could tDCS modulate bilingual reading? Brain Stimul. 2019;12(2):569. DOI: 10.1016/j.brs.2018.12.",
-  ]},
-  { year: "2018", items: [
-    "Kashyap R, Bhattacharjee S, Sommer W, Zhou C. Repetition priming effects for famous faces using dynamic causal modelling of ERP. Eur J Neurosci. 2018;48(5): DOI: 10.1111/ejn.",
-    "Kashyap R, Kong R, Bhattacharjee S, Li J, Zhou J, Yeo BTT. Individual-specific fMRI subspaces improve functional connectivity prediction of behavior. NeuroImage. 2018;XXXX:804–812. DOI: 10.1016/j.neuroimage.2018.",
-  ]},
-  { year: "2017 and earlier", items: [
-    "Bhattacharjee S, Kashyap R. Neuromuscular characterization of dysphagia following stroke. Int J Adv Med Sci. 2017;2(2)",
-    "Bhattacharjee S, Mondol M, Kashyap R. Effect of hypertension and hypercholesterolemia on auditory brainstem response in adults. Int J Med Health Sci. 2016;5(4):267–271",
-    "Bhattacharjee S. Anthropometric parameters and postural blood pressure changes in children with autism spectrum disorders. Int J Basic Appl Physiol. 2012;1:93.",
-  ]},
+  {
+    year: "2025", items: [
+      "Bhattacharjee S, Sivakumar PT, Venkatasubramanian G, Bharath RD, Oishi K, Rapp B, et al. Personalized transcranial direct current stimulation for behavioral and neurophysiologic outcomes. JAMA Netw Open. 2025;8(8):e2526148. DOI: 10.1001/jamanetworkopen.2025.26148",
+      "Bhattacharjee S, Sivakumar PT, Venkatasubramanian G, Oishi K, Tsapkini K, Chen SHA, et al. Structural and functional determinants for designing pathology-specific tDCS protocols in primary progressive aphasia. Alzheimers Res Ther. 2025;17(1):156. DOI: 10.1186/s13195-025-01737-3",
+      "Kashyap R, Zhou C, Tsapkini K, Desmond JE, Chen SHA, Bharath RD, et al.; Bhattacharjee S. Longitudinal evaluation of brain networks in primary progressive aphasia. Alzheimers Res Ther. 2025;17:192. DOI: 10.1186/s13195-025-01800-z",
+      "Bhattacharjee S, Chakraborty I, Kashyap R, Sreeraj VS, Arshad F, Yamini BK, et al. Identifying target regions for non-invasive brain stimulation in primary progressive aphasia: A narrative review. Brain Disord. 2025;100255. DOI: 10.1016/j.braindis.2025.100255",
+    ]
+  },
+  {
+    year: "2024", items: [
+      "Bhattacharjee S, Kashyap R, Sreeraj VS, Sivakumar PT, Venkatasubramanian G, Desmond JE, et al. Personalized dose selection for treatment of patients with neuropsychiatric disorders using tDCS. Brain Sci. 2024;14(12):1162. DOI: 10.3390/brainsci14121162",
+      "Bhattacharjee S, Kashyap R, Udupa K, Bashir S, Venkatasubramanian G, Oishi K, et al. Alignment of behaviour and tDCS stimulation site induces maximum response: evidence from online tDCS and ERP. Sci Rep. 2024;14:19715. DOI: 10.1038/s41598-024-68691-2",
+      "Kashyap R, Holla B, Bhattacharjee S, Sharma E, Mehta UM, Vaidya N, et al. Childhood adversities characterize heterogeneity in neurodevelopmental brain patterns. Psychol Med. 2024. DOI: 10.1017/S0033291724000710",
+      "Singh SR, Bhattacharjee S, Udupa K. Neuromodulation interventions in paediatric neurological disorders: A contemporary review. J Pediatr Neonatal Med. 2024;6(1).",
+    ]
+  },
+  {
+    year: "2023", items: [
+      "Kashyap R, Bhardwaj S, Bhattacharjee S, Sunny AS, Udupa K, Kumar M, et al. Perturbational map of low-frequency repetitive transcranial magnetic stimulation of primary motor cortex in movement disorders. Brain Disord. 2023;100071. DOI: 10.1016/j.braindis.2023.100071",
+    ]
+  },
+  {
+    year: "2022", items: [
+      "Bhattacharjee S, Kashyap R, Goodwill MA, O'Brien BA, Rapp B, Oishi K, Desmond JE, Chen SA. Sex difference in tDCS current mediated by cortical anatomy across the lifespan. Brain Stimul. 2022;15(1):125–140. DOI: 10.1016/j.brs.2021.11.012",
+      "Kashyap R, Bhattacharjee S, Bashir S, Oishi K, Desmond JE, Chen SA, Guan C. Variation in cerebrospinal fluid regulates focality in transcranial direct current stimulation. Front Hum Neurosci. 2022;16. DOI: https://doi.org/10.3389/fnhum.2022.952602",
+    ]
+  },
+  {
+    year: "2021", items: [
+      "Bhattacharjee S, Kashyap R, Abualait T, Chen SHA, Yoo WK, Bashir S. The role of primary motor cortex: more than movement execution. J Mot Behav. 2021;53(1):1–17. DOI: 10.1080/00222895.2020.1865082",
+      "Kashyap R, Bhattacharjee S, Arumugam R, Bharath RD, Udupa K, Oishi K, Desmond JE, Chen SA. Focality-oriented selection of current dose for transcranial direct current stimulation. J Pers Med. 2021;11(6): 11090940 DOI: 10.3390/jpm11060520",
+      "Kashyap R, Eng GK, Bhattacharjee S, Gupta B, Ho R, Ho C, Zhang MW, Mahendran R, Sim K, Chen SA. Individual-based approaches reveal fronto-striato-limbic dissociation in obsessive-compulsive disorder. Sci Rep. 2021;11:1354. DOI: 10.1038/s41598-021-81361-3",
+    ]
+  },
+  {
+    year: "2020", items: [
+      "Bhattacharjee S, Kashyap R, O'Brien BA, Rapp B, Oishi K, Desmond JE, Chen SA. Reading proficiency influences the effects of transcranial direct current stimulation in bilinguals. Brain Lang. 2020;210:104850. DOI: 10.1016/j.bandl.2020.104850",
+      "Kashyap R, Bhattacharjee S, Arumugam R, Oishi K, Desmond JE, Chen SA. i-SATA: A MATLAB-based toolbox to estimate current density generated by transcranial direct current stimulation in individual brains. J Neural Eng. 2020;17(1):016050. DOI: 10.1088/1741-2552/ab5c9c",
+      "Kashyap R, Bhattacharjee S, Yeo BTT, Chen SHA. Maximizing dissimilarity in resting state detects heterogeneous subtypes in healthy population associated with high substance use and problems in antisocial personality. Hum Brain Mapp. 2020;41:1261–1273. https://doi.org/10.1002/hbm.24873",
+    ]
+  },
+  {
+    year: "2019", items: [
+      "Bhattacharjee S, Kashyap R, Rapp B, Oishi K, Desmond JE, Chen SA. Simulation analyses of tDCS montages for investigating dorsal and ventral pathways. Sci Rep. 2019;9:12315. DOI: 10.1038/s41598-019-47654-y",
+      "Kashyap R, Bhattacharjee S, Sommer W, Zhou C. Repetition priming effects for famous faces through dynamic causal modelling of latency-corrected event-related brain potentials. Eur J Neurosci. 2019;49:1330–1347. DOI https://doi.org/10.1111/ejn.14303",
+      "Kashyap, R., Kong, R., Bhattacharjee, S., Li, J., Zhou, J., & Yeo, B. T. (2019). Individual-specific fMRI-Subspaces improve functional connectivity prediction of behavior. NeuroImage, 189, 804-812.",
+      "Bhattacharjee S, Chew A, Kashyap R, Wu C, Yeo M, O'Brien BA, et al. Could tDCS modulate bilingual reading? Brain Stimul. 2019;12(2):569. DOI: 10.1016/j.brs.2018.12.",
+    ]
+  },
+  {
+    year: "2018", items: [
+      "Kashyap R, Bhattacharjee S, Sommer W, Zhou C. Repetition priming effects for famous faces using dynamic causal modelling of ERP. Eur J Neurosci. 2018;48(5): DOI: 10.1111/ejn.",
+      "Kashyap R, Kong R, Bhattacharjee S, Li J, Zhou J, Yeo BTT. Individual-specific fMRI subspaces improve functional connectivity prediction of behavior. NeuroImage. 2018;XXXX:804–812. DOI: 10.1016/j.neuroimage.2018.",
+    ]
+  },
+  {
+    year: "2017 and earlier", items: [
+      "Bhattacharjee S, Kashyap R. Neuromuscular characterization of dysphagia following stroke. Int J Adv Med Sci. 2017;2(2)",
+      "Bhattacharjee S, Mondol M, Kashyap R. Effect of hypertension and hypercholesterolemia on auditory brainstem response in adults. Int J Med Health Sci. 2016;5(4):267–271",
+      "Bhattacharjee S. Anthropometric parameters and postural blood pressure changes in children with autism spectrum disorders. Int J Basic Appl Physiol. 2012;1:93.",
+    ]
+  },
 ];
 
 const conferenceAbstracts = [
-  { year: "2024", items: [
-    { authors: "1. Chakraborty I, Kashyap R, Sreeraj VS, Arshad F, Yamini BK, Bharath RD, Sivakumar PT, Venkatasubramanian G, Alladi S, Oishi K, Desmond JE, Chen SHA, Sathyaprabha TN, Udupa K, Bhattacharjee S", title: "Comparison of conventional and HD-tDCS for neuropsychiatric disorders", conference: "Organization for Human Brain Mapping (OHBM) Annual Meeting", location: "Seoul, South Korea", type: "Oral Presentation", award: "ICMR Travel Fellowship" },
-  ]},
-  { year: "2021", items: [
-    { authors: "2. Bhattacharjee S, Kashyap R, O'Brien BA, Rapp B, Oishi K, Desmond JE, Chen SA", title: "Sex differences in simulated tDCS current across age groups mediated by cortical anatomy", conference: "Organization for Human Brain Mapping (OHBM) Annual Meeting", year_details: "2021", award: "Exceptional Abstract Award" },
-  ]},
-  { year: "2019", items: [
-    { authors: "3. Bhattacharjee S, Kashyap R, Chew A, Desmond JE, Chen SA", title: "Gender differences in the effect of transcranial direct current stimulation on reading", conference: "25th Annual Meeting of the Organization for Human Brain Mapping (OHBM)", location: "Rome, Italy" },
-    { authors: "4. Bhattacharjee S, Chew A, Kashyap R, Wu CY, Yeo M, O'Brien BA, Rapp B, McCloskey M, Oishi K, Desmond JE, Chen SA", title: "Could transcranial direct current stimulation modulate bilingual reading?", conference: "Brain Stimulation", pages: "12(2):569" },
-  ]},
-  { year: "2018", items: [
-    { authors: "5. Bhattacharjee S, Kashyap R, Desmond JE, Rapp B, Oishi K, Chen SA", title: "Systematic analysis of simulations for tDCS montages applied in reading", conference: "Organization for Human Brain Mapping (OHBM) Annual Meeting", location: "Singapore" },
-  ]},
-  { year: "2014", items: [
-    { authors: "6. Bhattacharjee IR, Shaptadvipa B, Bhattacharjee S, Kashyap R", title: "Understanding space life through principles of self-gravitation", conference: "65th International Astronautical Congress" },
-    { authors: "7. Bhattacharjee IR, Shaptadvipa B, Bhattacharjee S, Kashyap R", title: "Self-gravitation bio: Evidence supporting astrophysical principles in biological systems", conference: "18th International Biophysics Congress (IUPAB)", location: "Brisbane, Australia" },
-  ]},
-  { year: "2011", items: [
-    { authors: "8. Kashyap R, Bhattacharjee S, Bhattacharjee IR", title: "Finite element approach to self-gravitational bio in embryological systems", conference: "8th European Biophysics Congress", location: "Budapest, Hungary" },
-    { authors: "9. Bhattacharjee IR, Kashyap R, Bhattacharjee S", title: "Finite element modeling of self-gravitation bio and macromolecular crowding", conference: "17th International Biophysics Congress (IUPAB)" },
-    { authors: "10. Kashyap R, Bhattacharjee S, Bhattacharjee IR", title: "Mathematical modeling of embryogenesis based on self-gravitation bio", conference: "17th International Biophysics Congress (IUPAB)", location: "Beijing, China" },
-  ]},
+  {
+    year: "2024", items: [
+      { authors: "1. Chakraborty I, Kashyap R, Sreeraj VS, Arshad F, Yamini BK, Bharath RD, Sivakumar PT, Venkatasubramanian G, Alladi S, Oishi K, Desmond JE, Chen SHA, Sathyaprabha TN, Udupa K, Bhattacharjee S", title: "Comparison of conventional and HD-tDCS for neuropsychiatric disorders", conference: "Organization for Human Brain Mapping (OHBM) Annual Meeting", location: "Seoul, South Korea", type: "Oral Presentation", award: "ICMR Travel Fellowship" },
+    ]
+  },
+  {
+    year: "2021", items: [
+      { authors: "2. Bhattacharjee S, Kashyap R, O'Brien BA, Rapp B, Oishi K, Desmond JE, Chen SA", title: "Sex differences in simulated tDCS current across age groups mediated by cortical anatomy", conference: "Organization for Human Brain Mapping (OHBM) Annual Meeting", year_details: "2021", award: "Exceptional Abstract Award" },
+    ]
+  },
+  {
+    year: "2019", items: [
+      { authors: "3. Bhattacharjee S, Kashyap R, Chew A, Desmond JE, Chen SA", title: "Gender differences in the effect of transcranial direct current stimulation on reading", conference: "25th Annual Meeting of the Organization for Human Brain Mapping (OHBM)", location: "Rome, Italy" },
+      { authors: "4. Bhattacharjee S, Chew A, Kashyap R, Wu CY, Yeo M, O'Brien BA, Rapp B, McCloskey M, Oishi K, Desmond JE, Chen SA", title: "Could transcranial direct current stimulation modulate bilingual reading?", conference: "Brain Stimulation", pages: "12(2):569" },
+    ]
+  },
+  {
+    year: "2018", items: [
+      { authors: "5. Bhattacharjee S, Kashyap R, Desmond JE, Rapp B, Oishi K, Chen SA", title: "Systematic analysis of simulations for tDCS montages applied in reading", conference: "Organization for Human Brain Mapping (OHBM) Annual Meeting", location: "Singapore" },
+    ]
+  },
+  {
+    year: "2014", items: [
+      { authors: "6. Bhattacharjee IR, Shaptadvipa B, Bhattacharjee S, Kashyap R", title: "Understanding space life through principles of self-gravitation", conference: "65th International Astronautical Congress" },
+      { authors: "7. Bhattacharjee IR, Shaptadvipa B, Bhattacharjee S, Kashyap R", title: "Self-gravitation bio: Evidence supporting astrophysical principles in biological systems", conference: "18th International Biophysics Congress (IUPAB)", location: "Brisbane, Australia" },
+    ]
+  },
+  {
+    year: "2011", items: [
+      { authors: "8. Kashyap R, Bhattacharjee S, Bhattacharjee IR", title: "Finite element approach to self-gravitational bio in embryological systems", conference: "8th European Biophysics Congress", location: "Budapest, Hungary" },
+      { authors: "9. Bhattacharjee IR, Kashyap R, Bhattacharjee S", title: "Finite element modeling of self-gravitation bio and macromolecular crowding", conference: "17th International Biophysics Congress (IUPAB)" },
+      { authors: "10. Kashyap R, Bhattacharjee S, Bhattacharjee IR", title: "Mathematical modeling of embryogenesis based on self-gravitation bio", conference: "17th International Biophysics Congress (IUPAB)", location: "Beijing, China" },
+    ]
+  },
 ];
 
 const treatmentVideos = [
@@ -817,7 +843,7 @@ function publicationCard(item) {
       </div>
     </div>
   ` : "";
-  
+
   return `
     <article class="research-panel reveal">
       <h3>Publications in this theme</h3>
@@ -909,12 +935,12 @@ if (uniqueGrid) {
       const content = header.nextElementSibling;
       const toggle = header.querySelector(".accordion-toggle");
       const isOpen = content.style.display !== "none";
-      
+
       // Close all other items
       uniqueGrid.querySelectorAll(".accordion-content").forEach((c) => c.style.display = "none");
       uniqueGrid.querySelectorAll(".accordion-toggle").forEach((t) => t.textContent = "+");
       uniqueGrid.querySelectorAll(".accordion-header").forEach((h) => h.setAttribute("aria-expanded", "false"));
-      
+
       // Toggle current item
       if (!isOpen) {
         content.style.display = "block";
@@ -975,9 +1001,9 @@ if (aboutGrid) {
       (person) => {
         if (person.isExpanded) {
           const linksHtml = person.links?.map(([label, url]) => `<a href="${url}" target="_blank" style="color: #7c3aed; text-decoration: none; border-bottom: 2px solid #7c3aed; padding-bottom: 2px;">${label}</a>`).join('<span style="color: rgba(0,0,0,0.5);"> | </span>') || '';
-          
+
           const sliderImages = person.images?.map((src, idx) => `<img src="${src}" alt="${person.name} image ${idx + 1}" class="tanushree-slider-image" style="width: 100%; height: 100%; display: ${idx === 0 ? 'block' : 'none'}; object-fit: contain; position: ${idx === 0 ? 'relative' : 'absolute'}; top: 0; left: 0;">`).join('') || '';
-          
+
           const sliderHtml = person.images ? `
             <div class="tanushree-slider" style="position: relative; width: 100%; aspect-ratio: 4/3; overflow: hidden; border-radius: 8px; background: #f5f5f5;">
               ${sliderImages}
@@ -985,7 +1011,7 @@ if (aboutGrid) {
               <button type="button" class="tanushree-slider-next" aria-label="Next image" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); z-index: 2; border: 0; border-radius: 999px; width: 34px; height: 34px; background: rgba(0, 0, 0, 0.42); color: #fff; cursor: pointer;">›</button>
             </div>
           ` : '';
-          
+
           const interestsHtml = person.interests ? `
             <div class="tanushree-interests">
               <p style="font-weight: bold; margin-bottom: 0.8rem; color: var(--primary-color);">Interests</p>
@@ -994,7 +1020,7 @@ if (aboutGrid) {
               </div>
             </div>
           ` : '';
-          
+
           return `
         <article class="research-panel reveal about-fellow-card">
           <div class="about-fellow-copy">
@@ -1451,10 +1477,10 @@ if (publicationsArchive) {
           <div style="display: flex; flex-direction: column; gap: 0.8rem;">
             <ul class="publication-year-list" style="padding: 0; margin: 0;">
               ${yearBlock.items.map((pub) => {
-                const html = publicationListItem(pub, pubCounter);
-                pubCounter++;
-                return html;
-              }).join("")}
+    const html = publicationListItem(pub, pubCounter);
+    pubCounter++;
+    return html;
+  }).join("")}
             </ul>
           </div>
         </article>
@@ -1582,7 +1608,7 @@ contactForm?.addEventListener("submit", (event) => {
   function resOk(d) {
     try {
       if (typeof d === "object") return d.ok === true || d.success === true;
-    } catch (e) {}
+    } catch (e) { }
     return false;
   }
 });
