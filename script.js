@@ -1,3 +1,68 @@
+/*
+=============================================================================
+                  CNPN LAB WEBSITE - CONTENT ADDITION TEMPLATES
+=============================================================================
+Copy and paste the templates below into the corresponding sections of this file 
+to add new items. Ensure all commas, braces, and double-quotes are kept.
+-----------------------------------------------------------------------------
+
+1. RESEARCH THEME TEMPLATE:
+{
+  title: "Theme Title",
+  slides: [
+    { src: "Lab/research_themes/filename.png", alt: "Description", caption: "Caption" }
+  ],
+  text: "Description text here.",
+  tags: ["Tag1", "Tag2"],
+  publications: [
+    "Citation string 1",
+    "Citation string 2"
+  ]
+}
+
+2. RESEARCH FELLOW TEMPLATE:
+{
+  name: "Full Name",
+  text: "Brief summary paragraph (used if isExpanded is not true)",
+  isExpanded: true,
+  expandedBio: "Detailed bio paragraph 1",
+  expandedBio2: "Detailed bio paragraph 2",
+  expandedBio3: "Detailed bio paragraph 3",
+  expandedBio4: "Detailed bio paragraph 4",
+  links: [
+    ["LinkedIn", "https://linkedin.com/..."],
+    ["Github", "https://github.com/..."]
+  ],
+  images: ["Lab/rf_tanushree/image1.jpg", "Lab/rf_tanushree/image2.jpg"],
+  interests: [
+    ["Category 🎨", "Description of interests"]
+  ]
+}
+
+3. INTERN & TRAINEE TEMPLATE:
+{
+  name: "Full Name",
+  text: "Brief summary paragraph",
+  images: ["Lab/intern_members/image1.jpg"]
+}
+
+4. COLLABORATOR TEMPLATE:
+["Dr. Full Name", "Description | Institution Name", "https://profile-url.com"]
+
+5. RECOGNITION (Talk/Award/Conference/Media) TEMPLATE:
+{
+  year: "Year",
+  title: "Presentation title or award name",
+  event: "Name of the conference or media outlet",
+  topic: "Topic details (optional)",
+  icon: "🎙️"
+}
+
+6. PUBLICATION TEMPLATE:
+"Number. Authors. Title. Journal. Year. DOI Link"
+=============================================================================
+*/
+
 const contactForm = document.getElementById("contactForm");
 const formNote = document.getElementById("formNote");
 const heroVideo = document.querySelector(".hero-video");
