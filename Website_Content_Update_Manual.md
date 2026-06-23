@@ -76,18 +76,15 @@ Template to copy-paste or modify inside the list:
   ["Dr. Full Name", "Description | NIMHANS", "https://profile-url.com"],
 ```
 
+![Collaborators lists code](manual_images/collaborators_code.png)
+*Figure 4.1: Collaborators lists and code structure in script.js.*
+
 #### C. Logo Mappings for New Collaborators (Lines 212–256)
 If you add a new collaborator, search for: `function getCollaboratorLogoUrl`. Under this function, map their name to a custom logo image inside the `Lab/brand/` folder:
 ```javascript
   if (collaboratorName === "Dr. Full Name") return "Lab/brand/my-custom-logo.png";
 ```
 *If no custom mapping is added, the system automatically falls back to `Lab/brand/logo.png`.*
-
-#### D. Publication Clickable Link Mappings (Lines 280–311)
-To make the collaborator's name clickable in the publications archive list, search for: `const personLinks = [`. Add the mapping:
-```javascript
-  ["Full Name", "https://profile-url.com"],
-```
 
 ### 4.2 Updating the 'People' Section
 The *About Us* section shows profile cards for the lab members.

@@ -28,6 +28,22 @@ const unique = [
   },
 ];
 
+// ============================================================================
+// 1. RESEARCH THEMES ARRAY
+// ============================================================================
+// FORMAT TEMPLATE to add a new Research Theme:
+// {
+//   title: "Theme Title",
+//   slides: [
+//     { src: "Lab/research_themes/filename.png", alt: "Description", caption: "Caption" }
+//   ],
+//   text: "Description text here.",
+//   tags: ["Tag1", "Tag2"],
+//   publications: [
+//     "Citation string 1",
+//     "Citation string 2"
+//   ]
+// }
 const research = [
   {
     title: "Brain-Body Networks for Precision Therapy",
@@ -150,6 +166,27 @@ const bioInterests = [
   ["Traveling", "Mirroring this inward quest, travelling as inspired by her spouse, unfolds as an outward journey into the world. Through places, people, food and cultures, it expands understanding, offering lived experiences that complement inner reflection."],
 ];
 
+// ============================================================================
+// 2. RESEARCH FELLOWS ARRAY
+// ============================================================================
+// FORMAT TEMPLATE to add a new Research Fellow:
+// {
+//   name: "Full Name",
+//   text: "Brief summary paragraph (used if isExpanded is not true)",
+//   isExpanded: true, // set to true for detailed profile card
+//   expandedBio: "Detailed bio paragraph 1",
+//   expandedBio2: "Detailed bio paragraph 2",
+//   expandedBio3: "Detailed bio paragraph 3",
+//   expandedBio4: "Detailed bio paragraph 4",
+//   links: [
+//     ["LinkedIn", "https://linkedin.com/..."],
+//     ["Github", "https://github.com/..."]
+//   ],
+//   images: ["Lab/rf_tanushree/image1.jpg", "Lab/rf_tanushree/image2.jpg"],
+//   interests: [
+//     ["Category 🎨", "Description of interests"]
+//   ]
+// }
 const fellows = [
   {
     name: "Tanushree L",
@@ -178,6 +215,15 @@ const fellows = [
   
 ];
 
+// ============================================================================
+// 3. INTERNS & TRAINEES ARRAY
+// ============================================================================
+// FORMAT TEMPLATE to add a new Intern or Trainee:
+// {
+//   name: "Full Name",
+//   text: "Brief summary paragraph",
+//   images: ["Lab/intern_members/image1.jpg"] // optional profile photo
+// }
 const interns = [
   {
     name: "Dhwani Shah",
@@ -194,6 +240,11 @@ const interns = [
   },
 ];
 
+// ============================================================================
+// 4. COLLABORATORS ARRAYS (Clickable homepage links rendered here)
+// ============================================================================
+// FORMAT TEMPLATE to add a new Collaborator:
+// ["Dr. Full Name", "Description | Institution Name", "https://profile-url.com"],
 const coreCollaborators = [
   ["Dr. Rajan Kashyap", "Computational neuroscience and AI-driven brain modelling", "https://ai-lab4bnt.github.io/LabWeb/index.html"],
   ["Dr. S H Annabel Chen", "Cognitive and clinical neuroscience, brain-behavior relationships | Nanyang Technological University", "https://www.clinicalbrain.org/author/annabel-chen/"],
@@ -278,38 +329,7 @@ function collaboratorLogoMarkup(name, url) {
   `;
 }
 
-const personLinks = [
-  ["Dr. Sagarika Bhattacharjee", "#biopic"],
-  ["Bhattacharjee, S.", "#biopic"],
-  ["Bhattacharjee S.", "#biopic"],
-  ["Kashyap, R.", "https://ai-lab4bnt.github.io/LabWeb/index.html"],
-  ["Kashyap R.", "https://ai-lab4bnt.github.io/LabWeb/index.html"],
-  ["S. H. Annabel Chen", "https://www.clinicalbrain.org/author/annabel-chen/"],
-  ["Annabel Chen, S. H.", "https://www.clinicalbrain.org/author/annabel-chen/"],
-  ["Chen SHA", "https://www.clinicalbrain.org/author/annabel-chen/"],
-  ["Chen, S. A.", "https://www.clinicalbrain.org/author/annabel-chen/"],
-  ["John E. Desmond", "https://nimlab.johnshopkins.edu/Members/JohnDesmond.html"],
-  ["Desmond, J. E.", "https://nimlab.johnshopkins.edu/Members/JohnDesmond.html"],
-  ["Desmond JE", "https://nimlab.johnshopkins.edu/Members/JohnDesmond.html"],
-  ["Brenda Rapp", "https://cogsci.jhu.edu/directory/brenda-rapp/"],
-  ["Rapp, B.", "https://cogsci.jhu.edu/directory/brenda-rapp/"],
-  ["Rapp B", "https://cogsci.jhu.edu/directory/brenda-rapp/"],
-  ["Kenichi Oishi", "https://ventures.jhu.edu/wp-content/uploads/2025/05/BIO-2025-Kenichi-Oishi.pdf"],
-  ["Oishi, K.", "https://ventures.jhu.edu/wp-content/uploads/2025/05/BIO-2025-Kenichi-Oishi.pdf"],
-  ["Oishi K", "https://ventures.jhu.edu/wp-content/uploads/2025/05/BIO-2025-Kenichi-Oishi.pdf"],
-  ["Shahid Bashir", "https://bio.site/shahidbashir"],
-  ["Bashir, S.", "https://bio.site/shahidbashir"],
-  ["Bashir S", "https://bio.site/shahidbashir"],
-  ["Palanimuthu T. Sivakumar", "https://www.ipa-online.org/about/board-of-directors/sivakumar-palanimuthu-thangaraju"],
-  ["Sivakumar, P. T.", "https://www.ipa-online.org/about/board-of-directors/sivakumar-palanimuthu-thangaraju"],
-  ["Sivakumar PT", "https://www.ipa-online.org/about/board-of-directors/sivakumar-palanimuthu-thangaraju"],
-  ["Ganesan Venkatasubramanian", "https://www.transpsychlab.org/venkatasubramanian"],
-  ["Venkatasubramanian, G.", "https://www.transpsychlab.org/venkatasubramanian"],
-  ["Venkatasubramanian G", "https://www.transpsychlab.org/venkatasubramanian"],
-  ["Kaviraja Udupa", "https://sites.google.com/view/drkavirajaudupasresearchsite/home?authuser=0"],
-  ["Udupa, K.", "https://sites.google.com/view/drkavirajaudupasresearchsite/home?authuser=0"],
-  ["Udupa K", "https://sites.google.com/view/drkavirajaudupasresearchsite/home?authuser=0"],
-];
+// No person name to link mappings are needed since author/member names are displayed directly as plain text.
 
 function linkNames(text, replacements) {
   return replacements
@@ -385,6 +405,17 @@ const startLabSlides = [
   
 ].map((src) => ({ src }));
 
+// ============================================================================
+// 5. RECOGNITION & AWARDS DATA
+// ============================================================================
+// FORMAT TEMPLATE to add a plenary talk, invited lecture, conference or media item:
+// {
+//   year: "Year",
+//   title: "Presentation title or award name",
+//   event: "Name of the conference or media outlet",
+//   topic: "Topic details (optional)",
+//   icon: "🎙️"
+// }
 const recognitions = {
   plenaryLectures: [
     { year: "2025", title: "Plenary Speaker", event: "Indian Geriatric Mental Health Association National CME, Srinagar", month: "May", topic: "Dementia & its Variants: Recent Advances and Innovation.", icon: "🧠" },
@@ -412,6 +443,11 @@ const recognitions = {
   ],
 };
 
+// ============================================================================
+// 6. PUBLICATIONS CHRONOLOGICAL ARCHIVE
+// ============================================================================
+// FORMAT TEMPLATE to add a new publication to a year's list:
+// "Number. Authors. Title. Journal. Year. DOI Link",
 const publications = [
   { year: "2025", items: [
     "1. Bhattacharjee S, Sivakumar PT, Venkatasubramanian G, Bharath RD, Oishi K, Rapp B, et al. Personalized transcranial direct current stimulation for behavioral and neurophysiologic outcomes. JAMA Netw Open. 2025;8(8):e2526148. DOI: 10.1001/jamanetworkopen.2025.26148",
@@ -517,7 +553,7 @@ const aboutSections = [
     body: fellows
       .map(
         (person) => `
-          <p><strong>${linkNames(person.name, personLinks)}</strong><br />${person.text}</p>
+          <p><strong>${person.name}</strong><br />${person.text}</p>
         `
       )
       .join(""),
@@ -527,7 +563,7 @@ const aboutSections = [
     body: interns
       .map(
         (person) => `
-          <p><strong>${linkNames(person.name, personLinks)}</strong><br />${person.text}</p>
+          <p><strong>${person.name}</strong><br />${person.text}</p>
         `
       )
       .join(""),
@@ -897,7 +933,7 @@ if (aboutGrid) {
           return `
         <article class="research-panel reveal about-fellow-card">
           <div class="about-fellow-copy">
-            <h3>👩‍🔬 ${linkNames(person.name, personLinks)}</h3>
+            <h3>👩‍🔬 ${person.name}</h3>
             <div class="publication-list">
               <p>${person.expandedBio}</p>
               <p>${person.expandedBio2}</p>
@@ -917,7 +953,7 @@ if (aboutGrid) {
         }
         return `
         <article class="research-panel reveal about-member-card">
-          <h3>👩‍🔬 ${linkNames(person.name, personLinks)}</h3>
+          <h3>👩‍🔬 ${person.name}</h3>
           <div class="publication-list">
             <p>${person.text}</p>
           </div>
@@ -943,7 +979,7 @@ if (aboutGrid) {
         if (!sliderHtml) {
           return `
             <article class="research-panel reveal about-member-card">
-              <h3>🧠 ${linkNames(person.name, personLinks)}</h3>
+              <h3>🧠 ${person.name}</h3>
               <div class="publication-list">
                 <p>${person.text}</p>
               </div>
@@ -954,7 +990,7 @@ if (aboutGrid) {
         return `
           <article class="research-panel reveal intern-member-card has-image">
             <div class="intern-member-copy">
-              <h3>🧠 ${linkNames(person.name, personLinks)}</h3>
+              <h3>🧠 ${person.name}</h3>
               <div class="publication-list">
                 <p>${person.text}</p>
               </div>
